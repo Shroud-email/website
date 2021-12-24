@@ -1,0 +1,13 @@
+deploy:
+  stage: deploy
+  image: node:16.13
+  variables:
+    NITRO_PRESET: cloudflare
+  before_script:
+    - npm i -g @cloudflare/wrangler
+  script:
+    - npm ci
+    - npm run build
+    - wrangler publish --env production
+  only:
+    - main

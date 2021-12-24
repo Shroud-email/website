@@ -1,0 +1,95 @@
+<template>
+  <div class="bg-white">
+    <div
+      class="
+        max-w-7xl
+        mx-auto
+        py-24
+        px-4
+        sm:px-6
+        lg:py-32 lg:px-8 lg:flex lg:items-center
+      "
+    >
+      <div class="lg:w-0 lg:flex-1">
+        <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+          Stay in the loop
+        </h2>
+        <p class="mt-3 max-w-3xl text-lg text-gray-500">
+          Shroud.email is currently in private alpha testing. If you'd like us
+          to let you know when it's ready to launch, please enter your email
+          below.
+        </p>
+        <p class="mt-1 max-w-3xl text-lg text-gray-500">
+          We promise we won't spam you. We should know, fighting spam is our
+          business.
+        </p>
+      </div>
+      <div class="mt-8 lg:mt-0 lg:ml-8">
+        <form
+          action="https://email-octopus-proxy.btao.workers.dev/submit"
+          method="post"
+          class="sm:flex"
+        >
+          <p class="hidden">
+            <label for="extra_field"
+              >Extra (don't fill out if you're human)</label
+            >
+            <input name="extra_field" id="extra_field" />
+          </p>
+
+          <label for="email" class="sr-only">Email address</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            autocomplete="email"
+            required="true"
+            class="
+              w-full
+              px-5
+              py-3
+              border border-gray-300
+              shadow-sm
+              placeholder-gray-400
+              focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500
+              sm:max-w-xs
+              rounded-md
+            "
+            placeholder="Enter your email"
+          />
+          <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0">
+            <button
+              type="submit"
+              class="
+                w-full
+                flex
+                items-center
+                justify-center
+                py-3
+                px-5
+                border border-transparent
+                text-base
+                font-medium
+                rounded-md
+                text-white
+                bg-indigo-600
+                hover:bg-indigo-700
+                focus:outline-none
+                focus:ring-2
+                focus:ring-offset-2
+                focus:ring-indigo-500
+              "
+            >
+              Subscribe
+            </button>
+          </div>
+        </form>
+        <p class="mt-3 text-sm text-gray-500">
+          We care about the protection of your data. Read our
+          {{ " " }}
+          <NuxtLink to="/privacy">Privacy Notice.</NuxtLink>
+        </p>
+      </div>
+    </div>
+  </div>
+</template>
