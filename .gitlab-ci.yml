@@ -7,7 +7,6 @@ deploy:
     - npm i -g @cloudflare/wrangler
   script:
     - npm ci
-    - npm run build
     - wrangler publish --env production
   only:
     - main
