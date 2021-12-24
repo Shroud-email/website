@@ -58,6 +58,7 @@ import {
   MailIcon,
   GlobeIcon,
   EyeOffIcon,
+  DotsHorizontalIcon,
 } from "@heroicons/vue/outline"
 
 const features = [
@@ -90,6 +91,12 @@ const features = [
     description:
       "Shroud.email runs on 100% renewable energy, hosted in the EU.",
     icon: GlobeIcon,
+  },
+  {
+    name: "And a lot more to come",
+    description:
+      "We have a whole lot of additional features planned. Stay tuned.",
+    icon: DotsHorizontalIcon,
   },
 ]
 export default {
