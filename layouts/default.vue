@@ -63,7 +63,7 @@ onMounted(() => {
 })
 
 useMeta({
-  htmlAttrs: { class: "h-full scroll-smooth" },
+  htmlAttrs: { class: "h-full scroll-smooth", lang: "en" },
   bodyAttrs: { class: "h-full" },
 })
 </script>
