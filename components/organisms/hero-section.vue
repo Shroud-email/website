@@ -136,8 +136,10 @@
                 ring-8 ring-gray-700 ring-opacity-90
                 lg:h-full lg:w-auto lg:max-w-none
               "
-              src="~/assets/img/app-screenshot.png"
+              src="~/assets/img/app-screenshot.webp"
               alt="Screenshot showing several email aliases"
+              width="2000"
+              height="1058"
             />
           </div>
         </div>
