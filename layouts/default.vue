@@ -54,9 +54,9 @@ onMounted(() => {
   if (!process.client) return
 
   const script = document.createElement("script")
-  script.src = "/p/script.outbound-links.js"
+  script.src = "/p/pjs/script.outbound-links.js"
   script["data-domain"] = "shroud.email"
-  script["data-api"] = "/p/event"
+  script["data-api"] = "/p/api/event"
   script.defer = true
   document.head.appendChild(script)
 })
