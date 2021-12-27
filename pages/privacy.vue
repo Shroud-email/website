@@ -232,7 +232,7 @@
         <ol role="list">
           <li>
             Your consent. You are able to remove your consent at any time. You
-            can do this by contacting wfgug4y1d95nmkr7@shroud.email
+            can do this by writing to contact@shroud.email.
           </li>
           <li>We have a legitimate interest</li>
         </ol>
@@ -307,7 +307,7 @@
           you make a request, we have one month to respond to you.
         </p>
         <p>
-          Please contact us at wfgug4y1d95nmkr7@shroud.email if you wish to make
+          Please write us at contact@shroud.email if you wish to make
           a request.
         </p>
 
@@ -315,7 +315,7 @@
 
         <p>
           If you have any concerns about our use of your personal information,
-          you can make a complaint to us at wfgug4y1d95nmkr7@shroud.email.
+          you can make a complaint to us at contact@shroud.email.
         </p>
         <p>
           You can also complain to the ICO if you are unhappy with how we have

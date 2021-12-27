@@ -235,8 +235,9 @@ useMeta({
         class="
           max-w-7xl
           mx-auto
-          py-12
+          pt-12
           px-4
+          pb-20
           sm:px-6
           md:flex md:items-center md:justify-between
           lg:px-8
@@ -268,7 +269,10 @@ useMeta({
         </div>
         <div class="mt-8 md:mt-0 md:order-1">
           <p class="text-center text-base text-gray-300">
-            Copyright &copy; 2021 - All rights reserved
+            Copyright &copy; 2021 - All rights reserved.
+            <a href="mailto:contact@shroud.email" class="underline"
+              >Contact us.</a
+            >
           </p>
         </div>
       </div>
