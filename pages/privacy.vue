@@ -215,6 +215,14 @@
               >Stripe</a
             >
           </li>
+          <li>
+            <a
+              href="https://papercups.io/"
+              rel="noopener noreferrer"
+              target="_blank"
+              >Papercups</a
+            >
+          </li>
         </ul>
 
         <p>

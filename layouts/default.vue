@@ -50,18 +50,8 @@ const footer = shallowRef([
   },
 ])
 
-onMounted(() => {
-  if (!process.client) return
-
-  const script = document.createElement("script")
-  script.src =
-    "https://plaus-prox.btao.workers.dev/pjs/script.outbound-links.js"
-  script["data-api"] = "https://plaus-prox.btao.workers.dev/api/event"
-  script["data-domain"] = "shroud.email"
-  script.defer = true
-  document.head.appendChild(script)
-})
-
+usePlausible()
+usePapercups()
 useMeta({
   htmlAttrs: { class: "h-full scroll-smooth", lang: "en" },
   bodyAttrs: { class: "h-full" },
