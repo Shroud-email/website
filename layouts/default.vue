@@ -114,7 +114,7 @@ useMeta({
           </div>
           <div class="hidden md:flex md:items-center md:space-x-6">
             <a
-              href="https://app.shroud.email/"
+              href="https://app.shroud.email/users/log_in"
               class="text-base font-medium text-white hover:text-gray-300"
             >
               Log in
@@ -203,7 +203,7 @@ useMeta({
               </div>
               <div class="mt-6 px-5">
                 <a
-                  href="https://app.shroud.email/"
+                  href="https://app.shroud.email/users/log_in"
                   class="
                     block
                     text-center
