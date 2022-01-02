@@ -75,7 +75,7 @@ const features = [
     icon: BanIcon,
   },
   {
-    name: "Advanced tracker blocking",
+    name: "Block trackers",
     description:
       "Senders don't need to know if or when you've seen their emails. Shroud.email removes tracking pixels so your privacy remains intact.",
     icon: EyeOffIcon,
