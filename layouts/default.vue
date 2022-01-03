@@ -3,6 +3,7 @@ import { shallowRef } from "vue"
 
 const navigation = shallowRef([
   { name: "Home", href: "/" },
+  { name: "Pricing", href: "/pricing" },
   { name: "FAQ", href: "/faq" },
 ])
 
