@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { shallowRef } from "vue"
 
-const navigation = shallowRef([])
+const navigation = shallowRef([
+  { name: "Home", href: "/" },
+  { name: "FAQ", href: "/faq" },
+])
 
 const footer = shallowRef([
   {
