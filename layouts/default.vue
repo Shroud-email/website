@@ -67,39 +67,15 @@ useMeta({
     <Popover as="header" class="relative">
       <div class="bg-gray-900 py-3">
         <nav
-          class="
-            relative
-            max-w-7xl
-            mx-auto
-            flex
-            items-center
-            justify-between
-            px-4
-            sm:px-6
-          "
+          class="relative max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6"
           aria-label="Global"
         >
           <div class="flex items-center flex-1">
             <div class="flex items-center justify-between w-full md:w-auto">
-              <NuxtLink to="/" class="logo text-gray-100"
-                >Shroud.email</NuxtLink
-              >
+              <a href="/" class="logo text-gray-100">Shroud.email</a>
               <div class="-mr-2 flex items-center md:hidden">
                 <PopoverButton
-                  class="
-                    bg-gray-900
-                    rounded-md
-                    p-2
-                    inline-flex
-                    items-center
-                    justify-center
-                    text-gray-400
-                    hover:bg-gray-800
-                    focus:outline-none
-                    focus:ring-2
-                    focus-ring-inset
-                    focus:ring-white
-                  "
+                  class="bg-gray-900 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-800 focus:outline-none focus:ring-2 focus-ring-inset focus:ring-white"
                 >
                   <span class="sr-only">Open main menu</span>
                   <MenuIcon class="h-6 w-6" aria-hidden="true" />
@@ -137,26 +113,10 @@ useMeta({
       >
         <PopoverPanel
           focus
-          class="
-            absolute
-            z-10
-            top-0
-            inset-x-0
-            p-2
-            transition
-            transform
-            origin-top
-            md:hidden
-          "
+          class="absolute z-10 top-0 inset-x-0 p-2 transition transform origin-top md:hidden"
         >
           <div
-            class="
-              rounded-lg
-              shadow-md
-              bg-white
-              ring-1 ring-black ring-opacity-5
-              overflow-hidden
-            "
+            class="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden"
           >
             <div class="px-5 pt-4 flex items-center justify-between">
               <div>
@@ -166,20 +126,7 @@ useMeta({
               </div>
               <div class="-mr-2">
                 <PopoverButton
-                  class="
-                    bg-white
-                    rounded-md
-                    p-2
-                    inline-flex
-                    items-center
-                    justify-center
-                    text-gray-400
-                    hover:bg-gray-100
-                    focus:outline-none
-                    focus:ring-2
-                    focus:ring-inset
-                    focus:ring-indigo-600
-                  "
+                  class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600"
                 >
                   <span class="sr-only">Close menu</span>
                   <XIcon class="h-6 w-6" aria-hidden="true" />
@@ -192,35 +139,14 @@ useMeta({
                   v-for="item in navigation"
                   :key="item.name"
                   :href="item.href"
-                  class="
-                    block
-                    px-3
-                    py-2
-                    rounded-md
-                    text-base
-                    font-medium
-                    text-gray-900
-                    hover:bg-gray-50
-                  "
+                  class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50"
                   >{{ item.name }}</a
                 >
               </div>
               <div class="mt-6 px-5">
                 <a
                   href="https://app.shroud.email/users/log_in"
-                  class="
-                    block
-                    text-center
-                    w-full
-                    py-3
-                    px-4
-                    rounded-md
-                    shadow
-                    bg-indigo-600
-                    text-white
-                    font-medium
-                    hover:bg-indigo-700
-                  "
+                  class="block text-center w-full py-3 px-4 rounded-md shadow bg-indigo-600 text-white font-medium hover:bg-indigo-700"
                   >Log in</a
                 >
               </div>
@@ -236,16 +162,7 @@ useMeta({
 
     <footer class="bg-gray-800 mt-auto">
       <div
-        class="
-          max-w-7xl
-          mx-auto
-          pt-12
-          px-4
-          pb-20
-          sm:px-6
-          md:flex md:items-center md:justify-between
-          lg:px-8
-        "
+        class="max-w-7xl mx-auto pt-12 px-4 pb-20 sm:px-6 md:flex md:items-center md:justify-between lg:px-8"
       >
         <div class="flex justify-center space-x-6 md:order-2">
           <NuxtLink to="/privacy" class="text-gray-300 hover:text-gray-400"
