@@ -16,6 +16,11 @@ const questions = shallowRef([
     question: "Does Shroud.email forward attachments?",
     answer: "Not yet, but we're working on it!",
   },
+  {
+    question: "Is Shroud.email a disposable email service?",
+    answer:
+      "No, email aliases are permanent. You can disable or delete them if you don't want to receive emails through them, however.",
+  },
 ])
 </script>
 
