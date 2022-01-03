@@ -72,7 +72,9 @@ useMeta({
         >
           <div class="flex items-center flex-1">
             <div class="flex items-center justify-between w-full md:w-auto">
-              <a href="/" class="logo text-gray-100">Shroud.email</a>
+              <NuxtLink to="/" class="logo text-gray-100"
+                >Shroud.email</NuxtLink
+              >
               <div class="-mr-2 flex items-center md:hidden">
                 <PopoverButton
                   class="bg-gray-900 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-800 focus:outline-none focus:ring-2 focus-ring-inset focus:ring-white"
@@ -83,12 +85,12 @@ useMeta({
               </div>
             </div>
             <div class="hidden space-x-8 md:flex md:ml-10">
-              <a
+              <NuxtLink
                 v-for="item in navigation"
                 :key="item.name"
-                :href="item.href"
+                :to="item.href"
                 class="text-base font-medium text-white hover:text-gray-300"
-                >{{ item.name }}</a
+                >{{ item.name }}</NuxtLink
               >
             </div>
           </div>
@@ -135,12 +137,12 @@ useMeta({
             </div>
             <div class="pt-5 pb-6">
               <div class="px-2 space-y-1">
-                <a
+                <NuxtLink
                   v-for="item in navigation"
                   :key="item.name"
-                  :href="item.href"
+                  :to="item.href"
                   class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50"
-                  >{{ item.name }}</a
+                  >{{ item.name }}</NuxtLink
                 >
               </div>
               <div class="mt-6 px-5">
