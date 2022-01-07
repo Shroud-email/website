@@ -1,9 +1,9 @@
-import sanityClient from "@sanity/client"
+import PicoSanity from "picosanity"
 import imageUrlBuilder from '@sanity/image-url'
 import { defineNuxtPlugin } from '#app'
 
 export default defineNuxtPlugin(() => {
-  const client = sanityClient({
+  const client = new PicoSanity({
     projectId: "cyc9ywwe",
     dataset: "production",
     apiVersion: "2022-01-04",
