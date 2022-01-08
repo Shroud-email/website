@@ -66,9 +66,9 @@ useMeta({
 <template>
   <div class="min-h-full flex flex-col">
     <Popover as="header" class="relative">
-      <div class="bg-gray-900 py-3">
+      <div class="bg-gray-900 py-3 h-16 flex items-center">
         <nav
-          class="relative max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6"
+          class="relative max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 flex-grow"
           aria-label="Global"
         >
           <div class="flex items-center flex-1">

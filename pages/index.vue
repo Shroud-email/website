@@ -1,8 +1,8 @@
 <template>
   <div>
-    <HeroSection scroll-to="#newsletter" />
+    <HeroSection learn-more-id="#learn-more" mailing-list-id="#newsletter" />
 
-    <div class="bg-gray-50 py-12">
+    <div id="learn-more" class="bg-gray-50 py-12">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-3xl mx-auto text-center">
           <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">

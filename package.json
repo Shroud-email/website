@@ -19,6 +19,7 @@
     "@sanity/image-url": "^1.0.1",
     "date-fns": "^2.28.0",
     "picosanity": "^3.0.3",
-    "sanity-blocks-vue-component": "^1.0.1"
+    "sanity-blocks-vue-component": "^1.0.1",
+    "three": "^0.121.1"
   }
 }

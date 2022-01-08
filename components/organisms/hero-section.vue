@@ -1,75 +1,86 @@
+<script setup lang="ts">
+import { ArrowSmDownIcon } from "@heroicons/vue/solid"
+import { onMounted, onBeforeUnmount, ref } from "vue"
+import * as THREE from "three"
+
+defineProps({
+  learnMoreId: {
+    type: String,
+    required: true,
+  },
+  mailingListId: {
+    type: String,
+    required: true,
+  },
+})
+
+const vantaEffect = ref(null)
+
+onMounted(() => {
+  if (!process.client) return
+
+  vantaEffect.value = (window as any).VANTA.FOG({
+    el: "#hero",
+    THREE: THREE,
+    mouseControls: false,
+    touchControls: false,
+    gyroControls: false,
+    minHeight: 200.00,
+    minWidth: 200.00,
+    baseColor: 0x1F2937,
+    lowlightColor: 0x111827,
+    midtoneColor: 0x334155,
+    highlightColor: 0x475569,
+    speed: 1.8
+  })
+})
+onBeforeUnmount(() => {
+  if (vantaEffect.value) {
+    vantaEffect.value.destoy()
+  }
+})
+</script>
+
 <template>
-  <div class="bg-gray-800 pb-8 sm:pb-12 lg:pb-12">
-    <div class="pt-8 overflow-hidden sm:pt-12 lg:relative lg:py-48">
+  <div id="hero" class="bg-gray-800 pb-8 sm:pb-12 lg:pb-12 flex items-center">
+    <div class="pt-8 overflow-hidden sm:pt-12 lg:relative lg:py-48 flex-grow">
       <div
-        class="
-          mx-auto
-          max-w-md
-          px-4
-          sm:max-w-3xl sm:px-6
-          lg:px-8 lg:max-w-7xl lg:grid lg:grid-cols-2 lg:gap-24
-        "
+        class="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl lg:grid lg:grid-cols-2 lg:gap-24"
       >
         <div>
           <h1
-            class="
-              mt-4
-              text-4xl
-              tracking-tight
-              font-extrabold
-              text-white
-              sm:mt-5 sm:text-6xl
-              lg:mt-6
-              xl:text-6xl
-            "
+            class="mt-4 text-4xl tracking-tight font-extrabold text-white sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl"
           >
-            <span class="block">Email,</span
-            ><span class="block text-indigo-400">meet privacy.</span>
+            <span class="block">Email,</span>
+            <span class="block text-indigo-400">meet privacy.</span>
           </h1>
-          <p
-            class="
-              mt-3
-              text-base text-gray-300
-              sm:mt-5 sm:text-xl
-              lg:text-lg
-              xl:text-xl
-            "
-          >
-            Your email address is your <span class="italic">de facto</span> ID
+          <p class="mt-3 text-base text-gray-200 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
+            Your email address is your
+            <span class="italic">de facto</span> ID
             on the web. Protect it with unlimited, disposable aliases that
             remove trackers and forward to your real email address.
           </p>
-          <div class="mt-10 sm:mt-12">
+          <div class="mt-10 sm:mt-12 space-x-2">
             <a
-              :href="scrollTo"
-              class="
-                py-3
-                px-4
-                rounded-md
-                shadow
-                bg-indigo-500
-                text-white
-                font-medium
-                hover:bg-indigo-600
-                focus:outline-none
-                focus:ring-2
-                focus:ring-offset-2
-                focus:ring-indigo-300
-                focus:ring-offset-gray-900
-              "
-              ><svg
+              :href="learnMoreId"
+              class="py-3 px-4 rounded-md shadow bg-indigo-500 text-white font-medium hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-300 focus:ring-offset-gray-900"
+            >
+              <ArrowSmDownIcon class="h-5 w-5 mr-2 inline" />
+              Learn more
+            </a>
+            <a
+              :href="mailingListId"
+              class="py-3 px-4 rounded-md shadow bg-gray-700 text-white font-medium hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-300 focus:ring-offset-gray-900"
+            >
+              <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
                 aria-hidden="true"
                 class="inline h-5 w-5 mr-2"
               >
-                <path
-                  d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"
-                ></path>
-                <path
-                  d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"
-                ></path>
+                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
               </svg>
               Join the waitlist
             </a>
@@ -79,11 +90,7 @@
 
       <div class="sm:mx-auto sm:max-w-3xl sm:px-6">
         <div
-          class="
-            py-12
-            sm:relative sm:mt-12 sm:py-16
-            lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2
-          "
+          class="py-12 sm:relative sm:mt-12 sm:py-16 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2"
         >
           <div class="hidden sm:block">
             <svg
@@ -102,40 +109,17 @@
                   height="20"
                   patternUnits="userSpaceOnUse"
                 >
-                  <rect
-                    x="0"
-                    y="0"
-                    width="4"
-                    height="4"
-                    class="text-gray-600"
-                    fill="currentColor"
-                  />
+                  <rect x="0" y="0" width="4" height="4" class="text-gray-600" fill="currentColor" />
                 </pattern>
               </defs>
-              <rect
-                width="404"
-                height="392"
-                fill="url(#837c3e70-6c3a-44e6-8854-cc48c737b659)"
-              />
+              <rect width="404" height="392" fill="url(#837c3e70-6c3a-44e6-8854-cc48c737b659)" />
             </svg>
           </div>
           <div
-            class="
-              relative
-              pl-4
-              -mr-40
-              sm:mx-auto sm:max-w-3xl sm:px-0
-              lg:max-w-none lg:h-full lg:pl-12
-            "
+            class="relative pl-4 -mr-40 sm:mx-auto sm:max-w-3xl sm:px-0 lg:max-w-none lg:h-full lg:pl-12"
           >
             <img
-              class="
-                w-full
-                rounded-md
-                shadow-xl
-                ring-8 ring-gray-700 ring-opacity-90
-                lg:h-full lg:w-auto lg:max-w-none
-              "
+              class="w-full rounded-md shadow-xl ring-8 ring-gray-700 ring-opacity-90 lg:h-full lg:w-auto lg:max-w-none"
               src="~/assets/img/app-screenshot.webp"
               alt="Screenshot showing several email aliases"
               width="2000"
@@ -148,10 +132,8 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    scrollTo: String,
-  },
+<style scoped>
+#hero {
+  min-height: calc(100vh - theme("spacing.12"));
 }
-</script>
+</style>

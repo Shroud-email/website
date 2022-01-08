@@ -10,6 +10,9 @@ export default defineNuxtConfig({
     link: [
       { rel: "stylesheet", href: "/fonts/inter/inter.css"},
       { rel: "stylesheet", href: "/fonts/carter-one/carter-one.css"}
+    ],
+    script: [
+      { src: "https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.21/vanta.fog.min.js" },
     ]
   },
   build: {
