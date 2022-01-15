@@ -203,7 +203,7 @@
           </li>
           <li>
             <a
-              href="https://cloudflare.com/"
+              href="https://www.cloudflare.com/"
               rel="noopener noreferrer"
               target="_blank"
               >Cloudflare</a
@@ -211,7 +211,7 @@
           </li>
           <li>
             <a
-              href="https://stripe.com/"
+              href="https://stripe.com/en-gb"
               rel="noopener noreferrer"
               target="_blank"
               >Stripe</a
