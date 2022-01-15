@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { shallowRef } from "vue"
+import OpenGraph from "~/components/open-graph.vue"
 
 // Should be an even number to look nice
 const features = shallowRef([
@@ -36,6 +37,7 @@ const questions = shallowRef([
 <template>
   <div>
     <Meta name="description" content="Shroud.email pricing. Try our 30-day free trial, no credit card needed." />
+    <OpenGraph title="Shroud.email - Pricing" url="https://shroud.email/pricing" />
     <Title>Shroud.email - Pricing</Title>
     <div class="bg-gray-100">
       <div class="pt-12 sm:pt-16 lg:pt-20">

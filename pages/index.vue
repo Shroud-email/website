@@ -1,5 +1,6 @@
 <script setup>
 import { MailIcon } from "@heroicons/vue/solid"
+import OpenGraph from "~/components/open-graph.vue"
 
 import HeroSection from "~/components/organisms/hero-section"
 import FeatureSection from "~/components/organisms/feature-section"
@@ -9,6 +10,7 @@ import NewsletterSection from "~/components/organisms/newsletter-section"
 <template>
   <div>
     <Meta name="description" content="Protect your email privacy with unlimited aliases that block trackers." />
+    <OpenGraph title="Shroud.email - Protect your email privacy" url="https://shroud.email/" />
     <Title>Shroud.email - Protect your email privacy</Title>
     <HeroSection learn-more-id="#learn-more" mailing-list-id="#newsletter" />
 

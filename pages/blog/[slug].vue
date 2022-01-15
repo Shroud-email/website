@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { format, parseISO } from "date-fns"
 import { SanityBlocks } from 'sanity-blocks-vue-component';
+import OpenGraph from "~/components/open-graph.vue"
 
 const { $sanity, ssrContext } = useNuxtApp()
 const route = useRoute()
@@ -18,6 +19,7 @@ const publishedDate = post ? format(parseISO(post.value.publishedAt), "PP") : nu
 <template>
 <div class="relative py-16 bg-white overflow-hidden">
   <Meta name="description" :content="post && post.introText" />
+  <OpenGraph :title="`Shroud.email - ${post?.title}`" :url="`https://shroud.email/${route.params.slug}`" />
   <Title>{{ post?.title || "Not found" }} - Shroud.email</Title>
   <div class="hidden lg:block lg:absolute lg:inset-y-0 lg:h-full lg:w-full">
     <div class="relative h-full text-lg max-w-prose mx-auto" aria-hidden="true">

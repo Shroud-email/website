@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { shallowRef } from "vue"
+import OpenGraph from "~/components/open-graph.vue"
 
 const questions = shallowRef([
   {
@@ -28,6 +29,7 @@ const questions = shallowRef([
   <div class="bg-white">
     <Meta name="description" content="Frequently Asked Questions about Shroud.email, the email privacy solution." />
     <Title>Shroud.email - Frequently Asked Questions</Title>
+    <OpenGraph title="Shroud.email - FAQ" url="https://shroud.email/faq" />
     <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:py-20 lg:px-8">
       <div class="lg:grid lg:grid-cols-3 lg:gap-8">
         <div>
