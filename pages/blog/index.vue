@@ -21,9 +21,9 @@ const displayDate = (post) => {
   <Title>Shroud.email - Blog</Title>
   <div class="relative max-w-lg mx-auto divide-y-2 divide-gray-200 lg:max-w-7xl">
     <div>
-      <h2 class="text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl">
+      <h1 class="text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl">
         Blog
-      </h2>
+      </h1>
       <div class="mt-3 sm:mt-4 lg:grid lg:grid-cols-2 lg:gap-5 lg:items-center">
         <p class="text-xl text-gray-500">
           The latest from Shroud.email.

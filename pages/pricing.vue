@@ -41,11 +41,11 @@ const questions = shallowRef([
       <div class="pt-12 sm:pt-16 lg:pt-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center">
-            <h2
+            <h1
               class="text-3xl font-extrabold text-gray-900 sm:text-4xl lg:text-5xl"
             >
               One simple plan for everything
-            </h2>
+            </h1>
             <p class="mt-4 text-xl text-gray-600">
               Try for free for 30 days, no credit card needed.
             </p>
