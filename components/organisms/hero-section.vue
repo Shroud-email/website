@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ArrowSmDownIcon } from "@heroicons/vue/solid"
-import { onMounted, onBeforeUnmount, ref } from "vue"
+import { onMounted, onBeforeUnmount, ref, nextTick } from "vue"
 import * as THREE from "three"
 
 defineProps({
@@ -16,9 +16,15 @@ defineProps({
 
 const vantaEffect = ref(null)
 
-onMounted(() => {
+onMounted(async () => {
   if (!process.client) return
 
+  // Ugly, terrible hack to ensure that vanta starts when navigating to
+  // index page from another.
+  // For some reason await nextTick() does not work.
+  await new Promise((resolve) => {
+    setTimeout(resolve, 200)
+  })
   vantaEffect.value = (window as any).VANTA.FOG({
     el: "#hero",
     THREE: THREE,
@@ -36,7 +42,7 @@ onMounted(() => {
 })
 onBeforeUnmount(() => {
   if (vantaEffect.value) {
-    vantaEffect.value.destoy()
+    vantaEffect.value.destroy()
   }
 })
 </script>

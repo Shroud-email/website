@@ -1,5 +1,7 @@
 <template>
   <div class="relative py-16 bg-white overflow-hidden">
+    <Meta name="description" content="Shroud.email privacy policy." />
+    <Title>Shroud.email - Privacy Notice</Title>
     <div class="hidden lg:block lg:absolute lg:inset-y-0 lg:h-full lg:w-full">
       <div
         class="relative h-full text-lg max-w-prose mx-auto"

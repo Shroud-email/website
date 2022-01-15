@@ -1,5 +1,15 @@
+<script setup>
+import { MailIcon } from "@heroicons/vue/solid"
+
+import HeroSection from "~/components/organisms/hero-section"
+import FeatureSection from "~/components/organisms/feature-section"
+import NewsletterSection from "~/components/organisms/newsletter-section"
+</script>
+
 <template>
   <div>
+    <Meta name="description" content="Protect your email privacy with unlimited aliases that block trackers." />
+    <Title>Shroud.email - Protect your email privacy</Title>
     <HeroSection learn-more-id="#learn-more" mailing-list-id="#newsletter" />
 
     <div id="learn-more" class="bg-gray-50 py-12">
@@ -28,20 +38,3 @@
     <NewsletterSection id="newsletter" />
   </div>
 </template>
-
-<script>
-import { MailIcon } from "@heroicons/vue/solid"
-
-import HeroSection from "~/components/organisms/hero-section"
-import FeatureSection from "~/components/organisms/feature-section"
-import NewsletterSection from "~/components/organisms/newsletter-section"
-
-export default {
-  components: {
-    HeroSection,
-    FeatureSection,
-    NewsletterSection,
-    MailIcon,
-  },
-}
-</script>

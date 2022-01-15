@@ -35,6 +35,8 @@ const questions = shallowRef([
 
 <template>
   <div>
+    <Meta name="description" content="Shroud.email pricing. Try our 30-day free trial, no credit card needed." />
+    <Title>Shroud.email - Pricing</Title>
     <div class="bg-gray-100">
       <div class="pt-12 sm:pt-16 lg:pt-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
