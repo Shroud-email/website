@@ -17,7 +17,7 @@ const publishedDate = post ? format(parseISO(post.value.publishedAt), "PP") : nu
 </script>
 
 <template>
-<div class="relative py-16 bg-white overflow-hidden">
+<div class="relative mt-12 py-16 bg-white overflow-hidden">
   <Meta name="description" :content="post && post.introText" />
   <OpenGraph :title="`Shroud.email - ${post?.title}`" :url="`https://shroud.email/${route.params.slug}`" />
   <Title>{{ post?.title || "Not found" }} - Shroud.email</Title>

@@ -19,7 +19,7 @@
           lg:grid-cols-3 lg:gap-x-8 lg:gap-y-16
         "
       >
-        <div v-for="feature in features" :key="feature.name">
+        <FadeIn v-for="feature in features" :key="feature.name">
           <div>
             <span
               class="
@@ -45,7 +45,7 @@
               {{ feature.description }}
             </p>
           </div>
-        </div>
+        </FadeIn>
       </div>
     </div>
   </div>
@@ -60,6 +60,8 @@ import {
   EyeOffIcon,
   DotsHorizontalIcon,
 } from "@heroicons/vue/outline"
+
+import FadeIn from "~/components/atoms/fade-in.vue"
 
 const features = [
   {
@@ -100,6 +102,9 @@ const features = [
   },
 ]
 export default {
+  components: {
+    FadeIn,
+  },
   setup() {
     return {
       features,

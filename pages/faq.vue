@@ -26,7 +26,7 @@ const questions = shallowRef([
 </script>
 
 <template>
-  <div class="bg-white">
+  <div class="bg-white pt-12">
     <Meta name="description" content="Frequently Asked Questions about Shroud.email, the email privacy solution." />
     <Title>Shroud.email - Frequently Asked Questions</Title>
     <OpenGraph title="Shroud.email - FAQ" url="https://shroud.email/faq" />

@@ -35,7 +35,7 @@ const questions = shallowRef([
 </script>
 
 <template>
-  <div>
+  <div class="pt-12">
     <Meta name="description" content="Shroud.email pricing. Try our 30-day free trial, no credit card needed." />
     <OpenGraph title="Shroud.email - Pricing" url="https://shroud.email/pricing" />
     <Title>Shroud.email - Pricing</Title>

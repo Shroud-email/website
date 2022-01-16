@@ -48,7 +48,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div id="hero" class="bg-gray-800 pb-8 sm:pb-12 lg:pb-12 flex items-center">
+  <div id="hero" class="bg-gray-800 pb-8 sm:pb-12 lg:pb-12 flex items-center min-h-screen">
     <div class="pt-8 overflow-hidden sm:pt-12 lg:relative lg:py-48 flex-grow">
       <div
         class="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl lg:grid lg:grid-cols-2 lg:gap-24"
@@ -137,9 +137,3 @@ onBeforeUnmount(() => {
     </div>
   </div>
 </template>
-
-<style scoped>
-#hero {
-  min-height: calc(100vh - theme("spacing.12"));
-}
-</style>
