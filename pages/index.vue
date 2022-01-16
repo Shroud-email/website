@@ -25,7 +25,7 @@ onBeforeUnmount(() => {
     />
     <OpenGraph title="Shroud.email - Protect your email privacy" url="https://shroud.email/" />
     <Title>Shroud.email - Protect your email privacy</Title>
-    <HeroSection learn-more-id="#learn-more" mailing-list-id="#newsletter" />
+    <HeroSection learn-more-id="#learn-more" />
 
     <div id="learn-more" class="bg-gray-50 py-24">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

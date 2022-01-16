@@ -1,14 +1,9 @@
 <script setup lang="ts">
-import { ArrowSmDownIcon } from "@heroicons/vue/solid"
 import { onMounted, onBeforeUnmount, ref, nextTick } from "vue"
 import * as THREE from "three"
 
 defineProps({
   learnMoreId: {
-    type: String,
-    required: true,
-  },
-  mailingListId: {
     type: String,
     required: true,
   },
@@ -66,31 +61,23 @@ onBeforeUnmount(() => {
             on the web. Protect it with unlimited, disposable aliases that
             remove trackers and forward to your real email address.
           </p>
-          <div class="mt-10 sm:mt-12 flex gap-2 flex-col sm:flex-row">
+          <div class="mt-12 md:mt-6 flex gap-2 flex-col sm:flex-row">
             <a
-              :href="learnMoreId"
+              href="https://app.shroud.email/users/register"
               class="py-3 px-4 rounded-md shadow bg-indigo-500 text-white font-medium hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-300 focus:ring-offset-gray-900 whitespace-nowrap w-min"
             >
-              <ArrowSmDownIcon class="h-5 w-5 mr-2 inline" />
-              Learn more
+              Try for free
             </a>
             <a
-              :href="mailingListId"
+              :href="learnMoreId"
               class="py-3 px-4 rounded-md shadow bg-gray-700 text-white font-medium hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-300 focus:ring-offset-gray-900 whitespace-nowrap w-min"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                aria-hidden="true"
-                class="inline h-5 w-5 mr-2"
-              >
-                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-              </svg>
-              Join the waitlist
+              Learn more
             </a>
           </div>
+          <p class="text-gray-300 mt-2">
+            30-day free trial, no credit card required.
+          </p>
         </div>
       </div>
 

@@ -15,8 +15,7 @@
           Stay in the loop
         </h2>
         <p class="mt-3 max-w-3xl text-lg text-gray-500">
-          Shroud.email is currently in beta testing. If you'd like us to let you
-          know when it's ready to launch, please enter your email below.
+          We're only just getting started. Sign up for our newsletter for occassional product updates and news.
         </p>
         <p class="mt-1 max-w-3xl text-lg text-gray-500">
           We promise we won't spam you. We should know, fighting spam is our
