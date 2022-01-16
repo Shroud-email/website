@@ -11,7 +11,7 @@ export default defineNuxtConfig({
       { rel: "stylesheet", href: "/fonts/inter/inter.css"},
     ],
     script: [
-      { src: "https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.21/vanta.fog.min.js" },
+      { src: "https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.21/vanta.fog.min.js", defer: "true" },
     ]
   },
   build: {
