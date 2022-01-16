@@ -55,7 +55,7 @@ onBeforeUnmount(() => {
       >
         <div>
           <h1
-            class="mt-4 text-4xl tracking-tight font-extrabold text-white sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl"
+            class="mt-12 lg:mt-20 text-4xl tracking-tight font-extrabold text-white sm:text-6xl xl:text-6xl"
           >
             <span class="block">Email,</span>
             <span class="block text-indigo-400">meet privacy.</span>
@@ -66,17 +66,17 @@ onBeforeUnmount(() => {
             on the web. Protect it with unlimited, disposable aliases that
             remove trackers and forward to your real email address.
           </p>
-          <div class="mt-10 sm:mt-12 space-x-2">
+          <div class="mt-10 sm:mt-12 flex gap-2 flex-col sm:flex-row">
             <a
               :href="learnMoreId"
-              class="py-3 px-4 rounded-md shadow bg-indigo-500 text-white font-medium hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-300 focus:ring-offset-gray-900"
+              class="py-3 px-4 rounded-md shadow bg-indigo-500 text-white font-medium hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-300 focus:ring-offset-gray-900 whitespace-nowrap w-min"
             >
               <ArrowSmDownIcon class="h-5 w-5 mr-2 inline" />
               Learn more
             </a>
             <a
               :href="mailingListId"
-              class="py-3 px-4 rounded-md shadow bg-gray-700 text-white font-medium hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-300 focus:ring-offset-gray-900"
+              class="py-3 px-4 rounded-md shadow bg-gray-700 text-white font-medium hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-300 focus:ring-offset-gray-900 whitespace-nowrap w-min"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
