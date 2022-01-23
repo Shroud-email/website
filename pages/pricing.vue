@@ -32,7 +32,7 @@ const questions = shallowRef([
       "We support Visa, Mastercard, American Express, Discover, Diners Club, China UnionPay (CUP), and Japan Credit Bureau (JCB).",
   },
 ])
-const currentBillingPeriod = shallowRef("yearly")
+const currentBillingPeriod = shallowRef("monthly")
 const price = shallowRef({
   yearly: 20,
   monthly: 2,
