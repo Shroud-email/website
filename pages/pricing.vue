@@ -32,6 +32,11 @@ const questions = shallowRef([
       "We support Visa, Mastercard, American Express, Discover, Diners Club, China UnionPay (CUP), and Japan Credit Bureau (JCB).",
   },
 ])
+const currentBillingPeriod = shallowRef("yearly")
+const price = shallowRef({
+  yearly: 20,
+  monthly: 2,
+})
 </script>
 
 <template>
@@ -54,7 +59,25 @@ const questions = shallowRef([
           </div>
         </div>
       </div>
-      <div class="mt-8 bg-white pb-16 sm:mt-12 sm:pb-20 lg:pb-28">
+      <div class="relative self-center px-4 sm:px-6 lg:px-8 mt-6 bg-gray-100 rounded-lg p-0.5 flex justify-center sm:mt-8">
+        <button
+          @click="currentBillingPeriod = 'monthly'"
+          type="button"
+          :class="currentBillingPeriod === 'monthly' ? 'border-gray-200 shadow-sm bg-white text-gray-900 underline' : 'border-transparent text-gray-700'"
+          class="relative w-1/2 rounded-md py-2 text-sm font-medium whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:z-10 sm:w-auto sm:px-8"
+        >
+          Monthly billing
+        </button>
+        <button
+          @click="currentBillingPeriod = 'yearly'"
+          type="button"
+          :class="currentBillingPeriod === 'yearly' ? 'border-gray-200 shadow-sm bg-white text-gray-900 underline' : 'border-transparent text-gray-700'"
+          class="ml-0.5 relative w-1/2 border rounded-md py-2 text-sm font-medium whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:z-10 sm:w-auto sm:px-8"
+        >
+          Yearly billing
+        </button>
+      </div>
+      <div class="mt-2 bg-white pb-16 sm:mt-4 sm:pb-20 lg:pb-28">
         <div class="relative">
           <div class="absolute inset-0 h-1/2 bg-gray-100"></div>
           <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -63,7 +86,7 @@ const questions = shallowRef([
             >
               <div class="flex-1 bg-white px-6 py-8 lg:p-12">
                 <h3 class="text-2xl font-extrabold text-gray-900 sm:text-3xl">
-                  Yearly Plan
+                  Shroud.email
                 </h3>
                 <p class="mt-6 text-base text-gray-500">
                   Hide your email address and block trackers with unlimited
@@ -114,19 +137,19 @@ const questions = shallowRef([
                 class="py-8 px-6 text-center bg-gray-50 lg:flex-shrink-0 lg:flex lg:flex-col lg:justify-center lg:p-12"
               >
                 <p class="text-lg leading-6 font-medium text-gray-900">
-                  Paid yearly
+                  Paid {{ currentBillingPeriod }}
                 </p>
                 <div
                   class="mt-4 flex items-center justify-center text-5xl font-extrabold text-gray-900"
                 >
-                  <span>£20</span>
+                  <span>£{{ price[currentBillingPeriod] }}</span>
                   <span class="ml-3 text-xl font-medium text-gray-500">
                     GBP
                   </span>
                 </div>
-                <p class="mt-4 text-sm font-medium text-gray-500">
-                  Less than £2/month
-                </p>
+                <!-- <p class="mt-4 text-sm font-medium text-gray-500">
+                  Or £2/month if paid monthly
+                </p> -->
                 <div class="mt-6">
                   <div class="rounded-md shadow">
                     <a
