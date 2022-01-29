@@ -1,13 +1,13 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro"
-import HeroSection from "../components/organisms/HeroSection.vue"
+import HeroSection from "../components/organisms/HeroSection.astro"
 import FeatureSection from "../components/organisms/FeatureSection.vue"
 import NewsletterSection from "../components/organisms/NewsletterSection.astro"
 import FadeIn from "../components/atoms/FadeIn.vue"
 ---
 
 <BaseLayout transparentNavbar={true}>
-  <HeroSection client:load learnMoreId="learn-more" />
+  <HeroSection learnMoreId="learn-more" />
 
   <div id="learn-more" class="bg-gray-50 py-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -51,4 +51,23 @@ import FadeIn from "../components/atoms/FadeIn.vue"
   </div>
 
   <NewsletterSection />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.21/dist/vanta.fog.min.js"></script>
+  <script>
+  VANTA.FOG({
+    el: "#hero",
+    THREE: THREE,
+    mouseControls: false,
+    touchControls: false,
+    gyroControls: false,
+    minHeight: 200.0,
+    minWidth: 200.0,
+    baseColor: 0x1f2937,
+    lowlightColor: 0x111827,
+    midtoneColor: 0x334155,
+    highlightColor: 0x475569,
+    speed: 1.8,
+  });
+  </script>
 </BaseLayout>
