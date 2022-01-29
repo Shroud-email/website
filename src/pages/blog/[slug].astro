@@ -1,0 +1,22 @@
+---
+import BlogPost from "../../layouts/BlogPost.astro"
+import { getAllPosts } from "../../posts"
+
+export async function getStaticPaths() {
+  const allPosts = await getAllPosts()
+
+  return allPosts.map(post => ({
+    params: {
+      slug: post.href.replace("/blog/", ""),
+    },
+    props: { post },
+  }))
+}
+
+const { post } = Astro.props
+const { default: Content } = await import(`/src/posts/${post.href.replace("/blog/", "")}.md`)
+---
+
+<BlogPost post={post}>
+  <Content />
+</BlogPost>

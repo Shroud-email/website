@@ -1,0 +1,103 @@
+---
+import {OPEN_GRAPH, SITE} from "../config.ts"
+import Navbar from "../components/organisms/navbar.vue";
+import Footer from "../components/organisms/footer.vue"
+
+export interface Props {
+  title?: string;
+  description?: string;
+  transparentNavbar?: boolean;
+}
+let { title, description, transparentNavbar = false } = Astro.props
+title = title ? `${title} | ${SITE.title}` : SITE.title
+const canonicalURL = Astro.request.canonicalURL.toString()
+const canonicalImageSrc = new URL(OPEN_GRAPH.image.src, Astro.site).toString()
+const imageAlt = OPEN_GRAPH.image.alt
+---
+
+<html class="h-full scroll-smooth" lang="en">
+  <head>
+    <slot name="head" />
+    <title>{ title }</title>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <script defer src="https://cdn.jsdelivr.net/npm/vanta@0.5.21/dist/vanta.fog.min.js"></script>
+    <script
+      type="text/javascript"
+      async
+      defer
+      src="https://app.papercups.io/widget.js"
+    ></script>
+    <script>
+    window.Papercups = {
+      config: {
+        token: "81a13d1b-a34a-487e-965e-8779ddd855f1",
+        inbox: "f01194cc-2fa5-4be5-b2e1-54f42b1fc773",
+        title: "Welcome to Shroud.email",
+        subtitle: "Ask us anything in the chat window below 😊",
+        primaryColor: "#1f2937",
+        newMessagePlaceholder: "Start typing...",
+        showAgentAvailability: false,
+        agentAvailableText: "We're online right now!",
+        agentUnavailableText: "We're away at the moment.",
+        requireEmailUpfront: true,
+        iconVariant: "outlined",
+        baseUrl: "https://app.papercups.io"
+      },
+    };
+    </script>
+    <script
+      defer
+      data-domain="shroud.email"
+      data-api="https://plaus-prox.btao.workers.dev/api/event"
+      src="https://plaus-prox.btao.workers.dev/pjs/script.outbound-links.js"
+    ></script>
+
+    <link rel="stylesheet" href="/fonts/inter/inter.css" />
+    <!-- This weird syntax is needed to make live-reloading Tailwind work in dev -->
+    <!-- https://github.com/withastro/astro/issues/2410#issuecomment-1014795664 -->
+    <link rel="stylesheet" href={Astro.resolve("../styles/tailwind.css")} />
+    <style global>
+    </style>
+
+    <meta name="description" content={description}>
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- OpenGraph -->
+    <meta property="og:title" content={title ?? SITE.title} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={canonicalImageSrc} />
+    <meta property="og:image:alt" content={imageAlt} />
+    <meta property="og:site_name" content={SITE.title} />
+    <meta property="og:locale" content={OPEN_GRAPH.locale} />
+    <meta
+      name="description"
+      property="og:description"
+      content={description ?? SITE.description}
+    />
+
+    <!-- Twitter tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content={OPEN_GRAPH.twitter} />
+    <meta name="twitter:title" content={title ?? SITE.title} />
+    <meta
+      name="twitter:description"
+      content={description ?? SITE.description}
+    />
+    <meta name="twitter:image" content={canonicalImageSrc} />
+    <meta name="twitter:image:alt" content={imageAlt} />
+  </head>
+
+  <body class="h-full">
+    <div class="min-h-full flex flex-col">
+      <Navbar client:load transparentAtTop={transparentNavbar} />
+
+      <main>
+        <slot />
+      </main>
+
+      <Footer />
+    </div>
+  </body>
+</html>
