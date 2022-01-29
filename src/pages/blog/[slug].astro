@@ -1,9 +1,24 @@
 ---
+import { SITE } from "../../config.ts"
 import BlogPost from "../../layouts/BlogPost.astro"
 import { getAllPosts } from "../../posts"
 
-export async function getStaticPaths() {
+export async function getStaticPaths({ rss }) {
   const allPosts = await getAllPosts()
+
+  rss({
+    title: SITE.title,
+    stylesheet: true,
+    description: SITE.description,
+    customData: "<language>en-us</language>",
+    items: allPosts.map((post) => ({
+      title: post.title,
+      description: post.description,
+      link: post.href,
+      pubDate: post.date,
+    })),
+    dest: "/blog/rss.xml"
+  })
 
   return allPosts.map(post => ({
     params: {
