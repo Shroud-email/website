@@ -6,7 +6,7 @@ export async function getAllPosts() {
     await Promise.all(
       Object.values(files).map((importFile: any, index) =>
         importFile().then((res) => {
-          const { title, description, authors, date} = res.frontmatter;
+          const { title, description, authors, date, image } = res.frontmatter;
           const href = Object.keys(files)
             [index].replace(/^\./, "/blog")
                 .replace(/\.md$/, "");
@@ -14,6 +14,7 @@ export async function getAllPosts() {
             title,
             description,
             authors,
+            image,
             date: parseISO(date),
             href,
           };
