@@ -12,7 +12,7 @@ const questions = shallowRef([
   {
     question: "Do you have any discounts?",
     answer:
-      "If you're an activist or journalist, get in touch on contact@shroud.email and we'll see what we can do.",
+      "If you're an activist or journalist, get in touch on hello@shroud.email and we'll see what we can do.",
   },
   {
     question: "What happens if I cancel my subscription?",
@@ -187,7 +187,7 @@ const price = shallowRef({
         </h2>
         <p class="mt-4 text-gray-400">
           If your question isn't answered here, please
-          <a href="mailto:contact@shroud.email" class="underline"
+          <a href="mailto:hello@shroud.email" class="underline"
             >contact us.</a
           >
         </p>

@@ -82,7 +82,7 @@ const footer = shallowRef([
       <div class="mt-8 md:mt-0 md:order-1">
         <p class="text-center text-base text-gray-300">
           Copyright &copy; 2021 - All rights reserved.
-          <a href="mailto:contact@shroud.email" class="underline"
+          <a href="mailto:hello@shroud.email" class="underline"
             >Contact us.</a
           >
         </p>
