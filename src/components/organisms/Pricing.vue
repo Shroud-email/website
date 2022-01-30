@@ -10,11 +10,6 @@ const features = shallowRef([
 // Should be an even number to look nice
 const questions = shallowRef([
   {
-    question: "What's your refund policy?",
-    answer:
-      "As we have a 30-day free trial with no limitations, we don't offer refunds.",
-  },
-  {
     question: "Do you have any discounts?",
     answer:
       "If you're an activist or journalist, get in touch on contact@shroud.email and we'll see what we can do.",
@@ -28,6 +23,19 @@ const questions = shallowRef([
     question: "What payment methods do you support?",
     answer:
       "We support Visa, Mastercard, American Express, Discover, Diners Club, China UnionPay (CUP), and Japan Credit Bureau (JCB).",
+  },
+  {
+    question: "What's your refund policy?",
+    answer:
+      "As we have a 30-day free trial with no limitations, we don't offer refunds.",
+  },
+  {
+    question: "Does Shroud.email forward attachments?",
+    answer: "Yes, we forward attachments up to 25MB. The following attachments types are supported: jpeg, jpg, png, gif, txt, pdf, docx, xlsx, pptx, csv, att.",
+  },
+  {
+    question: "Is Shroud.email a disposable email service?",
+    answer: "No, email aliases are permanent. You can disable or delete them if you don't want to receive emails through them, however.",
   },
 ])
 const currentBillingPeriod = shallowRef("monthly")
