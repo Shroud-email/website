@@ -22,7 +22,7 @@ const questions = shallowRef([
   {
     question: "What happens if I cancel my subscription?",
     answer:
-      "The service will continue for the remainder of the billing period. Then, your aliases will stop forwarding emails, and you won't be able to create new ones.",
+      "The service will continue for the remainder of the billing period. Then, you won't be able to create new aliases. All your existing aliases will continue to work.",
   },
   {
     question: "What payment methods do you support?",
