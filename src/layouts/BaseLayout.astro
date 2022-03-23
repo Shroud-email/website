@@ -1,4 +1,5 @@
 ---
+import "../styles/tailwind.css"
 import {OPEN_GRAPH, SITE} from "../config.ts"
 import Navbar from "../components/organisms/navbar.vue";
 import Footer from "../components/organisms/footer.vue"
@@ -56,9 +57,6 @@ const imageAlt = OPEN_GRAPH.image.alt
     ></script>
 
     <link rel="stylesheet" href="/fonts/inter/inter.css" />
-    <!-- This weird syntax is needed to make live-reloading Tailwind work in dev -->
-    <!-- https://github.com/withastro/astro/issues/2410#issuecomment-1014795664 -->
-    <link rel="stylesheet" href={Astro.resolve("../styles/tailwind.css")} />
     <style global>
     </style>
 
