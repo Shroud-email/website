@@ -29,7 +29,7 @@ export async function getStaticPaths({ rss }) {
 }
 
 const { post } = Astro.props
-const { default: Content } = await import(`/src/posts/${post.href.replace("/blog/", "")}.md`)
+const { default: Content } = await import(`./../../posts/${post.href.replace("/blog/", "")}.md`)
 ---
 
 <BlogPost post={post}>
