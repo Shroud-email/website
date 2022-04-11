@@ -13,6 +13,7 @@ const props = defineProps({
 const { transparentAtTop } = toRefs(props)
 
 const navigation = shallowRef([
+  { name: "Privacy protection", href: "/privacy-protection" },
   { name: "Blog", href: "/blog" },
   { name: "Pricing", href: "/pricing" },
 ])
