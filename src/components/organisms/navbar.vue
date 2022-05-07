@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { shallowRef, ref, computed, onMounted, onBeforeUnmount, toRefs } from "vue"
 import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue"
-import { MenuIcon, XIcon } from "@heroicons/vue/outline"
+import { MenuIcon, XIcon, CodeIcon, BookOpenIcon, DocumentTextIcon } from "@heroicons/vue/outline"
+import NavbarDropdown from "~/components/molecules/NavbarDropdown.vue"
 
 const props = defineProps({
   transparentAtTop: {
@@ -15,8 +16,11 @@ const { transparentAtTop } = toRefs(props)
 const navigation = shallowRef([
   { name: "Privacy protection", href: "/privacy-protection" },
   { name: "Pricing", href: "/pricing" },
-  { name: "Blog", href: "/blog" },
-  { name: "Docs", href: "/docs" },
+  { name: "More", children: [
+    { name: "Blog", description: "Stay up-to-date with Shroud.email", href: "/blog", icon: DocumentTextIcon },
+    { name: "Docs", description: "Learn more about our API", href: "/docs", icon: BookOpenIcon },
+    { name: "GitLab", description: "All contributions are welcome!", href: "https://gitlab.com/shroud/shroud.email", icon: CodeIcon },
+  ]}
 ])
 
 const isScrolledToTop = ref(true)
@@ -74,12 +78,15 @@ onBeforeUnmount(() => {
             </div>
           </div>
           <div class="hidden space-x-8 md:flex md:ml-10">
-            <a
-              v-for="item in navigation"
-              :key="item.name"
-              :href="item.href"
-              class="text-base font-medium text-white hover:text-gray-300"
-            >{{ item.name }}</a>
+            <template v-for="item in navigation" :key="item.name">
+              <NavbarDropdown v-if="item.children" :name="item.name" :children="item.children" />
+              <a
+                v-else
+                :key="item.name"
+                :href="item.href"
+                class="text-base font-medium text-white hover:text-gray-300"
+              >{{ item.name }}</a>
+            </template>
           </div>
         </div>
         <div class="hidden md:flex md:items-center md:space-x-6">
@@ -119,12 +126,21 @@ onBeforeUnmount(() => {
           </div>
           <div class="pt-5 pb-6">
             <div class="px-2 space-y-1">
-              <a
-                v-for="item in navigation"
-                :key="item.name"
-                :href="item.href"
-                class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50"
-              >{{ item.name }}</a>
+              <template v-for="item in navigation" :key="item.name">
+                <template v-if="item.children">
+                  <a
+                    v-for="childItem in item.children"
+                    :key="childItem.name"
+                    :href="childItem.href"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50"
+                  >{{ childItem.name }}</a>
+                </template>
+                <a
+                  v-else
+                  :href="item.href"
+                  class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50"
+                >{{ item.name }}</a>
+              </template>
             </div>
             <div class="mt-6 px-5">
               <a
