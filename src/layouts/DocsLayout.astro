@@ -1,0 +1,20 @@
+---
+import BaseLayout from "./BaseLayout.astro"
+import DocsSidebar from "~/components/organisms/DocsSidebar.astro"
+
+const { content: page } = Astro.props
+const url = new URL(Astro.request.url)
+const currentPage = url.pathname
+---
+
+<BaseLayout title={page.title} description={page.description}>
+  <div class="flex flex-row mt-16">
+    <DocsSidebar currentPage={currentPage} />
+    <div class="max-w-prose py-8 pl-8">
+      <h1 class="mb-2 block text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">{page.title}</h1>
+      <div class="mt-6 prose prose-indigo text-gray-700">
+        <slot />
+      </div>
+    </div>
+  </div>
+</BaseLayout>

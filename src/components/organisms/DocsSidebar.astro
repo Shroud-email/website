@@ -1,0 +1,31 @@
+---
+import DocsSidebarSection from "~/components/atoms/DocsSidebarSection.vue"
+import navItems from "~/nav"
+
+export interface Props {
+	currentPage: string;
+}
+
+const { currentPage } = Astro.props as Props
+
+const isCurrent = (slug: string) => (slug === currentPage)
+
+const sidebarSections = navItems.reduce((collection, item) => {
+	if ('header' in item) {
+		collection.push({ ...item, children: [] });
+	} else {
+		collection[collection.length - 1].children.push(item);
+	}
+	return collection;
+}, [] as InstanceType<typeof DocsSidebarSection>['$props']);
+---
+
+<div class="flex flex-col w-64 border-r border-gray-200 pt-8 pb-4 bg-white overflow-y-auto">
+  <div class="flex-grow flex flex-col">
+    <nav class="flex-1 px-2 space-y-1 bg-white" aria-label="Sidebar">
+      {sidebarSections.map((section) => (
+        <DocsSidebarSection client:load {...section} current={isCurrent(section.slug)} />
+      ))}
+    </nav>
+  </div>
+</div>

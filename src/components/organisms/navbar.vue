@@ -14,8 +14,9 @@ const { transparentAtTop } = toRefs(props)
 
 const navigation = shallowRef([
   { name: "Privacy protection", href: "/privacy-protection" },
-  { name: "Blog", href: "/blog" },
   { name: "Pricing", href: "/pricing" },
+  { name: "Blog", href: "/blog" },
+  { name: "Docs", href: "/docs" },
 ])
 
 const isScrolledToTop = ref(true)
