@@ -9,9 +9,6 @@ const footer = shallowRef([
     icon: CodeIcon,
   },
 ]);
-
-// usePlausible()
-// usePapercups()
 </script>
 
 <template>
