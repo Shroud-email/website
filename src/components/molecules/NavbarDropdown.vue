@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { PropType } from "vue"
 import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue"
-import { ChevronDownIcon } from "@heroicons/vue/solid"
+import { ChevronDownIcon } from "@heroicons/vue/solid/esm/index.js"
 
 interface ChildNavItem {
   icon: any;

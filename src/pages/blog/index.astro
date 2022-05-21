@@ -1,14 +1,27 @@
 ---
+import { parseISO, isBefore } from 'date-fns';
+
 import BaseLayout from "../../layouts/BaseLayout.astro"
 import PostPreview from "../../components/molecules/PostPreview.astro"
 
-import { getAllPosts } from '../../posts';
-
-const posts = await getAllPosts()
+const posts = await Astro.glob("./*.md")
+  .then(posts => posts
+    .map(({ frontmatter, url }) => ({
+      title: frontmatter.title,
+      description: frontmatter.description,
+      image: frontmatter.image,
+      date: parseISO(frontmatter.date),
+      href: url,
+    }))
+    .sort((a, b) => {
+      if (isBefore(a.date, b.date)) return 1
+      if (isBefore(b.date, a.date)) return -1
+      return 0
+    })
+  )
 ---
 
 <BaseLayout title="Blog" description="Stay up to date with Shroud.email. Privacy news and product updates.">
-
   <div class="bg-gray-50 pt-16 mt-12 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
     <div class="relative max-w-lg mx-auto divide-y-2 divide-gray-200 lg:max-w-7xl">
       <div>

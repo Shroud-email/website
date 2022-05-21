@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { shallowRef, defineComponent, h } from "vue";
-import { CodeIcon } from "@heroicons/vue/outline"
+import { CodeIcon } from "@heroicons/vue/outline/esm/index.js"
 
 const footer = shallowRef([
   {

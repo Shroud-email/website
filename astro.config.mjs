@@ -1,10 +1,11 @@
+import vue from "@astrojs/vue"
+import sitemap from "@astrojs/sitemap"
+
 export default {
-  buildOptions: {
-    site: "https://shroud.email",
-    sitemap: true,
-  },
-  renderers: [
-    "@astrojs/renderer-vue"
+  site: "https://shroud.email",
+  integrations: [
+    vue(),
+    sitemap(),
   ],
   vite: {
     ssr: {

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { shallowRef, ref, computed, onMounted, onBeforeUnmount, toRefs } from "vue"
 import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue"
-import { MenuIcon, XIcon, CodeIcon, BookOpenIcon, DocumentTextIcon } from "@heroicons/vue/outline"
+import { MenuIcon, XIcon, CodeIcon, BookOpenIcon, DocumentTextIcon } from "@heroicons/vue/outline/esm/index.js"
 import NavbarDropdown from "~/components/molecules/NavbarDropdown.vue"
 
 const props = defineProps({

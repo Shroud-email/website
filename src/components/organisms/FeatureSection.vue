@@ -59,7 +59,7 @@ import {
   GlobeIcon,
   EyeOffIcon,
   DotsHorizontalIcon,
-} from "@heroicons/vue/outline"
+} from "@heroicons/vue/outline/esm/index.js"
 
 import FadeIn from "../atoms/FadeIn.vue"
 

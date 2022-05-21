@@ -11,7 +11,7 @@ export interface Props {
 }
 let { title, description, transparentNavbar = false } = Astro.props
 title = title ? `${title} | ${SITE.title}` : SITE.title
-const canonicalURL = Astro.request.canonicalURL.toString()
+const canonicalURL = Astro.canonicalURL.toString()
 const canonicalImageSrc = new URL(OPEN_GRAPH.image.src, Astro.site).toString()
 const imageAlt = OPEN_GRAPH.image.alt
 ---
@@ -57,8 +57,6 @@ const imageAlt = OPEN_GRAPH.image.alt
     ></script>
 
     <link rel="stylesheet" href="/fonts/inter/inter.css" />
-    <style global>
-    </style>
 
     <meta name="description" content={description}>
     <link rel="canonical" href={canonicalURL} />

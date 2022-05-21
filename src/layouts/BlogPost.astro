@@ -1,12 +1,26 @@
 ---
 import BaseLayout from "./BaseLayout.astro"
-import { format } from "date-fns"
+import { format, parseISO } from "date-fns"
 
-const { post } = Astro.props
-const date = format(post.date, "PP")
+export interface Props {
+  content: {
+		title: string;
+		description: string;
+    image: string;
+		date: string | Date;
+  }
+}
+
+const { content: { title, description, image, date } } = Astro.props
+let formattedDate
+if (typeof date === "string") {
+  formattedDate = format(parseISO(date), "PP")
+} else {
+  formattedDate = format(date, "PP")
+}
 ---
 
-<BaseLayout title={post.title} description={post.description}>
+<BaseLayout title={title} description={description}>
   <div class="relative mt-12 py-16 bg-white overflow-hidden">
     <div class="hidden lg:block lg:absolute lg:inset-y-0 lg:h-full lg:w-full">
       <div class="relative h-full text-lg max-w-prose mx-auto" aria-hidden="true">
@@ -37,14 +51,14 @@ const date = format(post.date, "PP")
       </div>
     </div>
     <div class="relative px-4 sm:px-6 lg:px-8">
-      <img src={post.image} class="max-w-prose mx-auto rounded-xl mb-12" />
+      <img src={image} class="max-w-prose mx-auto rounded-xl mb-12" />
       <div class="text-lg max-w-prose mx-auto">
         <h1>
-          <span class="mb-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">{post.title}</span>
+          <span class="mb-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">{title}</span>
         </h1>
-        <span class="block text-base text-center text-indigo-600 font-semibold tracking-wide uppercase">{date}</span>
+        <span class="block text-base text-center text-indigo-600 font-semibold tracking-wide uppercase">{formattedDate}</span>
         <p class="mt-8 text-xl text-gray-700 leading-8">
-          {post.description}
+          {description}
         </p>
       </div>
       <div class="mt-6 prose prose-indigo prose-lg text-gray-700 mx-auto">

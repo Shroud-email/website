@@ -1,4 +1,5 @@
 export const SITE = {
+  site: "https://shroud.email",
   title: "Shroud.email",
   description: "Email, meet privacy.",
 };

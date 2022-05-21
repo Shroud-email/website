@@ -1,4 +1,5 @@
 ---
+layout: '../../layouts/BlogPost.astro'
 title: Hello, world
 description: Welcoming Shroud.email to the world.
 date: 2022-01-08
