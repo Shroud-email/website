@@ -1,9 +1,34 @@
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from "vue"
+import { ref, onMounted, onBeforeUnmount, computed, PropType } from "vue"
+
+type Direction = "up" | "down" | "left" | "right"
+
+const props = defineProps({
+  fromDirection: {
+    type: String as PropType<Direction>,
+    default: "up",
+  },
+})
 
 const observer = ref(null)
 const observerContainer = ref(null)
 const isVisible = ref(false)
+
+const classes = computed(() => {
+  switch(props.fromDirection) {
+    case "up":
+      return isVisible.value ? "translate-y-0" : "-translate-y-6"
+    case "down":
+      return isVisible.value ? "translate-y-0" : "translate-y-6"
+    case "left":
+      return isVisible.value ? "translate-x-0" : "-translate-x-6"
+    case "right":
+      return isVisible.value ? "translate-x-0" : "translate-x-6"
+    default:
+      throw new Error("Unknown direction " + props.fromDirection)
+  }
+})
+
 
 const observerCallback = (entries, _observer) => {
   entries.forEach(entry => {
@@ -29,7 +54,11 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-<div ref="observerContainer" :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-6'" class="transition-all duration-1000">
+<div
+  ref="observerContainer"
+  :class="classes + ' ' + (isVisible ? 'opacity-100' : 'opacity-0')"
+  class="transition-all duration-1000"
+>
   <slot />
 </div>
 </template>
