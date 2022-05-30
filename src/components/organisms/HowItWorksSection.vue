@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ArrowCircleRightIcon, EyeOffIcon, TrashIcon } from '@heroicons/vue/outline'
+import { ArrowCircleRightIcon, EyeOffIcon, TrashIcon } from '@heroicons/vue/outline/esm/index.js'
 
 import FadeIn from "../atoms/FadeIn.vue"
 
