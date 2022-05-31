@@ -1,5 +1,16 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro"
+
+const thirdParties = [
+  { name: "EmailOctopus", href: "https://emailoctopus.com/" },
+  { name: "Hetzner", href: "https://www.hetzner.com/" },
+  { name: "AppSignal", href: "https://www.appsignal.com/" },
+  { name: "MailPace", href: "https://mailpace.com/" },
+  { name: "Cloudflare", href: "https://www.cloudflare.com/" },
+  { name: "Stripe", href: "https://stripe.com/en-gb" },
+  { name: "Papercups", href: "https://papercups.io/" },
+  { name: "Logtail", href: "https://logtail.com" },
+]
 ---
 
 <BaseLayout title="Privacy" description="Shroud.email privacy policy">
@@ -139,7 +150,7 @@ import BaseLayout from "../layouts/BaseLayout.astro"
             tracking-wide
             uppercase
           "
-          >Last updated 2021-12-24</span
+          >Last updated 2022-05-30</span
         >
       </div>
       <div class="mt-6 prose prose-indigo prose-lg text-gray-500 mx-auto">
@@ -171,62 +182,11 @@ import BaseLayout from "../layouts/BaseLayout.astro"
 
         <p>We may share this information with:</p>
         <ul role="list">
-          <li>
-            <a
-              href="https://emailoctopus.com/"
-              rel="noopener noreferrer"
-              target="_blank"
-              >EmailOctopus</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://www.hetzner.com"
-              rel="noopener noreferrer"
-              target="_blank"
-              >Hetzner</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://www.appsignal.com/"
-              rel="noopener noreferrer"
-              target="_blank"
-              >AppSignal</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://ohmysmtp.com/"
-              rel="noopener noreferrer"
-              target="_blank"
-              >OhMySMTP</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://www.cloudflare.com/"
-              rel="noopener noreferrer"
-              target="_blank"
-              >Cloudflare</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://stripe.com/en-gb"
-              rel="noopener noreferrer"
-              target="_blank"
-              >Stripe</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://papercups.io/"
-              rel="noopener noreferrer"
-              target="_blank"
-              >Papercups</a
-            >
-          </li>
+          {thirdParties.map((thirdParty) => (
+            <li>
+              <a href={thirdParty.href} rel="noopener noreferrer" target="_blank">{thirdParty.name}</a>
+            </li>
+          ))}
         </ul>
 
         <p>
@@ -246,8 +206,8 @@ import BaseLayout from "../layouts/BaseLayout.astro"
         <p>Your information is securely stored on our servers.</p>
 
         <p>
-          We keep logs, which may include the contents of emails, for 30 days.
-          We will then dispose your information.
+          We keep logs for up to 7 days. We will not log information about your emails unless you give us permission.
+          Our email provider, MailPace, may log the contents of emails for up to 5 days to ensure deliverability.
         </p>
 
         <h2>Your data protection rights</h2>
