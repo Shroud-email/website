@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { shallowRef, ref, computed, onMounted, onBeforeUnmount, toRefs } from "vue"
 import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue"
-import { MenuIcon, XIcon, CodeIcon, BookOpenIcon, DocumentTextIcon } from "@heroicons/vue/outline/esm/index.js"
+import { MenuIcon, XIcon, CodeIcon, BookOpenIcon, DocumentTextIcon, MapIcon } from "@heroicons/vue/outline/esm/index.js"
 import NavbarDropdown from "~/components/molecules/NavbarDropdown.vue"
 
 const props = defineProps({
@@ -20,6 +20,7 @@ const navigation = shallowRef([
     { name: "Blog", description: "Stay up-to-date with Shroud.email", href: "/blog", icon: DocumentTextIcon },
     { name: "Docs", description: "Learn more about our API", href: "/docs", icon: BookOpenIcon },
     { name: "GitLab", description: "All contributions are welcome!", href: "https://gitlab.com/shroud/shroud.email", icon: CodeIcon },
+    { name: "Roadmap", description: "Upcoming features", href: "/roadmap", icon: MapIcon },
   ]}
 ])
 
