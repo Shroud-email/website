@@ -20,7 +20,7 @@ const navigation = shallowRef([
     { name: "Blog", description: "Stay up-to-date with Shroud.email", href: "/blog", icon: DocumentTextIcon },
     { name: "Docs", description: "Learn more about our API", href: "/docs", icon: BookOpenIcon },
     { name: "GitLab", description: "All contributions are welcome!", href: "https://gitlab.com/shroud/shroud.email", icon: CodeIcon },
-    { name: "Roadmap", description: "Upcoming features", href: "/roadmap", icon: MapIcon },
+    { name: "Roadmap", description: "Get excited for our upcoming features", href: "/roadmap", icon: MapIcon },
   ]}
 ])
 
