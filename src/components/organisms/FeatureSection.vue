@@ -58,7 +58,7 @@ import {
   MailIcon,
   GlobeIcon,
   EyeOffIcon,
-  DotsHorizontalIcon,
+  ReplyIcon,
 } from "@heroicons/vue/outline/esm/index.js"
 
 import FadeIn from "../atoms/FadeIn.vue"
@@ -83,6 +83,12 @@ const features = [
     icon: EyeOffIcon,
   },
   {
+    name: "Reply from your aliases",
+    description:
+      "Aliases aren't just for receiving emails. You can also send outgoing emails without revealing your real address!",
+    icon: ReplyIcon,
+  },
+  {
     name: "Fully open-source",
     description:
       "Every part of Shroud.email is open source, licensed under the AGPL v3 license.",
@@ -93,12 +99,6 @@ const features = [
     description:
       "Shroud.email runs on 100% renewable energy, hosted in the EU.",
     icon: GlobeIcon,
-  },
-  {
-    name: "And a lot more to come",
-    description:
-      "We have a whole lot of additional features planned. Stay tuned.",
-    icon: DotsHorizontalIcon,
   },
 ]
 export default {
