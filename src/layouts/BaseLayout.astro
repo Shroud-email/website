@@ -88,7 +88,7 @@ const imageAlt = OPEN_GRAPH.image.alt
   </head>
 
   <body class="h-full">
-    <div id="swup" class="min-h-full flex flex-col swup-transition-fade">
+    <div id="swup" class="min-h-full flex flex-col">
       <Navbar client:load transparentAtTop={transparentNavbar} />
 
       <main class="flex-grow flex flex-col">
@@ -102,30 +102,14 @@ const imageAlt = OPEN_GRAPH.image.alt
       import SwupScriptsPlugin from '@swup/scripts-plugin'
       import SwupA11yPlugin from '@swup/a11y-plugin'
       import SwupPreloadPlugin from '@swup/preload-plugin'
-      import SwupProgressPlugin from '@swup/progress-plugin'
 
       const swup = new Swup({
         plugins: [
           new SwupScriptsPlugin(),
           new SwupA11yPlugin(),
           new SwupPreloadPlugin(),
-          new SwupProgressPlugin({ delay: 0 }),
         ],
       })
     </script>
-    <style is:global>
-      .swup-progress-bar {
-        height: 4px;
-        background-color: blue;
-      }
-
-      .swup-transition-fade {
-        transition: 0.4s;
-        opacity: 1;
-      }
-      html.is-animating .swup-transition-fade {
-        opacity: 0;
-      }
-    </style>
   </body>
 </html>

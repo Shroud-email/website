@@ -33,7 +33,6 @@ defineProps({
               :key="item.name"
               :href="item.href"
               class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
-              data-swup-preload
             >
               <component :is="item.icon" class="flex-shrink-0 h-6 w-6 text-indigo-600" aria-hidden="true" />
               <div class="ml-4">

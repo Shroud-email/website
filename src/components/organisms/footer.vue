@@ -17,7 +17,7 @@ const footer = shallowRef([
       class="max-w-7xl mx-auto pt-12 px-4 pb-20 sm:px-6 md:flex md:items-center md:justify-between lg:px-8"
     >
       <div class="flex justify-center space-x-6 md:order-2">
-        <a href="/privacy" data-swup-preload class="text-gray-300 hover:text-gray-400">Privacy</a>
+        <a href="/privacy" class="text-gray-300 hover:text-gray-400">Privacy</a>
         <a
           href="https://shroud.appsignal-status.com/"
           class="text-gray-300 hover:text-gray-400"
