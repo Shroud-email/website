@@ -53,7 +53,7 @@ onBeforeUnmount(() => {
       >
         <div class="flex items-center flex-1">
           <div class="flex items-center justify-between w-full md:w-auto">
-            <a href="/" class="text-gray-100 flex items-center font-semibold text-xl">
+            <a href="/" data-swup-preload class="text-gray-100 flex items-center font-semibold text-xl">
               <svg
                 class="w-6 h-6 mr-3 text-indigo-400"
                 fill="currentColor"
@@ -85,6 +85,7 @@ onBeforeUnmount(() => {
                 v-else
                 :key="item.name"
                 :href="item.href"
+                data-swup-preload
                 class="text-base font-medium text-white hover:text-gray-300"
               >{{ item.name }}</a>
             </template>
