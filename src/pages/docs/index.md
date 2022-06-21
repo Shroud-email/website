@@ -10,5 +10,5 @@ Shroud.email is a libre, open-source solution for email privacy. We recommend
 
 If you'd like to build something using our API, or if you'd like to self-host, this is the place for you.
 
-All of our code is on [GitLab](https://gitlab.com/shroud/shroud.email) if you'd like to have a look around.
+All of our code is on [GitHub](https://github.com/Shroud-email/shroud.email) if you'd like to have a look around.
 Contributions of all forms are very welcome!

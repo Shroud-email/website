@@ -4,8 +4,8 @@ import { CodeIcon } from "@heroicons/vue/outline/esm/index.js"
 
 const footer = shallowRef([
   {
-    name: "GitLab",
-    href: "https://gitlab.com/shroud/shroud.email",
+    name: "GitHub",
+    href: "https://github.com/Shroud-email/shroud.email",
     icon: CodeIcon,
   },
 ]);
