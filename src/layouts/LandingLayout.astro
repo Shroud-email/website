@@ -7,13 +7,14 @@ import Footer from "../components/organisms/footer.vue"
 export interface Props {
   title?: string;
   description?: string;
+  transparentNavbar?: boolean;
 }
 let { title, description, transparentNavbar = false } = Astro.props
 ---
 
 <BaseLayout {title} {description}>
   <div id="swup" class="min-h-full flex flex-col">
-    <Navbar client:load transparentAtTop={transparentNavbar} />
+    <Navbar client:load transparentAtTop={transparentNavbar} showThemeSelector={false} />
 
     <main class="flex-grow flex flex-col">
       <slot />

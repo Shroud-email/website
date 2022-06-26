@@ -29,7 +29,6 @@ const classes = computed(() => {
   }
 })
 
-
 const observerCallback = (entries, _observer) => {
   entries.forEach(entry => {
     // Assumes only a single entry. Also, once an entry is shown,
