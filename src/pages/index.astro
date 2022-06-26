@@ -1,5 +1,5 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro"
+import LandingLayout from "../layouts/LandingLayout.astro"
 import HeroSection from "../components/organisms/HeroSection.astro"
 import HowItWorksSection from "../components/organisms/HowItWorksSection.vue"
 import FeatureSection from "../components/organisms/FeatureSection.vue"
@@ -7,7 +7,7 @@ import NewsletterSection from "../components/organisms/NewsletterSection.astro"
 import FadeIn from "../components/atoms/FadeIn.vue"
 ---
 
-<BaseLayout transparentNavbar={true}>
+<LandingLayout transparentNavbar={true}>
   <HeroSection learnMoreId="learn-more" />
 
   <HowItWorksSection client:load id="learn-more" />
@@ -30,4 +30,4 @@ import FadeIn from "../components/atoms/FadeIn.vue"
   </div>
 
   <NewsletterSection />
-</BaseLayout>
+</LandingLayout>

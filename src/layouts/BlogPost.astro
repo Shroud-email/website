@@ -1,5 +1,5 @@
 ---
-import BaseLayout from "./BaseLayout.astro"
+import LandingLayout from "./LandingLayout.astro"
 import { format, parseISO } from "date-fns"
 
 export interface Props {
@@ -20,7 +20,7 @@ if (typeof date === "string") {
 }
 ---
 
-<BaseLayout title={title} description={description}>
+<LandingLayout title={title} description={description}>
   <div class="relative mt-12 py-16 bg-white overflow-hidden">
     <div class="hidden lg:block lg:absolute lg:inset-y-0 lg:h-full lg:w-full">
       <div class="relative h-full text-lg max-w-prose mx-auto" aria-hidden="true">
@@ -66,4 +66,4 @@ if (typeof date === "string") {
       </div>
     </div>
   </div>
-</BaseLayout>
+</LandingLayout>

@@ -5,10 +5,15 @@ module.exports = {
     "./public/**/*.html",
     "./src/**/*.{astro,js,jsx,svelte,ts,tsx,vue,md}",
   ],
+  darkMode: "class",
   theme: {
     extend: {
       fontFamily: {
         sans: ["Inter var", ...defaultTheme.fontFamily.sans],
+        display: ["Lexend", ...defaultTheme.fontFamily.sans]
+      },
+      maxWidth: {
+        '8xl': '88rem',
       },
     },
   },

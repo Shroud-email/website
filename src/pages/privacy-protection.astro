@@ -1,12 +1,12 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro"
+import LandingLayout from "../layouts/LandingLayout.astro"
 import PageHeader from "../components/molecules/PageHeader.astro"
 import PageBlock from "../components/molecules/PageBlock.astro"
 
 const title="Privacy Protection"
 const description = "We love email, but we don't love the creeps who want to snoop on your email reading habits. Shroud.email uses a powerful cocktail of technologies to protect your email privacy."
 ---
-<BaseLayout title={title} description="How Shroud.email protects your email privacy.">
+<LandingLayout title={title} description="How Shroud.email protects your email privacy.">
   <PageHeader title={title} description={description} />
 
   <PageBlock heading="Email, without the surveillance.">
@@ -64,4 +64,4 @@ const description = "We love email, but we don't love the creeps who want to sno
       </div>
     </dl>
   </PageBlock>
-</BaseLayout>
+</LandingLayout>

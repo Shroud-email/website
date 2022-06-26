@@ -1,22 +1,19 @@
 ---
 import "../styles/tailwind.css"
 import {OPEN_GRAPH, SITE} from "../config.ts"
-import Navbar from "../components/organisms/navbar.vue";
-import Footer from "../components/organisms/footer.vue"
 
 export interface Props {
   title?: string;
   description?: string;
-  transparentNavbar?: boolean;
 }
-let { title, description, transparentNavbar = false } = Astro.props
+let { title, description } = Astro.props
 title = title ? `${title} | ${SITE.title}` : SITE.title
 const canonicalURL = Astro.canonicalURL.toString()
 const canonicalImageSrc = new URL(OPEN_GRAPH.image.src, Astro.site).toString()
 const imageAlt = OPEN_GRAPH.image.alt
 ---
 
-<html class="h-full scroll-smooth" lang="en">
+<html class="h-full scroll-smooth antialiased [font-feature-settings:'ss01']" lang="en">
   <head>
     <title>{ title }</title>
     <meta charset="UTF-8">
@@ -57,6 +54,7 @@ const imageAlt = OPEN_GRAPH.image.alt
     ></script>
 
     <link rel="stylesheet" href="/fonts/inter/inter.css" />
+    <link rel="stylesheet" href="/fonts/lexend/lexend.css" />
 
     <meta name="description" content={description}>
     <link rel="canonical" href={canonicalURL} />
@@ -85,31 +83,11 @@ const imageAlt = OPEN_GRAPH.image.alt
     />
     <meta name="twitter:image" content={canonicalImageSrc} />
     <meta name="twitter:image:alt" content={imageAlt} />
+
+    <slot name="head" />
   </head>
 
-  <body class="h-full">
-    <div id="swup" class="min-h-full flex flex-col">
-      <Navbar client:load transparentAtTop={transparentNavbar} />
-
-      <main class="flex-grow flex flex-col">
-        <slot />
-      </main>
-
-      <Footer />
-    </div>
-    <script is:inline>
-      import Swup from 'swup'
-      import SwupScriptsPlugin from '@swup/scripts-plugin'
-      import SwupA11yPlugin from '@swup/a11y-plugin'
-      import SwupPreloadPlugin from '@swup/preload-plugin'
-
-      const swup = new Swup({
-        plugins: [
-          new SwupScriptsPlugin(),
-          new SwupA11yPlugin(),
-          new SwupPreloadPlugin(),
-        ],
-      })
-    </script>
+  <body class="h-full bg-white dark:bg-slate-900 transition-colors">
+    <slot />
   </body>
 </html>

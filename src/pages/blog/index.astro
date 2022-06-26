@@ -1,7 +1,7 @@
 ---
 import { parseISO, isBefore } from 'date-fns';
 
-import BaseLayout from "../../layouts/BaseLayout.astro"
+import LandingLayout from "../../layouts/LandingLayout.astro"
 import PostPreview from "../../components/molecules/PostPreview.astro"
 
 const posts = await Astro.glob("./*.md")
@@ -21,7 +21,7 @@ const posts = await Astro.glob("./*.md")
   )
 ---
 
-<BaseLayout title="Blog" description="Stay up to date with Shroud.email. Privacy news and product updates.">
+<LandingLayout title="Blog" description="Stay up to date with Shroud.email. Privacy news and product updates.">
   <div class="bg-gray-50 pt-16 mt-12 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
     <div class="relative max-w-lg mx-auto divide-y-2 divide-gray-200 lg:max-w-7xl">
       <div>
@@ -76,4 +76,4 @@ const posts = await Astro.glob("./*.md")
       </div>
     </div>
   </div>
-</BaseLayout>
+</LandingLayout>

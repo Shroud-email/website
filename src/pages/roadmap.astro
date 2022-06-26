@@ -1,7 +1,7 @@
 ---
 import { Icon } from "astro-icon"
 
-import BaseLayout from "../layouts/BaseLayout.astro"
+import LandingLayout from "../layouts/LandingLayout.astro"
 import PageHeader from "../components/molecules/PageHeader.astro"
 import PageBlock from "../components/molecules/PageBlock.astro"
 
@@ -22,7 +22,7 @@ const roadmapItems = [
 ]
 ---
 
-<BaseLayout title={title}>
+<LandingLayout title={title}>
   <PageHeader title={title} description={description}>
     <p class="mt-3">
       Want to request a feature? <a href="https://github.com/Shroud-email/shroud.email/discussions" class="underline hover:text-gray-900">Let us know on GitHub</a>!
@@ -54,4 +54,4 @@ const roadmapItems = [
       ))}
     </ul>
   </PageBlock>
-</BaseLayout>
+</LandingLayout>

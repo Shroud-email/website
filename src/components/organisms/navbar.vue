@@ -3,9 +3,14 @@ import { shallowRef, ref, computed, onMounted, onBeforeUnmount, toRefs } from "v
 import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue"
 import { MenuIcon, XIcon, CodeIcon, BookOpenIcon, DocumentTextIcon, MapIcon, UserGroupIcon } from "@heroicons/vue/outline/esm/index.js"
 import NavbarDropdown from "~/components/molecules/NavbarDropdown.vue"
+import ThemeSelector from "~/components/molecules/ThemeSelector.vue"
 
 const props = defineProps({
   transparentAtTop: {
+    type: Boolean,
+    default: false,
+  },
+  showThemeSelector: {
     type: Boolean,
     default: false,
   },
@@ -31,9 +36,9 @@ const handleScroll = () => {
 }
 
 const backgroundColor = computed(() => {
-  if (transparentAtTop.value && isScrolledToTop.value) return "bg-transparent"
+  if (transparentAtTop.value && isScrolledToTop.value) return "[.dark_&]:bg-transparent"
 
-  return "bg-gray-900"
+  return "bg-opacity-90"
 })
 
 onMounted(() => {
@@ -47,7 +52,7 @@ onBeforeUnmount(() => {
 
 <template>
   <Popover as="header" class="relative">
-    <div :class="backgroundColor" class="py-3 h-16 flex items-center fixed top-0 left-0 right-0 z-10 transition-colors ease-in-out duration-500">
+    <div :class="backgroundColor" class="py-3 h-16 flex items-center fixed top-0 left-0 right-0 z-10 bg-slate-900 transition-colors ease-in-out duration-500">
       <nav
         class="relative max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 flex-grow"
         aria-label="Global"
@@ -92,6 +97,7 @@ onBeforeUnmount(() => {
           </div>
         </div>
         <div class="hidden md:flex md:items-center md:space-x-6">
+          <ThemeSelector v-if="showThemeSelector" />
           <a
             href="https://app.shroud.email/users/log_in"
             class="text-base font-medium text-white hover:text-gray-300"

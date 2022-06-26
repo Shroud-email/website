@@ -1,5 +1,5 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro"
+import LandingLayout from "../layouts/LandingLayout.astro"
 
 const thirdParties = [
   { name: "EmailOctopus", href: "https://emailoctopus.com/" },
@@ -13,7 +13,7 @@ const thirdParties = [
 ]
 ---
 
-<BaseLayout title="Privacy" description="Shroud.email privacy policy">
+<LandingLayout title="Privacy" description="Shroud.email privacy policy">
   <div class="relative py-16 mt-12 bg-white overflow-hidden">
     <div class="hidden lg:block lg:absolute lg:inset-y-0 lg:h-full lg:w-full">
       <div
@@ -302,4 +302,4 @@ const thirdParties = [
       </div>
     </div>
   </div>
-</BaseLayout>
+</LandingLayout>
