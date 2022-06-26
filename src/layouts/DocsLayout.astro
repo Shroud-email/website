@@ -3,9 +3,9 @@ import BaseLayout from "./BaseLayout.astro"
 import DocsNavigation from "~/components/organisms/DocsNavigation.astro"
 import Prose from "~/components/atoms/Prose.astro"
 import Footer from "~/components/organisms/footer.vue"
-import Navbar from "~/components/organisms/navbar.vue"
+import Navbar from "../components/organisms/navbar.vue"
 
-import navigation from "~/pages/docs/navigation"
+import navigation from "~/navigation"
 
 const { content: page } = Astro.props
 const url = new URL(Astro.request.url)
