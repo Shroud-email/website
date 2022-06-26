@@ -6,7 +6,7 @@ import FadeIn from "~/components/atoms/FadeIn.vue"
   <div class="bg-indigo-700">
     <FadeIn>
       <div class="max-w-2xl mx-auto text-center py-16 px-4 sm:py-20 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
+        <h2 class="text-3xl font-extrabold text-white sm:text-4xl font-display">
           <span class="block">Protect your email privacy.</span>
           <span class="block">Try Shroud.email today.</span>
         </h2>

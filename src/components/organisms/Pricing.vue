@@ -52,7 +52,7 @@ const price = shallowRef({
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center">
           <h1
-            class="text-3xl font-extrabold text-gray-900 sm:text-4xl lg:text-5xl"
+            class="text-3xl font-bold text-gray-900 sm:text-4xl lg:text-5xl font-display"
           >
             One simple plan for everything
           </h1>
@@ -181,7 +181,7 @@ const price = shallowRef({
     <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
       <div class="lg:max-w-2xl lg:mx-auto lg:text-center">
         <h2
-          class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl"
+          class="text-3xl font-bold tracking-tight text-white sm:text-4xl font-display"
         >
           Frequently asked questions
         </h2>

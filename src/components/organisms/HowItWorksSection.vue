@@ -66,7 +66,7 @@ const howItWorksSteps = [
 
       <div class="relative">
         <FadeIn>
-          <h2 class="text-center text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">Spammers
+          <h2 class="text-center text-3xl leading-8 font-bold tracking-tight text-gray-900 sm:text-4xl font-display">Spammers
             and marketers don't just see your email address, they see
             dollar signs.</h2>
           <p class="mt-4 max-w-3xl mx-auto text-center text-xl text-gray-500">
@@ -91,7 +91,7 @@ const howItWorksSteps = [
         <div class="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-8 lg:items-center">
           <div class="lg:col-start-2">
             <FadeIn fromDirection="right">
-              <h3 class="text-2xl font-extrabold text-gray-900 tracking-tight sm:text-3xl">How it works</h3>
+              <h3 class="text-2xl font-bold text-gray-900 tracking-tight sm:text-3xl font-display">How it works</h3>
               <p class="mt-3 text-lg text-gray-500">
                 The next time a website asks for your email, use Shroud.email to create a unique alias that hides your
                 real identity. Any emails will be forwarded to your real address, without the trackers.
@@ -104,7 +104,7 @@ const howItWorksSteps = [
                       class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
                       <component :is="item.icon" class="h-6 w-6" aria-hidden="true" />
                     </div>
-                    <p class="ml-16 text-lg leading-6 font-medium text-gray-900">{{ item.name }}</p>
+                    <p class="ml-16 text-lg leading-6 font-medium text-gray-900 font-display">{{ item.name }}</p>
                   </dt>
                   <dd class="mt-2 ml-16 text-base text-gray-500">
                     {{ item.description }}
