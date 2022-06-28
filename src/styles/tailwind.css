@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.swup-progress-bar {
+  @apply bg-indigo-400;
+  height: 2px;
+}

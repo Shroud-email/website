@@ -13,7 +13,7 @@ let { title, description, transparentNavbar = false } = Astro.props
 ---
 
 <BaseLayout {title} {description}>
-  <div id="swup" class="min-h-full flex flex-col">
+  <div class="min-h-full flex flex-col">
     <Navbar client:load transparentAtTop={transparentNavbar} showThemeSelector={false} />
 
     <main class="flex-grow flex flex-col">
@@ -22,18 +22,4 @@ let { title, description, transparentNavbar = false } = Astro.props
 
     <Footer />
   </div>
-  <script is:inline>
-    import Swup from 'swup'
-    import SwupScriptsPlugin from '@swup/scripts-plugin'
-    import SwupA11yPlugin from '@swup/a11y-plugin'
-    import SwupPreloadPlugin from '@swup/preload-plugin'
-
-    const swup = new Swup({
-      plugins: [
-        new SwupScriptsPlugin(),
-        new SwupA11yPlugin(),
-        new SwupPreloadPlugin(),
-      ],
-    })
-  </script>
 </BaseLayout>
