@@ -19,7 +19,7 @@ const footer = shallowRef([
       <div class="flex justify-center space-x-6 md:order-2">
         <a href="/privacy" class="text-gray-300 hover:text-gray-400">Privacy</a>
         <a
-          href="https://shroud.appsignal-status.com/"
+          href="https://status.shroud.email"
           class="text-gray-300 hover:text-gray-400"
           target="_blank"
           rel="noopener noreferrer"
