@@ -34,7 +34,7 @@ watch(selectedTheme, () => {
       <MoonIcon class="hidden h-4 w-4 fill-slate-400 text-slate-400 [.dark[data-theme=system]_&]:block" />
     </ListboxButton>
     <ListboxOptions
-      class="absolute top-full left-1/2 mt-3 w-36 -translate-x-1/2 space-y-1 rounded-xl p-3 text-sm font-medium shadow-md shadow-black/5 ring-1 bg-slate-800 ring-white/5">
+      class="absolute top-full right-24 w-36 space-y-1 rounded-xl p-3 text-sm font-medium shadow-md shadow-black/5 ring-1 bg-slate-800 ring-white/5">
       <ListboxOption v-for="theme in themes" as="template" :key="theme.value" :value="theme" v-slot="{ active, selected}">
         <li :class="{
           'flex cursor-pointer select-none items-center rounded-[0.625rem] p-1': true,

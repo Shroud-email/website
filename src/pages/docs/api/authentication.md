@@ -11,7 +11,7 @@ The header is a standard Authorization header, e.g.:
 Authorization: Bearer c2hyb3VkLmVtYWlsIHRva2VuIDotKQ==
 ```
 
-# Create an API token
+## Create an API token
 
 `POST /api/v1/token`
 
@@ -19,7 +19,7 @@ Post to this endpoint with your Shroud.email username and password to get an API
 
 If your account has two-factor authentication enabled, you must also include a valid TOTP code in your request. If not, you can leave out the `totp` key.
 
-## Example
+### Example
 
 ```
 POST /api/v1/token

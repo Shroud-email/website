@@ -3,14 +3,14 @@ layout: ~/layouts/DocsLayout.astro
 title: /aliases
 ---
 
-# List email aliases
+## List email aliases
 
 `GET /api/v1/aliases`: Lists all your email aliases.
 
 Aliases are returned in pages of 20. You can customize pagination
 using the `page_size` and `page` URL parameters, e.g. `/api/v1/aliases?page_size=10&page=3`.
 
-## Example response
+### Example response
 
 ```
 {
