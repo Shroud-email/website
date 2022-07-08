@@ -23,51 +23,7 @@ let currentSection = navigation.find((section) =>
 ---
 
 <BaseLayout title={title} description={description}>
-  <script slot="head">
-    let mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
-
-
-    function updateTheme(savedTheme) {
-      let theme = 'system'
-      try {
-        if (!savedTheme) {
-          savedTheme = window.localStorage.theme
-        }
-        if (savedTheme === 'dark') {
-          theme = 'dark'
-          document.documentElement.classList.add('dark')
-        } else if (savedTheme === 'light') {
-          theme = 'light'
-          document.documentElement.classList.remove('dark')
-        } else if (mediaQuery.matches) {
-          document.documentElement.classList.add('dark')
-        } else {
-          document.documentElement.classList.remove('dark')
-        }
-      } catch {
-        theme = 'light'
-        document.documentElement.classList.remove('dark')
-      }
-      return theme
-    }
-
-    document.documentElement.setAttribute('data-theme', updateTheme())
-
-    new MutationObserver(([{ oldValue }]) => {
-      let newValue = document.documentElement.getAttribute('data-theme')
-      if (newValue !== oldValue) {
-        try {
-          window.localStorage.setItem('theme', newValue)
-        } catch {}
-        updateTheme(newValue)
-      }
-    }).observe(document.documentElement, { attributeFilter: ['data-theme'], attributeOldValue: true })
-
-    mediaQuery.addEventListener('change', updateTheme)
-    window.addEventListener('storage', updateTheme)
-  </script>
-
-  <Navbar client:only="vue" transparentAtTop={true} showThemeSelector={true} />
+  <Navbar client:only="vue" transparentAtTop={true} />
 
   <div class="flex flex-col">
     <div class="relative mx-auto flex max-w-8xl justify-center sm:px-2 lg:px-8 xl:px-12 mt-12">
