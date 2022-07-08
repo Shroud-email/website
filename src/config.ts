@@ -12,5 +12,4 @@ export const OPEN_GRAPH = {
       "shroud.email logo against a foggy background" +
       " with the tagline 'email, meet privacy'.",
   },
-  twitter: "@shroudEmail",
 };
