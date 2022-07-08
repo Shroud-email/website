@@ -11,7 +11,7 @@ Firefox Relay is an email alias service. Like Shroud.email, it lets you create u
 
 Firefox Relay uses Amazon's Simple Email Service (SES) under the hood. This means that all emails that go through your aliases are sent via Amazon's servers, with Amazon able to read them. Doesn't Big Tech know enough about you already?
 
-Shroud.email currently uses [MailPace](mailpace.com/) to forward emails from your aliases. MailPace is an independent, privacy-focused email provider hosted on renewable energy in the EU. Although we're big fans of theirs, we are in the process of removing this dependency and will instead handle all emails via our own mailservers.
+Shroud.email currently uses [MailPace](https://mailpace.com/) to forward emails from your aliases. MailPace is an independent, privacy-focused email provider hosted on renewable energy in the EU. Although we're big fans of theirs, we are in the process of removing this dependency and will instead handle all emails via our own mailservers.
 
 ## Tracking pixels
 
