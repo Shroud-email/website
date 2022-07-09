@@ -25,28 +25,16 @@ onBeforeUnmount(() => {
 
 <template>
   <div class="inline relative">
-    <transition name="slide-up">
+    <transition
+      enter-active-class="transition-all duration-700"
+      leave-active-class="transition-all duration-700"
+      enter-from-class="transform opacity-0 translate-y-8"
+      leave-from-class="transform opacity-100 translate-y-0"
+      leave-to-class="transform opacity-0 -translate-y-8"
+    >
       <span :key="currentIndex" class="absolute">
         {{ currentWord }}
       </span>
     </transition>
   </div>
 </template>
-
-<style scoped>
-.slide-up-enter-active, .slide-up-leave-active {
-  @apply transition-all duration-700 ease-in-out;
-}
-
-.slide-up-enter-from {
-  @apply transform opacity-0 translate-y-8;
-}
-
-.slide-up-leave-from {
-  @apply transform opacity-100 translate-y-0;
-}
-
-.slide-up-leave-to {
-  @apply transform opacity-0 -translate-y-8;
-}
-</style>
