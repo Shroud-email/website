@@ -20,6 +20,13 @@ const navigation: Section[] = [
     ],
   },
   {
+    title: "Deployment",
+    links: [
+      { title: "Considerations", href: "/docs/deployment/considerations" },
+      { title: "Self-host", href: "/docs/deployment/self-host" },
+    ],
+  },
+  {
     title: "API",
     links: [
       { title: "Authentication", href: "/docs/api/authentication" },
