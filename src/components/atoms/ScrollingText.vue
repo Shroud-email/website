@@ -35,11 +35,11 @@ onBeforeUnmount(() => {
 
 <style scoped>
 .slide-up-enter-active, .slide-up-leave-active {
-  @apply transition-all duration-500 ease-in-out;
+  @apply transition-all duration-700 ease-in-out;
 }
 
 .slide-up-enter-from {
-  @apply transform opacity-0 -translate-y-6;
+  @apply transform opacity-0 translate-y-8;
 }
 
 .slide-up-leave-from {
@@ -47,6 +47,6 @@ onBeforeUnmount(() => {
 }
 
 .slide-up-leave-to {
-  @apply transform opacity-0 translate-y-12;
+  @apply transform opacity-0 -translate-y-8;
 }
 </style>
