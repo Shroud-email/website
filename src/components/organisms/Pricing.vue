@@ -31,7 +31,7 @@ const questions = shallowRef([
   },
   {
     question: "Does Shroud.email forward attachments?",
-    answer: "Yes, we forward attachments up to 25MB. The following attachments types are supported: jpeg, jpg, png, gif, txt, pdf, docx, xlsx, pptx, csv, att.",
+    answer: "Yes, we forward attachments up to 25MB.",
   },
   {
     question: "Is Shroud.email a disposable email service?",
