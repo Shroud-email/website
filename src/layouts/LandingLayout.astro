@@ -16,7 +16,7 @@ let { title, description, transparentNavbar = false } = Astro.props
   <div class="min-h-full flex flex-col">
     <Navbar client:only="vue" transparentAtTop={transparentNavbar} />
 
-    <main class="flex-grow flex flex-col">
+    <main class="flex-grow flex flex-col bg-white">
       <slot />
     </main>
 
