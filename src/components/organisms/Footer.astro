@@ -29,10 +29,6 @@ const secondColLinks = [
   },
 ]
 
-const icons = [
-  { name: "GitHub", href: "https://github.com/Shroud-email/shroud.email", iconName: "code" }
-]
-
 const year = new Date().getFullYear()
 ---
 <footer class="bg-gray-800" aria-labelledby="footer-heading">
@@ -77,12 +73,14 @@ const year = new Date().getFullYear()
     </div>
     <div class="mt-8 border-t border-gray-700 pt-8 md:flex md:items-center md:justify-between">
       <div class="flex space-x-6 md:order-2">
-        {icons.map(({ name, href, iconName }) => (
-          <a href={href} class="text-gray-400 hover:text-gray-300">
-            <span class="sr-only">{name}</span>
-            <Icon pack="heroicons-solid" name={iconName} class="h-6 w-6" />
-          </a>
-        ))}
+        <a href="https://twitter.com/shroud_email" target="_blank" class="text-gray-400 hover:text-gray-300">
+          <span class="sr-only">Twitter</span>
+          <Icon pack="mdi" name="twitter" class="h-6 w-6" />
+        </a>
+        <a href="https://github.com/Shroud-email/shroud.email" target="_blank" class="text-gray-400 hover:text-gray-300">
+          <span class="sr-only">GitHub</span>
+          <Icon pack="mdi" name="github" class="h-6 w-6" />
+        </a>
       </div>
       <p class="mt-8 text-base text-gray-400 md:mt-0 md:order-1">&copy; {year} Shroud.email. All rights reserved.</p>
     </div>
