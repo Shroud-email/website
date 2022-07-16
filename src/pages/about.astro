@@ -1,0 +1,51 @@
+---
+import LandingLayout from "../layouts/LandingLayout.astro"
+---
+
+<LandingLayout>
+  <div id="fog" class="flex-1 pt-16 pb-12 flex flex-col bg-gray-800">
+    <div class="rounded bg-white shadow-lg w-[30rem] max-w-full mt-12 sm:mt-24 mx-auto p-6">
+      <h1 class="text-xl font-semibold font-display">About Shroud.email</h1>
+      <p class="mt-6">
+        <span class="font-semibold">Hey, I'm <a href="https://btao.org" target="_blank" class="border-b-2 border-indigo-600 hover:text-indigo-600 transition-colors">Tao</a>.</span>
+        I'm the founder and developer behind Shroud.email. Thanks so much for checking out the project!
+      </p>
+
+      <p class="mt-3">
+        I started Shroud.email after trying several email alias services and struggling to find one
+        that had all the features I wanted. In the end, I decided to build it myself: a privacy-focused service
+        that not only gives you email aliases, but also blocks creepy tracking pixels -- and all in a
+        beautiful, simple UI.
+      </p>
+
+      <p class="mt-3">
+        On top of that, the project is fully open-source, and runs on renewable energy in the EU.
+        I use Shroud.email myself every day, and I hope you'll find it useful, too!
+      </p>
+
+      <p class="mt-3">
+        If you have any questions, comments, or suggestions, please feel free to <a href="mailto:hello@shroud.email" class="border-b-2 border-indigo-600 hover:text-indigo-600 transition-colors">send me an email</a>
+        or reach out on <a class="border-b-2 border-indigo-600 hover:text-indigo-600 transition-colors" href="https://twitter.com/shroud_email">Twitter</a>.
+      </p>
+    </div>
+  </div>
+</LandingLayout>
+
+<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+<script is:inline src="https://cdn.jsdelivr.net/npm/vanta@0.5.21/dist/vanta.fog.min.js"></script>
+<script is:inline>
+VANTA.FOG({
+  el: "#fog",
+  THREE: THREE,
+  mouseControls: false,
+  touchControls: false,
+  gyroControls: false,
+  minHeight: 200.0,
+  minWidth: 200.0,
+  baseColor: 0x1f2937,
+  lowlightColor: 0x111827,
+  midtoneColor: 0x334155,
+  highlightColor: 0x475569,
+  speed: 1.8,
+});
+</script>
