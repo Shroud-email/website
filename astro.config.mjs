@@ -5,7 +5,9 @@ export default {
   site: "https://shroud.email",
   integrations: [
     vue(),
-    sitemap(),
+    sitemap({
+      filter: (page) => page !== 'https://shroud.email/newsletter-success/'
+    }),
   ],
   vite: {
     ssr: {
