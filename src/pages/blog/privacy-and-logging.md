@@ -4,6 +4,7 @@ title: Responsible logging
 description: How we debug with privacy in mind.
 date: 2022-05-21
 image: /img/data-graphs.jpg
+imageAlt: graphs on a computer screen
 ---
 
 When we were first prototyping Shroud.email, it was easy to fix any bugs that came up. There were no users, so we could keep detailed information about the emails that we forwarded. These logs helped us iron out all the early issues.

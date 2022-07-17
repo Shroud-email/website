@@ -8,9 +8,7 @@ import NewsletterForm from '~/components/molecules/NewsletterForm.astro';
 const posts = await Astro.glob("./*.md")
   .then(posts => posts
     .map(({ frontmatter, url }) => ({
-      title: frontmatter.title,
-      description: frontmatter.description,
-      image: frontmatter.image,
+      ...frontmatter,
       date: parseISO(frontmatter.date),
       href: url,
     }))

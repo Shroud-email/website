@@ -7,11 +7,12 @@ export interface Props {
 		title: string;
 		description: string;
     image: string;
+    imageAlt: string;
 		date: string | Date;
   }
 }
 
-const { content: { title, description, image, date } } = Astro.props
+const { content: { title, description, image, imageAlt, date } } = Astro.props
 let formattedDate
 if (typeof date === "string") {
   formattedDate = format(parseISO(date), "PP")
@@ -51,7 +52,7 @@ if (typeof date === "string") {
       </div>
     </div>
     <div class="relative px-4 sm:px-6 lg:px-8">
-      <img src={image} class="w-full max-w-prose mx-auto rounded-xl mb-12" />
+      <img src={image} alt={imageAlt} class="w-full max-w-prose mx-auto rounded-xl mb-12" />
       <div class="text-lg max-w-prose mx-auto">
         <h1>
           <span class="mb-2 block text-3xl text-center leading-8 font-bold tracking-tight text-gray-900 sm:text-4xl font-display">{title}</span>

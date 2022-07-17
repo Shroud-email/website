@@ -4,6 +4,7 @@ title: Introducing alias replies
 description: Send emails from your aliases
 date: 2022-06-12
 image: /img/letter.jpg
+imageAlt: a letter peeking out of a postbox
 ---
 
 We're excited to announce that you can now send outgoing emails via your Shroud.email aliases.

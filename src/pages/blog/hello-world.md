@@ -4,6 +4,7 @@ title: Hello, world
 description: Welcoming Shroud.email to the world.
 date: 2022-01-08
 image: /img/foglogo.png
+imageAlt: Shroud.email logo against a foggy background
 ---
 
 We're excited to announce Shroud.email: a tool to hide your email address from creepy spammers and marketers and block spy pixels.

@@ -22,7 +22,7 @@ If one of your aliases starts receiving spam, you have a few options. The first 
 The second option is to block the specific sender that's spamming you. This only works in cases where the spam is originating only from a few addresses. On the spam page on Shroud.email, it's easy to block the sender of a spam email
 using the "block sender" button:
 
-<img src="/img/block-spam-sender.png" />
+<img src="/img/block-spam-sender.png" alt="app screenshot showing how to block a spam sender" />
 
 ## One of my outgoing emails was marked as spam. What do I do?
 

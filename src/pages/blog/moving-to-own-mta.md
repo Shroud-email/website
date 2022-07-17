@@ -4,11 +4,12 @@ title: Moving to our own mailserver
 description: Fewer third parties = greater privacy
 date: 2022-07-13
 image: /img/man-postbox.jpg
+imageAlt: a man delivering letters
 ---
 
 When we started working on Shroud.email, we wanted to get up and running quickly with a great UX. I had heard of the challenges of self-hosting your own mailserver and the amount of work needed to keep your emails out of the spam folder. In order to allow us to focus on building the core product, we decided to use [MailPace](https://mailpace.com/) to deliver our emails.
 
-This worked great. Our emails were always delivered safely, and MailPace has a lot in common with Shroud.email: we're both focused on privacy, hosted in the EU on renewable energy, and are small, independent businesses. However, as much as we're fans of theirs, our goal was always to run our own mailserver. Today, we've removed MailPace from our product and from our [privacy notice](/privacy).
+This worked great. Our emails were always delivered safely, and MailPace has a lot in common with Shroud.email: we're both focused on privacy, hosted in the EU on renewable energy, and are small, independent businesses. However, as much as we're fans of theirs, our goal was always to run our own mailserver. Today, we've removed MailPace from our product and from our [privacy notice](/privacy/).
 
 For a privacy-focused product like ours, we want to minimize the number of third parties we use. For such a core part of our infrastructure -- the mailserver that actually forwards your emails -- this is especially important. For the last few days, all emails forwarded by Shroud.email have been delivered directly by ourselves with no middle-men.
 

@@ -4,6 +4,7 @@ title: How Shroud.email protects your privacy
 description: Our approach to privacy
 date: 2022-04-11
 image: /img/surveillance-cameras.jpg
+imageAlt: surveillance cameras covering a wall
 ---
 
 It's not easy to retain your privacy on the Internet. Trackers follow your footsteps as you browse the web and analytics services log your every click. And you're not safe from this even when you're reading your emails. Spy pixels 🕵️ will phone home to tell the sender that you read their email, and even where you were when you read it.
