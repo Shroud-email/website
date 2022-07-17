@@ -3,6 +3,7 @@ layout: ~/layouts/DocsLayout.astro
 setup: |-
   import Alert from "~/components/atoms/Alert.astro"
 title: Self-host Shroud.email
+description: How to self-host Shroud.email
 ---
 
 Shroud.email is fully libre and open-source, and can be deployed on your own infrastructure. We provide a Docker Compose file for easy deployment.

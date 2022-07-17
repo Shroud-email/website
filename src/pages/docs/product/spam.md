@@ -3,6 +3,7 @@ layout: ~/layouts/DocsLayout.astro
 setup: |-
   import Alert from "~/components/atoms/Alert.astro"
 title: How we handle spam
+description: How Shroud.email handles spam
 ---
 
 As an email server, we need to be cautious about forwarding spam to your mailbox. If one of your aliases

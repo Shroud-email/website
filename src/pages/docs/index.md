@@ -1,6 +1,7 @@
 ---
 layout: ~/layouts/DocsLayout.astro
 title: Documentation
+description: Product and technical documentation for Shroud.email.
 ---
 
 Welcome to the documentation for Shroud.email.

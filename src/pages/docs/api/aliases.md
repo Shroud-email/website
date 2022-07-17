@@ -1,6 +1,7 @@
 ---
 layout: ~/layouts/DocsLayout.astro
 title: /aliases
+description: "API endpoints for email aliases"
 ---
 
 ## List email aliases

@@ -1,6 +1,7 @@
 ---
 layout: ~/layouts/DocsLayout.astro
 title: Authentication
+description: "API authentication documentation"
 ---
 
 To use the Shroud.email API, all requests must include an authorization header with a bearer token. You can create an API token using the API endpoint at `/api/v1/token`. These tokens give access to your Shroud.email account, so keep them secret!

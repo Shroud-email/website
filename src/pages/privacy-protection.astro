@@ -6,8 +6,8 @@ import PageBlock from "../components/molecules/PageBlock.astro"
 const title="Privacy Protection"
 const description = "We love email, but we don't love the creeps who want to snoop on your email reading habits. Shroud.email uses a powerful cocktail of technologies to protect your email privacy."
 ---
-<LandingLayout title={title} description="How Shroud.email protects your email privacy.">
-  <PageHeader title={title} description={description} />
+<LandingLayout {title} {description}>
+  <PageHeader {title} {description} />
 
   <PageBlock heading="Email, without the surveillance.">
     <dl class="mt-10 space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-x-8 sm:gap-y-10 lg:mt-0 lg:col-span-2">

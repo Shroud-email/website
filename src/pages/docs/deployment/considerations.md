@@ -3,6 +3,7 @@ layout: ~/layouts/DocsLayout.astro
 setup: |-
   import Alert from "~/components/atoms/Alert.astro"
 title: Considerations
+description: Considerations when self-hosting Shroud.email.
 ---
 
 If you'd like to self-host Shroud.email, you should keep in mind that running your own mailserver isn't always trivial.
