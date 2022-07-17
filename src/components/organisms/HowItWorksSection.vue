@@ -127,7 +127,7 @@ const howItWorksSteps = [
                 </defs>
                 <rect width="784" height="404" fill="url(#e80155a9-dfde-425a-b5ea-1f6fadd20131)" />
               </svg>
-              <img class="relative mx-auto" width="490" src="/img/howitworks.png"
+              <img class="relative mx-auto" width="490" height="397" src="/img/howitworks.png"
                 alt="a list of emails marked as 'blocked', 'trackers removed', or 'forwarded'" />
 
             </FadeIn>
