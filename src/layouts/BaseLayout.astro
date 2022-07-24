@@ -7,7 +7,7 @@ export interface Props {
   description?: string;
 }
 let { title, description } = Astro.props
-title = title ? `${title} | ${SITE.title}` : SITE.title
+title = title ? `${title} | ${SITE.title}` : `${SITE.title} | Email, meet privacy.`
 const canonicalURL = Astro.canonicalURL.toString()
 const canonicalImageSrc = new URL(OPEN_GRAPH.image.src, Astro.site).toString()
 const imageAlt = OPEN_GRAPH.image.alt
