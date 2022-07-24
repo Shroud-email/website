@@ -14,4 +14,5 @@ export default {
       external: ["svgo"],
     },
   },
+  trailingSlash: "always",
 };
