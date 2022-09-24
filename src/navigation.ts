@@ -16,6 +16,7 @@ const navigation: Section[] = [
   {
     title: "Product details",
     links: [
+      { title: "Custom domains", href: "/docs/product/custom-domains/" },
       { title: "Spam", href: "/docs/product/spam/" },
     ],
   },
