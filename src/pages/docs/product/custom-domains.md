@@ -1,7 +1,5 @@
 ---
 layout: ~/layouts/DocsLayout.astro
-setup: |-
-  import Alert from "~/components/atoms/Alert.astro"
 title: Custom domains
 description: Bring your own domain to Shroud.email
 ---

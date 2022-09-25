@@ -32,6 +32,7 @@ const navigation: Section[] = [
     links: [
       { title: "Authentication", href: "/docs/api/authentication/" },
       { title: "/aliases", href: "/docs/api/aliases/" },
+      { title: "/domains", href: "/docs/api/domains/" },
     ],
   },
 ]

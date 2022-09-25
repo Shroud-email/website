@@ -16,7 +16,6 @@ using the `page_size` and `page` URL parameters, e.g. `/api/v1/aliases?page_size
 ```
 {
   email_aliases: [{
-    "id": 1,
     "address": "deadbeef@fog.shroud.email",
     "enabled": true,
     "title": "Newsletters",
@@ -29,5 +28,30 @@ using the `page_size` and `page` URL parameters, e.g. `/api/v1/aliases?page_size
   "page_size": 20,
   "total_entries": 1,
   "total_pages": 1
+}
+```
+
+## Create an alias
+
+`POST /api/v1/aliases`: Create an email alias.
+
+By sending a POST request with no arguments, this will generate a random email alias on the default, shared domain (`@fog.shroud.email`). Alternatively, you can include a POST body to create a custom alias. For example, to create `myemail@example.com`, send the following arguments:
+```
+{
+  "local_part": "myemail",
+  "domain": "example.com"
+}
+```
+
+This will return a response like
+```
+{
+  "address": "email@custom.test",
+  "blocked": 0,
+  "forwarded": 0,
+  "title": null,
+  "notes": null,
+  "blocked_addresses": [],
+  "enabled": true
 }
 ```
