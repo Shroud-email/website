@@ -26,7 +26,7 @@ function isActive(section: Heading) {
         <ul class="mt-4 space-y-3 text-sm">
           <li v-for="section in tableOfContents" :key="section.slug">
             <h3>
-              <a data-no-swup :href="`#${section.slug}`" :class="isActive(section) ? 'text-sky-500' : 'font-normal text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300'">
+              <a :href="`#${section.slug}`" :class="isActive(section) ? 'text-sky-500' : 'font-normal text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300'">
               {{ section.text }}
               </a>
             </h3>

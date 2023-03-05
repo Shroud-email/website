@@ -1,12 +1,12 @@
-import rss from "@astrojs/rss";
+import  rss, { pagesGlobToRssItems } from "@astrojs/rss";
 import { parseISO, isBefore } from 'date-fns';
 
 import { SITE } from "../../config"
 
-const postImportResult = import.meta.globEager('./*.md');
-const posts = Object.values(postImportResult);
 
-export const get = () =>
+export const get = async () => {
+  const postImportResult = await pagesGlobToRssItems(import.meta.globEager('./*.md'));
+  const posts = Object.values(postImportResult);
   rss({
     title: SITE.title,
     description: SITE.description,
@@ -25,3 +25,4 @@ export const get = () =>
     }),
     customData: "<language>en-us</language>",
   });
+}

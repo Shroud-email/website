@@ -1,6 +1,6 @@
 ---
 import "../styles/tailwind.css"
-import {OPEN_GRAPH, SITE} from "../config.ts"
+import {OPEN_GRAPH, SITE} from "../config"
 
 export interface Props {
   title?: string;
@@ -8,7 +8,7 @@ export interface Props {
 }
 let { title, description } = Astro.props
 title = title ? `${title} | ${SITE.title}` : `${SITE.title} | Email, meet privacy.`
-const canonicalURL = Astro.canonicalURL.toString()
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const canonicalImageSrc = new URL(OPEN_GRAPH.image.src, Astro.site).toString()
 const imageAlt = OPEN_GRAPH.image.alt
 ---
@@ -22,7 +22,7 @@ const imageAlt = OPEN_GRAPH.image.alt
     <link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="RSS" />
     <link rel="sitemap" href="/sitemap-index.xml">
 
-    <script is:inline data-swup-ignore-script>
+    <script is:inline>
     window.Papercups = {
       config: {
         token: "81a13d1b-a34a-487e-965e-8779ddd855f1",
@@ -42,13 +42,11 @@ const imageAlt = OPEN_GRAPH.image.alt
     </script>
     <script
       type="text/javascript"
-      data-swup-ignore-script
       async
       defer
       src="https://app.papercups.io/widget.js"
     ></script>
     <script
-      data-swup-ignore-script
       defer
       data-domain="shroud.email"
       data-api="https://shroud.email/p/api/event"
@@ -88,46 +86,8 @@ const imageAlt = OPEN_GRAPH.image.alt
   </head>
 
   <body class="h-full bg-white dark:bg-slate-900 transition-colors">
-    <div id="swup" class="h-full swup-transition-fade">
+    <div class="h-full">
       <slot />
     </div>
   </body>
 </html>
-
-<script>
-  import Swup from 'swup'
-  import SwupScriptsPlugin from '@swup/scripts-plugin'
-  import SwupA11yPlugin from '@swup/a11y-plugin'
-  import SwupPreloadPlugin from '@swup/preload-plugin'
-  import SwupProgressPlugin from "@swup/progress-plugin"
-
-  const swup = new Swup({
-    animationSelector: '[class*="swup-transition-"]',
-    plugins: [
-      new SwupScriptsPlugin(),
-      new SwupA11yPlugin(),
-      new SwupPreloadPlugin(),
-      new SwupProgressPlugin(),
-    ],
-  })
-
-  document.addEventListener("swup:contentReplaced", () => {
-    document.documentElement.classList.remove("scroll-smooth")
-    window.scrollTo({
-      top: 0,
-      behavior: "auto",
-    })
-    document.documentElement.classList.add("scroll-smooth")
-  })
-</script>
-
-<style is:global>
-.swup-transition-fade {
-  transition: 0.01s;
-  opacity: 1;
-}
-
-html.is-animating .swup-transition-fade {
-  opacity: 0.99;
-}
-</style>

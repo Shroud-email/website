@@ -1,18 +1,19 @@
-import vue from "@astrojs/vue"
-import sitemap from "@astrojs/sitemap"
+import vue from "@astrojs/vue";
+import { defineConfig } from 'astro/config';
+import sitemap from "@astrojs/sitemap";
+import tailwind from '@astrojs/tailwind';
+import mdx from "@astrojs/mdx";
 
-export default {
-  site: "https://shroud.email",
-  integrations: [
-    vue(),
-    sitemap({
-      filter: (page) => page !== 'https://shroud.email/newsletter-success/'
-    }),
-  ],
+// https://astro.build/config
+export default defineConfig({
+  site: "https://shroud.email/",
+  integrations: [vue(), tailwind(), sitemap({
+    filter: page => page !== 'https://shroud.email/newsletter-success/'
+  }), mdx()],
   vite: {
     ssr: {
-      external: ["svgo"],
-    },
+      external: ["svgo"]
+    }
   },
-  trailingSlash: "always",
-};
+  trailingSlash: "always"
+});

@@ -8,8 +8,8 @@ import TableOfContents from "~/components/organisms/TableOfContents.vue"
 
 import navigation from "~/navigation"
 
-const { content: { title, description, astro: { headers } }} = Astro.props
-const tableOfContents = headers.filter(({ depth }) => depth === 2)
+const { headings, content: { title, description }} = Astro.props
+const tableOfContents = headings.filter(({ depth }) => depth === 2)
 const url = new URL(Astro.request.url)
 const currentPage = url.pathname
 
