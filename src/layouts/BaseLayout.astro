@@ -1,45 +1,54 @@
 ---
-import "../styles/tailwind.css"
-import {OPEN_GRAPH, SITE} from "../config"
+import "../styles/tailwind.css";
+import { OPEN_GRAPH, SITE } from "../config";
 import { SEO } from "astro-seo";
 
 export interface Props {
   title?: string;
   description?: string;
 }
-let { title, description } = Astro.props
-title = title ? `${title} | ${SITE.title}` : `${SITE.title} | Email, meet privacy.`
+let { title, description } = Astro.props;
+title = title
+  ? `${title} | ${SITE.title}`
+  : `${SITE.title} | Email, meet privacy.`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const canonicalImageSrc = new URL(OPEN_GRAPH.image.src, Astro.site).toString()
-const imageAlt = OPEN_GRAPH.image.alt
+const canonicalImageSrc = new URL(OPEN_GRAPH.image.src, Astro.site).toString();
+const imageAlt = OPEN_GRAPH.image.alt;
 ---
 
-<html class="h-full scroll-smooth antialiased [font-feature-settings:'ss01']" lang="en">
+<html
+  class="h-full scroll-smooth antialiased [font-feature-settings:'ss01']"
+  lang="en"
+>
   <head>
-    <title>{ title }</title>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="RSS" />
-    <link rel="sitemap" href="/sitemap-index.xml">
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      href="/blog/rss.xml"
+      title="RSS"
+    />
+    <link rel="sitemap" href="/sitemap-index.xml" />
 
     <script is:inline>
-    window.Papercups = {
-      config: {
-        token: "81a13d1b-a34a-487e-965e-8779ddd855f1",
-        inbox: "f01194cc-2fa5-4be5-b2e1-54f42b1fc773",
-        title: "Welcome to Shroud.email",
-        subtitle: "Ask us anything in the chat window below 😊",
-        primaryColor: "#6366F1",
-        newMessagePlaceholder: "Start typing...",
-        showAgentAvailability: false,
-        agentAvailableText: "We're online right now!",
-        agentUnavailableText: "We're away at the moment.",
-        requireEmailUpfront: true,
-        iconVariant: "outlined",
-        baseUrl: "https://app.papercups.io"
-      },
-    };
+      window.Papercups = {
+        config: {
+          token: "81a13d1b-a34a-487e-965e-8779ddd855f1",
+          inbox: "f01194cc-2fa5-4be5-b2e1-54f42b1fc773",
+          title: "Welcome to Shroud.email",
+          subtitle: "Ask us anything in the chat window below 😊",
+          primaryColor: "#6366F1",
+          newMessagePlaceholder: "Start typing...",
+          showAgentAvailability: false,
+          agentAvailableText: "We're online right now!",
+          agentUnavailableText: "We're away at the moment.",
+          requireEmailUpfront: true,
+          iconVariant: "outlined",
+          baseUrl: "https://app.papercups.io",
+        },
+      };
     </script>
     <script
       type="text/javascript"
@@ -69,11 +78,11 @@ const imageAlt = OPEN_GRAPH.image.alt
           image: canonicalImageSrc,
           url: canonicalURL.toString(),
         },
-        image: {url: canonicalImageSrc, alt: imageAlt},
+        image: { url: canonicalImageSrc, alt: imageAlt },
         optional: {
           siteName: SITE.title,
           locale: OPEN_GRAPH.locale,
-        }
+        },
       }}
       twitter={{
         card: "summary_large_image",
