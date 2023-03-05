@@ -1,5 +1,4 @@
 ---
-layout: '../../layouts/BlogPost.astro'
 title: How Shroud.email protects your privacy
 description: Our approach to privacy
 date: 2022-04-11

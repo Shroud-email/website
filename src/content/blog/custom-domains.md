@@ -1,5 +1,4 @@
 ---
-layout: '../../layouts/BlogPost.astro'
 title: Custom domains are here
 description: Bring your own domain to Shroud.email
 date: 2022-09-24

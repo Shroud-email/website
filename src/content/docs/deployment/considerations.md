@@ -1,7 +1,4 @@
 ---
-layout: ~/layouts/DocsLayout.astro
-setup: |-
-  import Alert from "~/components/atoms/Alert.astro"
 title: Considerations
 description: Considerations when self-hosting Shroud.email.
 ---

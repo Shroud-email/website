@@ -1,16 +1,16 @@
 ---
-layout: '../../layouts/BlogPost.astro'
 title: "Email masks: the way to reclaim your email privacy"
+description: "Stop creeps with email masks."
 date: 2022-07-17
 image: /img/masked-man.jpg
 imageAlt: a black-clad person wearing a blank white mask
 ---
 
-Sometimes, reading the news about online privacy can make you feel hopeless. In addition to behavioral advertising, data collection, mass surveillance, and [data brokers](https://www.eff.org/deeplinks/2021/07/data-brokers-are-problem), there 
+Sometimes, reading the news about online privacy can make you feel hopeless. In addition to behavioral advertising, data collection, mass surveillance, and [data brokers](https://www.eff.org/deeplinks/2021/07/data-brokers-are-problem), there
 are constant [data breaches](https://haveibeenpwned.com/PwnedWebsites) leaking things like email addresses, passwords,
 real names, and more.
 
-One technique used to track you across the web is cross-referencing your data via some [unique identifier](https://www.eff.org/deeplinks/2021/04/after-cookies-ad-tech-wants-use-your-email-track-you-everywhere). This can be something like a third-party cookie, but often it's your email address -- your *de facto* ID on the web. Many websites require your email in order to work, so you end up sharing it left, right and center.
+One technique used to track you across the web is cross-referencing your data via some [unique identifier](https://www.eff.org/deeplinks/2021/04/after-cookies-ad-tech-wants-use-your-email-track-you-everywhere). This can be something like a third-party cookie, but often it's your email address -- your _de facto_ ID on the web. Many websites require your email in order to work, so you end up sharing it left, right and center.
 
 On top of that, when you receive an email, it often contains spy pixels that report back when you've read it, where you were, and what device you were using. All of this contributes to the increasing [data exhaust](https://www.techopedia.com/definition/30319/data-exhaust) we leave behind.
 

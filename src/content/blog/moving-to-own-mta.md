@@ -1,5 +1,4 @@
 ---
-layout: '../../layouts/BlogPost.astro'
 title: Moving to our own mailserver
 description: Fewer third parties = greater privacy
 date: 2022-07-13

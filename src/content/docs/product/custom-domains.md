@@ -1,5 +1,4 @@
 ---
-layout: ~/layouts/DocsLayout.astro
 title: Custom domains
 description: Bring your own domain to Shroud.email
 ---
@@ -19,14 +18,12 @@ From there, you'll need to set up a number of DNS records to verify that the dom
 We require a number of DNS records to be set up:
 
 | DNS record          | Purpose                                                      |
-|:--------------------|:-------------------------------------------------------------|
+| :------------------ | :----------------------------------------------------------- |
 | `shroud-verify` TXT | Prove that the domain belongs to you                         |
 | MX record           | Tell senders to direct emails to the Shroud.email mailserver |
 | SPF record          | Prevent others from forging emails from your domain          |
 | DKIM record         | Prevent email spoofing                                       |
 | DMARC record        | Prevent email spoofing                                       |
-
-
 
 Once that's done, you can create aliases with this domain:
 

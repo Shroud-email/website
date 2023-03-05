@@ -1,5 +1,4 @@
 ---
-layout: ~/layouts/DocsLayout.astro
 title: /aliases
 description: "API endpoints for email aliases"
 ---
@@ -36,6 +35,7 @@ using the `page_size` and `page` URL parameters, e.g. `/api/v1/aliases?page_size
 `POST /api/v1/aliases`: Create an email alias.
 
 By sending a POST request with no arguments, this will generate a random email alias on the default, shared domain (`@fog.shroud.email`). Alternatively, you can include a POST body to create a custom alias. For example, to create `myemail@example.com`, send the following arguments:
+
 ```
 {
   "local_part": "myemail",
@@ -44,6 +44,7 @@ By sending a POST request with no arguments, this will generate a random email a
 ```
 
 This will return a response like
+
 ```
 {
   "address": "email@custom.test",

@@ -1,5 +1,4 @@
 ---
-layout: ~/layouts/DocsLayout.astro
 title: /domains
 description: "API endpoints for custom domains"
 ---

@@ -1,5 +1,4 @@
 ---
-layout: '../../layouts/BlogPost.astro'
 title: Introducing alias replies
 description: Send emails from your aliases
 date: 2022-06-12

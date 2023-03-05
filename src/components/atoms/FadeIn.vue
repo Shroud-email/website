@@ -10,12 +10,12 @@ const props = defineProps({
   },
 })
 
-const observer = ref(null)
+const observer = ref<IntersectionObserver | null>(null)
 const observerContainer = ref(null)
 const isVisible = ref(false)
 
 const classes = computed(() => {
-  switch(props.fromDirection) {
+  switch (props.fromDirection) {
     case "up":
       return isVisible.value ? "translate-y-0" : "-translate-y-6"
     case "down":
@@ -29,7 +29,7 @@ const classes = computed(() => {
   }
 })
 
-const observerCallback = (entries, _observer) => {
+const observerCallback: IntersectionObserverCallback = (entries, _observer) => {
   entries.forEach(entry => {
     // Assumes only a single entry. Also, once an entry is shown,
     // it's not hidden again.
@@ -44,20 +44,21 @@ onMounted(() => {
     threshold: 0.5,
   }
   observer.value = new IntersectionObserver(observerCallback, options)
-  observer.value.observe(observerContainer.value)
+  if (observerContainer.value) {
+    observer.value.observe(observerContainer.value)
+  }
 })
 
 onBeforeUnmount(() => {
+  if (!observer.value) return
+
   observer.value.disconnect()
 })
 </script>
 
 <template>
-<div
-  ref="observerContainer"
-  :class="classes + ' ' + (isVisible ? 'opacity-100' : 'opacity-0')"
-  class="transition-all duration-1000"
->
-  <slot />
-</div>
+  <div ref="observerContainer" :class="classes + ' ' + (isVisible ? 'opacity-100' : 'opacity-0')"
+    class="transition-all duration-1000">
+    <slot />
+  </div>
 </template>

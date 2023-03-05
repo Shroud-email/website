@@ -1,5 +1,4 @@
 ---
-layout: '../../layouts/BlogPost.astro'
 title: Responsible logging
 description: How we debug with privacy in mind.
 date: 2022-05-21

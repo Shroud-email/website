@@ -2,10 +2,13 @@
 import { computed, onBeforeUnmount, onMounted, PropType, ref } from 'vue';
 
 const props = defineProps({
-  words: Array as PropType<string[]>,
+  words: {
+    type: Array as PropType<string[]>,
+    required: true,
+  }
 })
 
-const timer = ref(null)
+const timer = ref<ReturnType<typeof setInterval> | null>(null)
 const currentIndex = ref(0)
 
 const currentWord = computed(() => {
@@ -19,19 +22,16 @@ onMounted(() => {
 })
 
 onBeforeUnmount(() => {
+  if (!timer.value) return
   clearInterval(timer.value)
 })
 </script>
 
 <template>
   <div class="inline relative">
-    <transition
-      enter-active-class="transition-all duration-700"
-      leave-active-class="transition-all duration-700"
-      enter-from-class="transform opacity-0 -translate-y-8"
-      leave-from-class="transform opacity-100 translate-y-0"
-      leave-to-class="transform opacity-0 translate-y-8"
-    >
+    <transition enter-active-class="transition-all duration-700" leave-active-class="transition-all duration-700"
+      enter-from-class="transform opacity-0 -translate-y-8" leave-from-class="transform opacity-100 translate-y-0"
+      leave-to-class="transform opacity-0 translate-y-8">
       <span :key="currentIndex" class="absolute">
         {{ currentWord }}
       </span>
