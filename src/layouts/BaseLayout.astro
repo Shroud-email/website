@@ -1,6 +1,7 @@
 ---
 import "../styles/tailwind.css"
 import {OPEN_GRAPH, SITE} from "../config"
+import { SEO } from "astro-seo";
 
 export interface Props {
   title?: string;
@@ -58,29 +59,30 @@ const imageAlt = OPEN_GRAPH.image.alt
 
     <link rel="canonical" href={canonicalURL} />
 
-    <!-- OpenGraph -->
-    <meta property="og:title" content={title ?? SITE.title} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={canonicalURL} />
-    <meta property="og:image" content={canonicalImageSrc} />
-    <meta property="og:image:alt" content={imageAlt} />
-    <meta property="og:site_name" content={SITE.title} />
-    <meta property="og:locale" content={OPEN_GRAPH.locale} />
-    <meta
-      name="description"
-      property="og:description"
-      content={description ?? SITE.description}
+    <SEO
+      title={title}
+      description={description ?? SITE.description}
+      openGraph={{
+        basic: {
+          title: title,
+          type: "website",
+          image: canonicalImageSrc,
+          url: canonicalURL.toString(),
+        },
+        image: {url: canonicalImageSrc, alt: imageAlt},
+        optional: {
+          siteName: SITE.title,
+          locale: OPEN_GRAPH.locale,
+        }
+      }}
+      twitter={{
+        card: "summary_large_image",
+        title: title,
+        description: description ?? SITE.description,
+        image: canonicalImageSrc,
+        imageAlt: imageAlt,
+      }}
     />
-
-    <!-- Twitter tags -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta
-      name="twitter:description"
-      content={description ?? SITE.description}
-    />
-    <meta name="twitter:image" content={canonicalImageSrc} />
-    <meta name="twitter:image:alt" content={imageAlt} />
 
     <slot name="head" />
   </head>
