@@ -25,6 +25,7 @@ const navigation: Section[] = [
     links: [
       { title: "Considerations", href: "/docs/deployment/considerations/" },
       { title: "Self-host", href: "/docs/deployment/self-host/" },
+      { title: "Upgrading", href: "/docs/deployment/upgrading/" },
     ],
   },
   {
@@ -35,6 +36,6 @@ const navigation: Section[] = [
       { title: "/domains", href: "/docs/api/domains/" },
     ],
   },
-]
+];
 
-export default navigation
+export default navigation;
