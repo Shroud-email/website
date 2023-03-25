@@ -3,6 +3,13 @@ title: Authentication
 description: "API authentication documentation"
 ---
 
+import Alert from "~/components/atoms/Alert.astro";
+
+<Alert
+  intent="info"
+  text="For our hosted Shroud.email, use the host https://app.shroud.email for this API. If you're self-hosting, replace this with your own instance's domain!"
+/>
+
 To use the Shroud.email API, all requests must include an authorization header with a bearer token. You can create an API token using the API endpoint at `/api/v1/token`. These tokens give access to your Shroud.email account, so keep them secret!
 
 The header is a standard Authorization header, e.g.:
