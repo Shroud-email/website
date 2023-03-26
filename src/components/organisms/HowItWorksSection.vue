@@ -73,7 +73,7 @@ const howItWorksSteps = [
               <h3 class="text-2xl font-bold text-gray-900 tracking-tight sm:text-3xl font-display">How it works</h3>
               <p class="mt-3 text-lg text-gray-500">
                 The next time a website asks for your email, use Shroud.email to create a unique alias that hides your
-                real identity. Any emails will be forwarded to your real address, without the trackers.
+                identity.
               </p>
 
               <dl class="mt-10 space-y-10">
