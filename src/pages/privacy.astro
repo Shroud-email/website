@@ -1,5 +1,5 @@
 ---
-import LandingLayout from "../layouts/LandingLayout.astro"
+import LandingLayout from "../layouts/LandingLayout.astro";
 
 const thirdParties = [
   { name: "EmailOctopus", href: "https://emailoctopus.com/" },
@@ -7,9 +7,8 @@ const thirdParties = [
   { name: "AppSignal", href: "https://www.appsignal.com/" },
   { name: "Cloudflare", href: "https://www.cloudflare.com/" },
   { name: "Stripe", href: "https://stripe.com/en-gb" },
-  { name: "Papercups", href: "https://papercups.io/" },
   { name: "Logtail", href: "https://betterstack.com/logtail" },
-]
+];
 ---
 
 <LandingLayout title="Privacy" description="Shroud.email privacy policy">
@@ -41,24 +40,16 @@ const thirdParties = [
                 width="4"
                 height="4"
                 class="text-gray-200"
-                fill="currentColor"
-              />
+                fill="currentColor"></rect>
             </pattern>
           </defs>
           <rect
             width="404"
             height="384"
-            fill="url(#74b3fd99-0a6f-4271-bef2-e80eeafdf357)"
-          />
+            fill="url(#74b3fd99-0a6f-4271-bef2-e80eeafdf357)"></rect>
         </svg>
         <svg
-          class="
-            absolute
-            top-1/2
-            right-full
-            transform
-            -translate-y-1/2 -translate-x-32
-          "
+          class="absolute top-1/2 right-full transform -translate-y-1/2 -translate-x-32"
           width="404"
           height="384"
           fill="none"
@@ -79,15 +70,13 @@ const thirdParties = [
                 width="4"
                 height="4"
                 class="text-gray-200"
-                fill="currentColor"
-              />
+                fill="currentColor"></rect>
             </pattern>
           </defs>
           <rect
             width="404"
             height="384"
-            fill="url(#f210dbf6-a58d-4871-961e-36d5016a0f49)"
-          />
+            fill="url(#f210dbf6-a58d-4871-961e-36d5016a0f49)"></rect>
         </svg>
         <svg
           class="absolute bottom-12 left-full transform translate-x-32"
@@ -111,15 +100,13 @@ const thirdParties = [
                 width="4"
                 height="4"
                 class="text-gray-200"
-                fill="currentColor"
-              />
+                fill="currentColor"></rect>
             </pattern>
           </defs>
           <rect
             width="404"
             height="384"
-            fill="url(#d3eb07ae-5182-43e6-857d-35c643af9034)"
-          />
+            fill="url(#d3eb07ae-5182-43e6-857d-35c643af9034)"></rect>
         </svg>
       </div>
     </div>
@@ -127,28 +114,12 @@ const thirdParties = [
       <div class="text-lg max-w-prose mx-auto">
         <h1>
           <span
-            class="
-              mt-2
-              block
-              text-3xl text-center
-              leading-8
-              font-extrabold
-              tracking-tight
-              text-gray-900
-              sm:text-4xl
-            "
+            class="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl"
             >Privacy Notice</span
           >
         </h1>
         <span
-          class="
-            block
-            mt-3
-            text-sm text-center text-indigo-600
-            font-semibold
-            tracking-wide
-            uppercase
-          "
+          class="block mt-3 text-sm text-center text-indigo-600 font-semibold tracking-wide uppercase"
           >Last updated 2022-05-30</span
         >
       </div>
@@ -181,11 +152,19 @@ const thirdParties = [
 
         <p>We may share this information with:</p>
         <ul role="list">
-          {thirdParties.map((thirdParty) => (
-            <li>
-              <a href={thirdParty.href} rel="noopener noreferrer" target="_blank">{thirdParty.name}</a>
-            </li>
-          ))}
+          {
+            thirdParties.map((thirdParty) => (
+              <li>
+                <a
+                  href={thirdParty.href}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  {thirdParty.name}
+                </a>
+              </li>
+            ))
+          }
         </ul>
 
         <p>
@@ -205,7 +184,8 @@ const thirdParties = [
         <p>Your information is securely stored on our servers.</p>
 
         <p>
-          We only log information about your emails if they are marked as spam, or if you give us explicit permission to do so.
+          We only log information about your emails if they are marked as spam,
+          or if you give us explicit permission to do so.
         </p>
 
         <h2>Your data protection rights</h2>
@@ -269,8 +249,7 @@ const thirdParties = [
           you make a request, we have one month to respond to you.
         </p>
         <p>
-          Please write us at hello@shroud.email if you wish to make
-          a request.
+          Please write us at hello@shroud.email if you wish to make a request.
         </p>
 
         <h2>How to complain</h2>
@@ -294,7 +273,7 @@ const thirdParties = [
             SK9 5AF<br />
           </address>
 
-          Helpline number: 0303 123 1113<br>
+          Helpline number: 0303 123 1113<br />
           ICO website: https://www.ico.org.uk
         </p>
       </div>
