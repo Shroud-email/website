@@ -1,11 +1,10 @@
 ---
-import navigation from "~/navigation"
+import navigation from "~/navigation";
 export interface Props {
   class: string;
   currentPage: string;
 }
-const { currentPage, class: className } = Astro.props as Props
-
+const { currentPage, class: className } = Astro.props as Props;
 ---
 <nav class:list={['text-base lg:text-sm', className]}>
   <ul class="space-y-9">

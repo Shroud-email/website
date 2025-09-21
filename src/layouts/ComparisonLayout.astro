@@ -4,11 +4,13 @@ import PageHeader from "~/components/molecules/PageHeader.astro";
 
 interface Props {
   content: {
-    title: string
-    description: string
-  }
+    title: string;
+    description: string;
+  };
 }
-const { content: { title, description }} = Astro.props
+const {
+  content: { title, description },
+} = Astro.props;
 ---
 
 <LandingLayout title={title} description={description}>

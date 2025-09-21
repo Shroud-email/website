@@ -9,10 +9,10 @@ interface Props {
 
 const { intent, text } = Astro.props;
 
-let iconName;
-let iconClasses;
-let containerClasses;
-let textClasses;
+let iconName: string;
+let iconClasses: string;
+let containerClasses: string;
+let textClasses: string;
 switch (intent) {
   case "error":
     iconName = "heroicons-solid:exclamation";

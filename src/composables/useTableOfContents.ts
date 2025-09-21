@@ -8,24 +8,24 @@ export default (headings: Heading[]) => {
     headings
       .map(({ slug, text, depth }) => {
         const el = document.getElementById(slug);
-        if (!el) return;
+        if (!el) return null;
 
         const style = window.getComputedStyle(el);
         const scrollMt = parseFloat(style.scrollMarginTop);
         const top = window.scrollY + el.getBoundingClientRect().top - scrollMt;
         return { slug, text, top, depth };
       })
-      .filter((h) => !!h)
+      .filter((h) => !!h),
   );
 
   function onScroll() {
     if (headings.length === 0) return;
 
-    let sortedHeadings = headingsWithTop.value
+    const sortedHeadings = headingsWithTop.value
       .concat([])
       .sort((a, b) => (a?.top || 0) - (b?.top || 0));
 
-    let top = window.scrollY;
+    const top = window.scrollY;
     let current = sortedHeadings[0]?.slug;
     sortedHeadings.forEach((sortedHeading) => {
       if (top >= (sortedHeading?.top || 0)) {
@@ -44,7 +44,7 @@ export default (headings: Heading[]) => {
   onUnmounted(() => {
     window.removeEventListener("scroll", onScroll, {
       capture: true,
-    } as any);
+    });
   });
 
   return currentSection;

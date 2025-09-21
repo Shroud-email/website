@@ -1,5 +1,5 @@
 export interface Heading {
-  depth: number
-  slug: string
-  text: string
+  depth: number;
+  slug: string;
+  text: string;
 }

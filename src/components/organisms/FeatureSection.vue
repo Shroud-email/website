@@ -49,9 +49,9 @@ import {
   GlobeEuropeAfricaIcon,
   EyeSlashIcon,
   ArrowUturnLeftIcon,
-} from "@heroicons/vue/24/outline"
+} from "@heroicons/vue/24/outline";
 
-import FadeIn from "../atoms/FadeIn.vue"
+import FadeIn from "../atoms/FadeIn.vue";
 
 const features = [
   {
@@ -90,7 +90,7 @@ const features = [
       "Shroud.email runs on 100% renewable energy, hosted in the EU.",
     icon: GlobeEuropeAfricaIcon,
   },
-]
+];
 export default {
   components: {
     FadeIn,
@@ -98,7 +98,7 @@ export default {
   setup() {
     return {
       features,
-    }
+    };
   },
-}
+};
 </script>

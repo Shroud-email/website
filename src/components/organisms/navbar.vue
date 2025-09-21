@@ -1,21 +1,49 @@
 <script setup lang="ts">
-import { shallowRef } from "vue"
-import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue"
-import { Bars3Icon, XMarkIcon, CodeBracketIcon, BookOpenIcon, DocumentTextIcon, UserGroupIcon } from "@heroicons/vue/24/outline"
-import NavbarDropdown from "~/components/molecules/NavbarDropdown.vue"
+import { shallowRef } from "vue";
+import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue";
+import {
+  Bars3Icon,
+  XMarkIcon,
+  CodeBracketIcon,
+  BookOpenIcon,
+  DocumentTextIcon,
+  UserGroupIcon,
+} from "@heroicons/vue/24/outline";
+import NavbarDropdown from "~/components/molecules/NavbarDropdown.vue";
 
 const navigation = shallowRef([
   { name: "Privacy protection", href: "/privacy-protection/" },
   { name: "Pricing", href: "/pricing/" },
   {
-    name: "More", children: [
-      { name: "Blog", description: "Stay up-to-date with Shroud.email", href: "/blog/", icon: DocumentTextIcon },
-      { name: "Docs", description: "Learn more about our API", href: "/docs/", icon: BookOpenIcon },
-      { name: "GitHub", description: "All contributions are welcome!", href: "https://github.com/Shroud-email/shroud.email", icon: CodeBracketIcon },
-      { name: "Discussions", description: "Join the community", href: "https://github.com/Shroud-email/shroud.email/discussions", icon: UserGroupIcon },
-    ]
-  }
-])
+    name: "More",
+    children: [
+      {
+        name: "Blog",
+        description: "Stay up-to-date with Shroud.email",
+        href: "/blog/",
+        icon: DocumentTextIcon,
+      },
+      {
+        name: "Docs",
+        description: "Learn more about our API",
+        href: "/docs/",
+        icon: BookOpenIcon,
+      },
+      {
+        name: "GitHub",
+        description: "All contributions are welcome!",
+        href: "https://github.com/Shroud-email/shroud.email",
+        icon: CodeBracketIcon,
+      },
+      {
+        name: "Discussions",
+        description: "Join the community",
+        href: "https://github.com/Shroud-email/shroud.email/discussions",
+        icon: UserGroupIcon,
+      },
+    ],
+  },
+]);
 </script>
 
 <template>

@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { shallowRef } from "vue"
+import { shallowRef } from "vue";
 
 const features = shallowRef([
   "Unlimited aliases",
   "Advanced tracker blocking",
   "Block spammy senders at will",
   "Premium customer support",
-])
+]);
 // Should be an even number to look nice
 const questions = shallowRef([
   {
@@ -35,14 +35,15 @@ const questions = shallowRef([
   },
   {
     question: "Is Shroud.email a disposable email service?",
-    answer: "No, email aliases are permanent. You can disable or delete them if you don't want to receive emails through them, however.",
+    answer:
+      "No, email aliases are permanent. You can disable or delete them if you don't want to receive emails through them, however.",
   },
-])
+]);
 const price = shallowRef({
   yearly: 20,
   monthly: 2,
-})
-const currentBillingPeriod = shallowRef<"yearly" | "monthly">("monthly")
+});
+const currentBillingPeriod = shallowRef<"yearly" | "monthly">("monthly");
 </script>
 
 <template>

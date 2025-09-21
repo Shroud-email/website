@@ -1,18 +1,18 @@
 <script setup lang="ts">
-import type { PropType } from 'vue';
-import useTableOfContents from '~/composables/useTableOfContents';
-import type { Heading } from "~/types"
+import type { PropType } from "vue";
+import useTableOfContents from "~/composables/useTableOfContents";
+import type { Heading } from "~/types";
 
 const props = defineProps({
   tableOfContents: {
     type: Object as PropType<Heading[]>,
-    required: true
-  }
-})
+    required: true,
+  },
+});
 
-const currentSection = useTableOfContents(props.tableOfContents)
+const currentSection = useTableOfContents(props.tableOfContents);
 function isActive(section: Heading) {
-  return section.slug === currentSection.value
+  return section.slug === currentSection.value;
 }
 </script>
 

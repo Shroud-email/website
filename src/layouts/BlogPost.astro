@@ -6,7 +6,7 @@ import type { CollectionEntry } from "astro:content";
 export type Props = CollectionEntry<"blog">["data"];
 const { title, description, image, imageAlt, date } = Astro.props;
 
-let formattedDate;
+let formattedDate: string;
 if (typeof date === "string") {
   formattedDate = format(parseISO(date), "PP");
 } else {

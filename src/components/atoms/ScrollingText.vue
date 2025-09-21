@@ -1,31 +1,31 @@
 <script setup lang="ts">
-import { computed, onBeforeUnmount, onMounted, ref } from 'vue';
-import type { PropType } from 'vue';
+import { computed, onBeforeUnmount, onMounted, ref } from "vue";
+import type { PropType } from "vue";
 
 const props = defineProps({
   words: {
     type: Array as PropType<string[]>,
     required: true,
-  }
-})
+  },
+});
 
-const timer = ref<ReturnType<typeof setInterval> | null>(null)
-const currentIndex = ref(0)
+const timer = ref<ReturnType<typeof setInterval> | null>(null);
+const currentIndex = ref(0);
 
 const currentWord = computed(() => {
-  return props.words[currentIndex.value]
-})
+  return props.words[currentIndex.value];
+});
 
 onMounted(() => {
   timer.value = setInterval(() => {
-    currentIndex.value = (currentIndex.value + 1) % props.words.length
-  }, 3000)
-})
+    currentIndex.value = (currentIndex.value + 1) % props.words.length;
+  }, 3000);
+});
 
 onBeforeUnmount(() => {
-  if (!timer.value) return
-  clearInterval(timer.value)
-})
+  if (!timer.value) return;
+  clearInterval(timer.value);
+});
 </script>
 
 <template>

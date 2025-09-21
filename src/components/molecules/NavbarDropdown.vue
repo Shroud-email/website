@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import type { PropType } from "vue"
-import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue"
-import { ChevronDownIcon } from "@heroicons/vue/24/solid"
+import type { PropType } from "vue";
+import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue";
+import { ChevronDownIcon } from "@heroicons/vue/24/solid";
 
 interface ChildNavItem {
+  // biome-ignore lint/suspicious/noExplicitAny: 🤷
   icon: any;
   name: string;
   description: string;
@@ -13,8 +14,7 @@ interface ChildNavItem {
 defineProps({
   name: String,
   children: Array as PropType<ChildNavItem[]>,
-})
-
+});
 </script>
 
 <template>

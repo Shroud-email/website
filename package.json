@@ -6,7 +6,8 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && tsc --noEmit && vue-tsc --noEmit && astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "lint": "npx @biomejs/biome format && npx @biomejs/biome lint --write"
   },
   "devDependencies": {
     "@astrojs/vue": "^5.1.1",

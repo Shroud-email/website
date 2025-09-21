@@ -1,43 +1,43 @@
 <script setup lang="ts">
-import { ref } from "vue"
+import { ref } from "vue";
 
-const defaultClass = ref('sm:flex')
-const email = ref('')
-const isLoading = ref(false)
-const message = ref('')
+const defaultClass = ref("sm:flex");
+const email = ref("");
+const isLoading = ref(false);
+const message = ref("");
 
 const handleSubmit = async (event: Event) => {
-  event.preventDefault()
+  event.preventDefault();
 
   if (!email.value) {
-    message.value = 'Please enter an email address'
-    return
+    message.value = "Please enter an email address";
+    return;
   }
 
-  isLoading.value = true
-  message.value = ''
+  isLoading.value = true;
+  message.value = "";
 
   try {
-    const response = await fetch('/api/subscribe/', {
-      method: 'POST',
+    const response = await fetch("/api/subscribe/", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email: email.value })
-    })
+      body: JSON.stringify({ email: email.value }),
+    });
 
     if (response.ok) {
-      message.value = 'Successfully subscribed!'
-      email.value = ''
+      message.value = "Successfully subscribed!";
+      email.value = "";
     } else {
-      message.value = 'Something went wrong. Please try again.'
+      message.value = "Something went wrong. Please try again.";
     }
   } catch (error) {
-    message.value = 'Network error. Please try again.'
+    message.value = "Network error. Please try again.";
   } finally {
-    isLoading.value = false
+    isLoading.value = false;
   }
-}
+};
 </script>
 
 <script lang="ts">

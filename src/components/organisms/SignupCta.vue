@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import FadeIn from "~/components/atoms/FadeIn.vue"
+import FadeIn from "~/components/atoms/FadeIn.vue";
 </script>
 
 <template>

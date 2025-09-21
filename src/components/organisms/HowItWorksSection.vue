@@ -1,20 +1,23 @@
 <script setup lang="ts">
-import { ArrowRightCircleIcon, EyeSlashIcon, TrashIcon } from '@heroicons/vue/24/outline'
+import {
+  ArrowRightCircleIcon,
+  EyeSlashIcon,
+  TrashIcon,
+} from "@heroicons/vue/24/outline";
 
-import FadeIn from "../atoms/FadeIn.vue"
-
+import FadeIn from "../atoms/FadeIn.vue";
 
 const howItWorksSteps = [
   {
     id: 1,
-    name: 'Forward emails...',
+    name: "Forward emails...",
     description:
-      'All emails sent to your aliases will be forwarded on to your real email address. You never need to give out your real address again!',
+      "All emails sent to your aliases will be forwarded on to your real email address. You never need to give out your real address again!",
     icon: ArrowRightCircleIcon,
   },
   {
     id: 2,
-    name: '...Minus the trackers.',
+    name: "...Minus the trackers.",
     description:
       "Our advanced tracker blocking strips out trackers from your emails, so the sender can't snoop on your inbox.",
     icon: EyeSlashIcon,
@@ -22,10 +25,11 @@ const howItWorksSteps = [
   {
     id: 3,
     name: "Don't worry about spam.",
-    description: "When you no longer need an alias, you can simply delete it. Or if there's just a single sender who's bugging you, you can block them!",
+    description:
+      "When you no longer need an alias, you can simply delete it. Or if there's just a single sender who's bugging you, you can block them!",
     icon: TrashIcon,
-  }
-]
+  },
+];
 </script>
 
 <template>
