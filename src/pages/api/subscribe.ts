@@ -19,10 +19,11 @@ export const POST: APIRoute = async ({ request }) => {
     }
 
     try {
-        await loops.createContact({
+        await loops.updateContact({
             email,
             properties: {
-                source: "website"
+                source: "website",
+                subscribed: true,
             },
             mailingLists: { "cmftpvkub26590ixp5zhw4u4z": true }
         })
@@ -35,7 +36,9 @@ export const POST: APIRoute = async ({ request }) => {
         }
         return new Response(JSON.stringify({
             error: "Something went wrong."
-        }))
+        }), {
+            status: 500
+        })
     }
 
     return new Response(JSON.stringify({

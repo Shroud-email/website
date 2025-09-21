@@ -66,6 +66,7 @@ export default defineComponent({
           focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500
           sm:max-w-xs
           rounded-md
+          bg-white
           disabled:opacity-50
           disabled:cursor-not-allowed" placeholder="Enter your email" />
       <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:shrink-0">

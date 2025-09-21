@@ -25,12 +25,12 @@ const posts = (await getCollection("blog")).sort((a, b) => {
     >
       <div>
         <h1
-          class="text-3xl tracking-tight font-bold text-gray-900 sm:text-4xl font-display"
+          class="text-3xl tracking-tight font-bold text-gray-900 sm:text-4xl font-display flex align-middle"
         >
           Blog
           <a
             href="/blog/rss.xml"
-            class="ml-2 text-gray-600 hover:text-gray-900"
+            class="ml-2 text-gray-600 hover:text-gray-900 place-content-center pt-1"
           >
             <span class="sr-only">RSS</span>
             <!-- heroicons/outline rss -->
@@ -58,7 +58,7 @@ const posts = (await getCollection("blog")).sort((a, b) => {
           </p>
           <NewsletterForm
             client:idle
-            className="mt-6 flex flex-col sm:flex-row lg:mt-0 lg:justify-end"
+            className="mt-6 mb-3 flex flex-col sm:flex-row lg:mt-0 lg:justify-end"
           />
         </div>
       </div>
