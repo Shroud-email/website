@@ -1,6 +1,6 @@
 import vue from "@astrojs/vue";
 import icon from "astro-icon";
-import { defineConfig } from 'astro/config';
+import { defineConfig, envField } from 'astro/config';
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import mdx from "@astrojs/mdx";
@@ -23,5 +23,11 @@ export default defineConfig({
   },
 
   trailingSlash: "always",
-  adapter: cloudflare()
+  adapter: cloudflare(),
+
+  env: {
+    schema: {
+      LOOPS_API_KEY: envField.string({ context: "server", "access": "secret"})
+    }
+  }
 });

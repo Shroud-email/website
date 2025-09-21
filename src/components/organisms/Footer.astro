@@ -1,5 +1,5 @@
 ---
-import NewsletterForm from "~/components/molecules/NewsletterForm.astro";
+import NewsletterForm from "~/components/molecules/NewsletterForm.vue";
 import { Icon } from "astro-icon/components";
 
 const firstColLinks = [
@@ -93,7 +93,7 @@ const year = new Date().getFullYear();
         <p class="mt-4 text-base text-gray-300">
           The latest product updates and news, lovingly delivered to your inbox.
         </p>
-        <NewsletterForm class="mt-4 sm:max-w-md" />
+        <NewsletterForm client:idle className="mt-4 sm:max-w-md" />
       </div>
     </div>
     <div

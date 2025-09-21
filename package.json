@@ -10,6 +10,7 @@
   },
   "devDependencies": {
     "@astrojs/vue": "^5.1.1",
+    "@biomejs/biome": "2.2.4",
     "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/typography": "^0.5.18",
     "astro": "^5.13.9",
@@ -30,6 +31,7 @@
     "astro-icon": "^1.1.5",
     "astro-seo": "^0.8.4",
     "date-fns": "^4.1.0",
+    "loops": "^6.0.0",
     "vue": "^3.5.21"
   }
 }
