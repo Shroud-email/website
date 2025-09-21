@@ -4,7 +4,7 @@ import { getCollection } from "astro:content";
 
 import LandingLayout from "../../layouts/LandingLayout.astro";
 import PostPreview from "../../components/molecules/PostPreview.astro";
-import NewsletterForm from "~/components/molecules/NewsletterForm.vue";
+import NewsletterForm from "~/components/molecules/NewsletterForm.astro";
 
 const posts = (await getCollection("blog")).sort((a, b) => {
   if (isBefore(a.data.date, b.data.date)) return 1;
@@ -56,10 +56,11 @@ const posts = (await getCollection("blog")).sort((a, b) => {
           <p class="text-xl text-gray-500">
             Sign up for our newsletter to stay in the loop.
           </p>
-          <NewsletterForm
-            client:idle
-            className="mt-6 mb-3 flex flex-col sm:flex-row lg:mt-0 lg:justify-end"
-          />
+          <div
+            class="mt-6 mb-3 flex flex-col sm:flex-row lg:mt-0 lg:justify-end"
+          >
+            <NewsletterForm />
+          </div>
         </div>
       </div>
       <div class="mt-6 pt-10 grid gap-16 lg:grid-cols-3 lg:gap-x-5 lg:gap-y-12">

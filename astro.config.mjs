@@ -24,10 +24,4 @@ export default defineConfig({
 
   trailingSlash: "always",
   adapter: cloudflare(),
-
-  env: {
-    schema: {
-      LOOPS_API_KEY: envField.string({ context: "server", "access": "secret"})
-    }
-  }
 });
