@@ -1,10 +1,11 @@
 ---
-import LandingLayout from "../layouts/LandingLayout.astro"
-import Pricing from "../components/organisms/Pricing.vue"
+import LandingLayout from "../layouts/LandingLayout.astro";
+import PricingComponent from "../components/organisms/Pricing.vue";
 
-const description = "Shroud.email pricing. Try our 30-day free trial, no credit card needed."
-
+const description =
+  "Shroud.email pricing. Try our 30-day free trial, no credit card needed.";
 ---
+
 <LandingLayout title="Pricing" description={description}>
-  <Pricing client:load />
+  <PricingComponent client:load />
 </LandingLayout>
