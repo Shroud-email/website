@@ -16,7 +16,7 @@ export type Props = CollectionEntry<"docs">["data"] & {
 const { headings, title, description } = Astro.props;
 
 const tableOfContents = headings.filter(
-  ({ depth }: { depth: number }) => depth === 2
+  ({ depth }: { depth: number }) => depth === 2,
 );
 const url = new URL(Astro.request.url);
 const currentPage = url.pathname;
@@ -26,12 +26,12 @@ let linkIndex = allLinks.findIndex((link) => link.href === currentPage);
 let previousPage = allLinks[linkIndex - 1];
 let nextPage = allLinks[linkIndex + 1];
 let currentSection = navigation.find((section) =>
-  section.links.find((link) => link.href === currentPage)
+  section.links.find((link) => link.href === currentPage),
 );
 ---
 
 <BaseLayout title={title} description={description}>
-  <Navbar client:only="vue" transparentAtTop={true} />
+  <Navbar client:only="vue" />
 
   <div class="flex flex-col">
     <div
@@ -39,7 +39,7 @@ let currentSection = navigation.find((section) =>
     >
       <div class="hidden lg:relative lg:block lg:flex-none">
         <div
-          class="sticky top-[4.5rem] h-[calc(100vh-4.5rem-8rem)] overflow-y-auto py-16 pl-0.5"
+          class="sticky top-18 h-[calc(100vh-4.5rem-8rem)] overflow-y-auto py-16 pl-0.5"
         >
           <DocsNavigation
             currentPage={currentPage}

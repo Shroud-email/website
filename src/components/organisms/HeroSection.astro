@@ -9,7 +9,7 @@ const { learnMoreId } = Astro.props;
 ---
 
 <div class="bg-slate-900 pb-8 sm:pb-12 lg:pb-12 flex items-center min-h-screen">
-  <div class="pt-8 overflow-hidden sm:pt-12 lg:relative lg:py-48 flex-grow">
+  <div class="pt-8 overflow-hidden sm:pt-12 lg:relative lg:py-48 grow">
     <div
       class="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl lg:grid lg:grid-cols-2 lg:gap-24"
     >
@@ -97,7 +97,7 @@ const { learnMoreId } = Astro.props;
           class="relative pl-4 -mr-40 sm:mx-auto sm:max-w-3xl sm:px-0 lg:max-w-none lg:h-full lg:pl-12"
         >
           <img
-            class="w-full rounded-md shadow-xl ring-8 ring-gray-700 ring-opacity-90 lg:h-full lg:w-auto lg:max-w-none"
+            class="w-full rounded-md shadow-xl ring-8 ring-gray-700/90 lg:h-full lg:w-auto lg:max-w-none"
             src="/img/app-screenshot.webp"
             alt="Screenshot showing several email aliases"
             width="2000"

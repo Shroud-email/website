@@ -33,7 +33,7 @@ Firefox Relay is hosted in the USA on Google Cloud, which is carbon neutral, but
 
 ## Other features
 
-Shroud.email doesn't yet have a browser extension, though it's on our [roadmap](/roadmap/). If this is crucial for you, you might be better off starting with Firefox Relay -- though we recommend signing up for our [newsletter](/newsletter/) to learn when we have our browser extension ready!
+Shroud.email doesn't yet have a browser extension, though it's on our roadmap. If this is crucial for you, you might be better off starting with Firefox Relay -- though we recommend signing up for our [newsletter](/newsletter/) to learn when we have our browser extension ready!
 
 ## Summary
 

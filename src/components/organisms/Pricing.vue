@@ -89,14 +89,14 @@ const currentBillingPeriod = shallowRef<"yearly" | "monthly">("monthly")
                 <div class="mt-8">
                   <div class="flex items-center">
                     <h4
-                      class="flex-shrink-0 pr-4 bg-white text-sm tracking-wider font-semibold uppercase text-indigo-600">
+                      class="shrink-0 pr-4 bg-white text-sm tracking-wider font-semibold uppercase text-indigo-600">
                       What's included
                     </h4>
                     <div class="flex-1 border-t-2 border-gray-200"></div>
                   </div>
                   <ul role="list" class="mt-8 space-y-5 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:gap-y-5">
                     <li v-for="feature in features" :key="feature" class="flex items-start lg:col-span-1">
-                      <div class="flex-shrink-0">
+                      <div class="shrink-0">
                         <!-- Heroicon name: solid/check-circle -->
                         <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
                           fill="currentColor" aria-hidden="true">
@@ -113,7 +113,7 @@ const currentBillingPeriod = shallowRef<"yearly" | "monthly">("monthly")
                 </div>
               </div>
               <div
-                class="py-8 px-6 text-center bg-gray-50 lg:flex-shrink-0 lg:flex lg:flex-col lg:justify-center lg:p-12">
+                class="py-8 px-6 text-center bg-gray-50 lg:shrink-0 lg:flex lg:flex-col lg:justify-center lg:p-12">
                 <p class="text-lg leading-6 font-medium text-gray-900">
                   Paid {{ currentBillingPeriod }}
                 </p>

@@ -1,6 +1,6 @@
 ---
 import NewsletterForm from "~/components/molecules/NewsletterForm.astro";
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 
 const firstColLinks = [
   {
@@ -101,21 +101,12 @@ const year = new Date().getFullYear();
     >
       <div class="flex space-x-6 md:order-2">
         <a
-          href="https://fosstodon.org/@shroudemail"
-          rel="me"
-          target="_blank"
-          class="text-gray-400 hover:text-gray-300"
-        >
-          <span class="sr-only">Mastodon</span>
-          <Icon pack="mdi" name="mastodon" class="h-6 w-6" />
-        </a>
-        <a
           href="https://github.com/Shroud-email/shroud.email"
           target="_blank"
           class="text-gray-400 hover:text-gray-300"
         >
           <span class="sr-only">GitHub</span>
-          <Icon pack="mdi" name="github" class="h-6 w-6" />
+          <Icon name="mdi:github" class="h-6 w-6" />
         </a>
       </div>
       <p class="mt-8 text-base text-gray-400 md:mt-0 md:order-1">

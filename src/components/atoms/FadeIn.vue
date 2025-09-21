@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount, computed, PropType } from "vue"
+import { ref, onMounted, onBeforeUnmount, computed } from "vue"
+import type { PropType } from "vue"
 
 type Direction = "up" | "down" | "left" | "right"
 
