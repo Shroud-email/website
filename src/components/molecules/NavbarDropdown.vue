@@ -20,9 +20,9 @@ defineProps({
 <template>
   <Popover class="relative" v-slot="{ open }">
     <PopoverButton
-      :class="[open ? 'text-gray-300' : 'text-white', 'group rounded-md inline-flex items-center text-base font-medium hover:text-gray-300 focus:outline-none focus:ring focus:ring-offset-4 focus:ring-offset-gray-900 focus:ring-indigo-500']">
+      :class="[open ? 'text-slate-300' : 'text-white', 'group rounded-md inline-flex items-center text-base font-medium hover:text-slate-300 focus:outline-none focus:ring focus:ring-offset-4 focus:ring-offset-slate-900 focus:ring-indigo-500']">
       <span>{{ name }}</span>
-      <ChevronDownIcon :class="[open ? 'text-gray-600' : 'text-white', 'ml-2 h-5 w-5 group-hover:text-gray-300']"
+      <ChevronDownIcon :class="[open ? 'text-slate-600' : 'text-white', 'ml-2 h-5 w-5 group-hover:text-slate-300']"
         aria-hidden="true" />
     </PopoverButton>
 
@@ -34,13 +34,13 @@ defineProps({
         <div class="rounded-lg shadow-lg ring-1 ring-black/5 overflow-hidden">
           <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
             <a v-for="item in children" :key="item.name" :href="item.href"
-              class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
+              class="-m-3 p-3 flex items-start rounded-lg hover:bg-slate-50">
               <component :is="item.icon" class="shrink-0 h-6 w-6 text-indigo-600" aria-hidden="true" />
               <div class="ml-4">
-                <p class="text-base font-medium text-gray-900">
+                <p class="text-base font-medium text-slate-900">
                   {{ item.name }}
                 </p>
-                <p class="mt-1 text-sm text-gray-500">
+                <p class="mt-1 text-sm text-slate-500">
                   {{ item.description }}
                 </p>
               </div>

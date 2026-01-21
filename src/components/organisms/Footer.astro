@@ -32,7 +32,7 @@ const secondColLinks = [
 const year = new Date().getFullYear();
 ---
 
-<footer class="bg-gray-800" aria-labelledby="footer-heading">
+<footer class="bg-slate-950" aria-labelledby="footer-heading">
   <h2 id="footer-heading" class="sr-only">Footer</h2>
   <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
     <div class="xl:grid xl:grid-cols-3 xl:gap-8">
@@ -41,7 +41,7 @@ const year = new Date().getFullYear();
           {
             firstColLinks.map(({ title, children }) => (
               <div class="mt-12 md:mt-0">
-                <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                <h3 class="text-sm font-semibold text-slate-300 tracking-wider uppercase">
                   {title}
                 </h3>
                 <ul role="list" class="mt-4 space-y-4">
@@ -49,7 +49,7 @@ const year = new Date().getFullYear();
                     <li>
                       <a
                         href={href}
-                        class="text-base text-gray-300 hover:text-white"
+                        class="text-base text-slate-300 hover:text-white"
                       >
                         {name}
                       </a>
@@ -64,7 +64,7 @@ const year = new Date().getFullYear();
           {
             secondColLinks.map(({ title, children }) => (
               <div class="mt-12 md:mt-0">
-                <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                <h3 class="text-sm font-semibold text-slate-300 tracking-wider uppercase">
                   {title}
                 </h3>
                 <ul role="list" class="mt-4 space-y-4">
@@ -72,7 +72,7 @@ const year = new Date().getFullYear();
                     <li>
                       <a
                         href={href}
-                        class="text-base text-gray-300 hover:text-white"
+                        class="text-base text-slate-300 hover:text-white"
                       >
                         {name}
                       </a>
@@ -86,11 +86,11 @@ const year = new Date().getFullYear();
       </div>
       <div class="mt-8 xl:mt-0">
         <h3
-          class="text-sm font-semibold text-gray-400 tracking-wider uppercase"
+          class="text-sm font-semibold text-slate-300 tracking-wider uppercase"
         >
           Subscribe to our newsletter
         </h3>
-        <p class="mt-4 text-base text-gray-300">
+        <p class="mt-4 text-base text-slate-300">
           The latest product updates and news, lovingly delivered to your inbox.
         </p>
         <div class="mt-4 sm:max-w-md">
@@ -99,19 +99,19 @@ const year = new Date().getFullYear();
       </div>
     </div>
     <div
-      class="mt-8 border-t border-gray-700 pt-8 md:flex md:items-center md:justify-between"
+      class="mt-8 border-t border-slate-800 pt-8 md:flex md:items-center md:justify-between"
     >
       <div class="flex space-x-6 md:order-2">
         <a
           href="https://github.com/Shroud-email/shroud.email"
           target="_blank"
-          class="text-gray-400 hover:text-gray-300"
+          class="text-slate-400 hover:text-slate-300"
         >
           <span class="sr-only">GitHub</span>
           <Icon name="mdi:github" class="h-6 w-6" />
         </a>
       </div>
-      <p class="mt-8 text-base text-gray-400 md:mt-0 md:order-1">
+      <p class="mt-8 text-base text-slate-400 md:mt-0 md:order-1">
         &copy; {year} Shroud.email. All rights reserved.
       </p>
     </div>

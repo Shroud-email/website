@@ -49,11 +49,11 @@ const navigation = shallowRef([
 <template>
   <Popover as="header" class="relative">
     <div
-      class="py-3 h-16 flex items-center fixed top-0 left-0 right-0 z-10 bg-slate-900/90 transition-colors ease-in-out duration-500">
+      class="py-3 h-16 flex items-center fixed top-0 left-0 right-0 z-10 bg-slate-950/90 transition-colors ease-in-out duration-500">
       <nav class="relative max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 grow" aria-label="Global">
         <div class="flex items-center flex-1">
           <div class="flex items-center justify-between w-full md:w-auto">
-            <a href="/" class="text-gray-100 flex items-center font-semibold text-xl">
+            <a href="/" class="text-slate-100 flex items-center font-semibold text-xl">
               <svg class="w-6 h-6 mr-3 text-indigo-400" fill="currentColor" viewBox="0 0 900 900" version="1.1"
                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <path
@@ -64,7 +64,7 @@ const navigation = shallowRef([
             </a>
             <div class="-mr-2 flex items-center md:hidden">
               <PopoverButton
-                class="bg-gray-900 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-800 focus:outline-none focus:ring-2 focus-ring-inset focus:ring-white">
+                class="bg-slate-950 rounded-md p-2 inline-flex items-center justify-center text-slate-400 hover:bg-slate-900 focus:outline-none focus:ring-2 focus-ring-inset focus:ring-white">
                 <span class="sr-only">Open main menu</span>
                 <Bars3Icon class="h-6 w-6" aria-hidden="true" />
               </PopoverButton>
@@ -74,13 +74,13 @@ const navigation = shallowRef([
             <template v-for="item in navigation" :key="item.name">
               <NavbarDropdown v-if="item.children" :name="item.name" :children="item.children" />
               <a v-else :key="item.name" :href="item.href"
-                class="text-base font-medium text-white hover:text-gray-300">{{ item.name }}</a>
+                class="text-base font-medium text-white hover:text-slate-300">{{ item.name }}</a>
             </template>
           </div>
         </div>
         <div class="hidden md:flex md:items-center md:space-x-6">
           <a href="https://app.shroud.email/users/log_in"
-            class="text-base font-medium text-white hover:text-gray-300">Log
+            class="text-base font-medium text-white hover:text-slate-300">Log
             in</a>
         </div>
       </nav>
@@ -97,7 +97,7 @@ const navigation = shallowRef([
             </div>
             <div class="-mr-2">
               <PopoverButton
-                class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600">
+                class="bg-white rounded-md p-2 inline-flex items-center justify-center text-slate-400 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600">
                 <span class="sr-only">Close menu</span>
                 <XMarkIcon class="h-6 w-6" aria-hidden="true" />
               </PopoverButton>
@@ -108,11 +108,11 @@ const navigation = shallowRef([
               <template v-for="item in navigation" :key="item.name">
                 <template v-if="item.children">
                   <a v-for="childItem in item.children" :key="childItem.name" :href="childItem.href"
-                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50">{{
+                    class="block px-3 py-2 rounded-md text-base font-medium text-slate-900 hover:bg-slate-50">{{
                       childItem.name }}</a>
                 </template>
                 <a v-else :href="item.href"
-                  class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50">{{ item.name
+                  class="block px-3 py-2 rounded-md text-base font-medium text-slate-900 hover:bg-slate-50">{{ item.name
                   }}</a>
               </template>
             </div>
