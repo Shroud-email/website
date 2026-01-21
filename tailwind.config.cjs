@@ -8,8 +8,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Inter var", ...defaultTheme.fontFamily.sans],
-        display: ["Lexend", ...defaultTheme.fontFamily.sans]
+        sans: ["Manrope", ...defaultTheme.fontFamily.sans],
+        display: ["Newsreader", ...defaultTheme.fontFamily.serif],
       },
       maxWidth: {
         '8xl': '88rem',

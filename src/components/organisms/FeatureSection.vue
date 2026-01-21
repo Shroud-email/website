@@ -30,7 +30,7 @@
             </span>
           </div>
           <div class="mt-6">
-            <h3 class="text-lg font-medium text-white">{{ feature.name }}</h3>
+            <h3 class="text-lg font-medium text-white font-sans">{{ feature.name }}</h3>
             <p class="mt-2 text-base text-indigo-200">
               {{ feature.description }}
             </p>

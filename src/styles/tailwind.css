@@ -1,2 +1,15 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+
+@layer base {
+  html {
+    font-family: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: "Newsreader", ui-serif, Georgia, serif;
+  }
+}
