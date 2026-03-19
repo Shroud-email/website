@@ -13,9 +13,9 @@ export const GET: APIRoute = async (context) => {
     stylesheet: "/rss/pretty-feed-v3.xsl",
     site: context.site?.href || "",
     items: blog
-      .map(({ data: { title, description, date }, slug }) => {
+      .map(({ data: { title, description, date }, id }) => {
         return {
-          link: `/blog/${slug}/`,
+          link: `/blog/${id}/`,
           title,
           description,
           pubDate: date,

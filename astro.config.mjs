@@ -1,6 +1,6 @@
 import vue from "@astrojs/vue";
 import icon from "astro-icon";
-import { defineConfig, envField } from 'astro/config';
+import { defineConfig } from 'astro/config';
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import mdx from "@astrojs/mdx";
@@ -19,6 +19,18 @@ export default defineConfig({
     plugins: [tailwindcss()],
     ssr: {
       external: ["svgo"]
+    },
+    environments: {
+      ssr: {
+        optimizeDeps: {
+          include: ["debug"]
+        }
+      },
+      prerender: {
+        optimizeDeps: {
+          include: ["debug"]
+        }
+      }
     }
   },
 
