@@ -64,7 +64,7 @@ const navigation = shallowRef([
             </a>
             <div class="-mr-2 flex items-center md:hidden">
               <PopoverButton
-                class="bg-slate-950 rounded-md p-2 inline-flex items-center justify-center text-slate-400 hover:bg-slate-900 focus:outline-none focus:ring-2 focus-ring-inset focus:ring-white">
+                class="bg-slate-950 rounded-md p-2 inline-flex items-center justify-center text-slate-400 hover:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                 <span class="sr-only">Open main menu</span>
                 <Bars3Icon class="h-6 w-6" aria-hidden="true" />
               </PopoverButton>
@@ -74,13 +74,13 @@ const navigation = shallowRef([
             <template v-for="item in navigation" :key="item.name">
               <NavbarDropdown v-if="item.children" :name="item.name" :children="item.children" />
               <a v-else :key="item.name" :href="item.href"
-                class="text-base font-medium text-white hover:text-slate-300">{{ item.name }}</a>
+                class="rounded text-base font-medium text-white hover:text-slate-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">{{ item.name }}</a>
             </template>
           </div>
         </div>
         <div class="hidden md:flex md:items-center md:space-x-6">
           <a href="https://app.shroud.email/users/log_in"
-            class="text-base font-medium text-white hover:text-slate-300">Log
+            class="rounded text-base font-medium text-white hover:text-slate-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">Log
             in</a>
         </div>
       </nav>

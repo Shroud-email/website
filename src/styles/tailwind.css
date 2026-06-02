@@ -12,4 +12,20 @@
   h4 {
     font-family: "Newsreader", ui-serif, Georgia, serif;
   }
+
+  /* Honour reduced-motion globally: neutralises scroll-smooth, FadeIn
+     reveals, and Vue <transition>s without touching each component. */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto !important;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
 }

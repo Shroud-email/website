@@ -22,6 +22,17 @@ const imageAlt = OPEN_GRAPH.image.alt;
 >
   <head>
     <meta charset="UTF-8" />
+    <script is:inline>
+      // Gate JS-driven motion (scroll reveals, rotating hero word) on a class
+      // set before first paint. When absent — no JS, or reduced-motion — all
+      // content renders visible and static. No flash, crawler-safe.
+      if (
+        window.matchMedia &&
+        !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      ) {
+        document.documentElement.classList.add("motion-ok");
+      }
+    </script>
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width" />
     <link

@@ -9,6 +9,9 @@
         sm:px-6 sm:pt-20 sm:pb-24
         lg:max-w-7xl lg:px-8
       ">
+      <h2 class="text-3xl font-bold text-white sm:text-4xl font-display max-w-2xl mb-12 lg:mb-16">
+        What Shroud.email can do
+      </h2>
       <div class="
           grid grid-cols-1
           gap-x-6 gap-y-12

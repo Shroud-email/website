@@ -17,6 +17,10 @@ const currentWord = computed(() => {
 });
 
 onMounted(() => {
+  // Only cycle words when motion is allowed (JS on, no reduced-motion).
+  // Otherwise the first word stays put.
+  if (!document.documentElement.classList.contains("motion-ok")) return;
+
   timer.value = setInterval(() => {
     currentIndex.value = (currentIndex.value + 1) % props.words.length;
   }, 3000);

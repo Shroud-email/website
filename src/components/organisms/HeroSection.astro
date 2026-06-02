@@ -20,12 +20,13 @@ const { learnMoreId } = Astro.props;
           <span class="block">Hide your email</span>
           <span class="block text-indigo-400 mt-1"
             >from
-            <span class="ml-4 h-full">
+            <span class="ml-4 h-full" aria-hidden="true">
               <ScrollingText
                 client:idle
                 words={["spammers", "hackers", "advertisers", "creeps"]}
               />
             </span>
+            <span class="sr-only">spammers, hackers, advertisers, and creeps</span>
           </span>
         </h1>
         <p

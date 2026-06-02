@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount, computed } from "vue";
+import { ref, onMounted, onBeforeUnmount } from "vue";
 import type { PropType } from "vue";
 
 type Direction = "up" | "down" | "left" | "right";
 
-const props = defineProps({
+defineProps({
   fromDirection: {
     type: String as PropType<Direction>,
     default: "up",
@@ -12,54 +12,76 @@ const props = defineProps({
 });
 
 const observer = ref<IntersectionObserver | null>(null);
-const observerContainer = ref(null);
+const observerContainer = ref<HTMLElement | null>(null);
 const isVisible = ref(false);
 
-const classes = computed(() => {
-  switch (props.fromDirection) {
-    case "up":
-      return isVisible.value ? "translate-y-0" : "-translate-y-6";
-    case "down":
-      return isVisible.value ? "translate-y-0" : "translate-y-6";
-    case "left":
-      return isVisible.value ? "translate-x-0" : "-translate-x-6";
-    case "right":
-      return isVisible.value ? "translate-x-0" : "translate-x-6";
-    default:
-      throw new Error(`Unknown direction ${props.fromDirection}`);
-  }
-});
-
-const observerCallback: IntersectionObserverCallback = (entries, _observer) => {
+const observerCallback: IntersectionObserverCallback = (entries) => {
   entries.forEach((entry) => {
-    // Assumes only a single entry. Also, once an entry is shown,
-    // it's not hidden again.
+    // Assumes a single entry. Once shown, it stays shown.
     if (entry.isIntersecting) isVisible.value = true;
   });
 };
 
 onMounted(() => {
-  const options = {
+  // The reveal only applies when `motion-ok` is set (JS on, motion allowed).
+  // Otherwise the content is already visible via CSS, so skip the observer.
+  if (!document.documentElement.classList.contains("motion-ok")) {
+    isVisible.value = true;
+    return;
+  }
+
+  observer.value = new IntersectionObserver(observerCallback, {
     root: null,
     rootMargin: "0px",
     threshold: 0.5,
-  };
-  observer.value = new IntersectionObserver(observerCallback, options);
+  });
   if (observerContainer.value) {
     observer.value.observe(observerContainer.value);
   }
 });
 
 onBeforeUnmount(() => {
-  if (!observer.value) return;
-
-  observer.value.disconnect();
+  observer.value?.disconnect();
 });
 </script>
 
 <template>
-  <div ref="observerContainer" :class="classes + ' ' + (isVisible ? 'opacity-100' : 'opacity-0')"
-    class="transition-all duration-1000">
+  <div
+    ref="observerContainer"
+    class="fade-in"
+    :class="[fromDirection, { 'is-visible': isVisible }]"
+  >
     <slot />
   </div>
 </template>
+
+<style scoped>
+.fade-in {
+  transition:
+    opacity 1000ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1000ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Hidden initial state applies ONLY when motion is allowed (class set before
+   first paint). No JS / reduced-motion / crawlers never hide the content. */
+:global(html.motion-ok) .fade-in {
+  opacity: 0;
+}
+:global(html.motion-ok) .fade-in.up {
+  transform: translateY(-1.5rem);
+}
+:global(html.motion-ok) .fade-in.down {
+  transform: translateY(1.5rem);
+}
+:global(html.motion-ok) .fade-in.left {
+  transform: translateX(-1.5rem);
+}
+:global(html.motion-ok) .fade-in.right {
+  transform: translateX(1.5rem);
+}
+
+.fade-in.is-visible {
+  opacity: 1;
+  transform: none;
+}
+</style>
