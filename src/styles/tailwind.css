@@ -1,13 +1,26 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+/* Geist Pixel (Square) — Vercel's pixel display typeface, self-hosted from the
+   `geist` npm package and licensed under the SIL Open Font License. Used for
+   headings; it's a single-weight display cut, so weight utilities are
+   neutralised below with font-synthesis-weight to avoid faux-bold. */
+@font-face {
+  font-family: "Geist Pixel";
+  src: url("/fonts/geist-pixel/GeistPixel-Square.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
-  /* Type — calm, trustworthy editorial pairing.
-     Spectral (transitional serif) for display, Manrope (geometric sans) for
-     body sit on a clear contrast axis. */
+  /* Type — Geist Pixel (a blocky single-weight pixel display face) for
+     headings, Manrope (geometric sans) for body. They sit on a clear contrast
+     axis. Geist Pixel ships only one cut, so heading weight utilities are
+     neutralised below with font-synthesis-weight to avoid faux-bold. */
   --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Spectral", ui-serif, Georgia, serif;
-  --font-display: "Spectral", ui-serif, Georgia, serif;
+  --font-serif: "Geist Pixel", ui-monospace, "Courier New", monospace;
+  --font-display: "Geist Pixel", ui-monospace, "Courier New", monospace;
 
   /* Brand accent. Semantic aliases over Tailwind's (already-OKLCH) indigo so
      redesigned markup has stable token names and one canonical brand colour. */
@@ -29,8 +42,12 @@
   h1,
   h2,
   h3,
-  h4 {
+  h4,
+  .font-display {
     font-family: var(--font-serif);
+    /* Geist Pixel has a single cut. Don't let the browser fake heavier
+       weights from the font-bold/-semibold utilities; use the real cut. */
+    font-synthesis-weight: none;
   }
 
   /* Honour reduced-motion globally: neutralises scroll-smooth, scroll-driven
