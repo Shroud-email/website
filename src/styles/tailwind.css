@@ -1,6 +1,14 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+/* The site is light-only: backgrounds are hard-coded white, but a lot of markup
+   still carries leftover `dark:` utilities (dark:prose-invert, dark:text-white,
+   …). Tailwind v4's default `dark:` is prefers-color-scheme, so OS dark mode
+   would fire those and render light text on the white background. Redefine
+   `dark:` as class-based; with no `.dark` ancestor ever added, dark utilities
+   stay inert and the site is always light, regardless of OS setting. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* Geist Pixel (Square) — Vercel's pixel display typeface, self-hosted from the
    `geist` npm package and licensed under the SIL Open Font License. Used for
    headings; it's a single-weight display cut, so weight utilities are
@@ -37,6 +45,9 @@
 @layer base {
   html {
     font-family: var(--font-sans);
+    /* Light-only site (see @custom-variant dark above); keep native UI
+       (form controls, scrollbars) light too. */
+    color-scheme: light;
   }
 
   h1,
