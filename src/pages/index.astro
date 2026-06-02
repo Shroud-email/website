@@ -1,7 +1,7 @@
 ---
 import LandingLayout from "../layouts/LandingLayout.astro";
 import HeroSection from "../components/organisms/HeroSection.astro";
-import HowItWorksSection from "../components/organisms/HowItWorksSection.vue";
+import HowItWorksSection from "../components/organisms/HowItWorksSection.astro";
 import FeatureSection from "../components/organisms/FeatureSection.vue";
 import NewsletterSection from "../components/organisms/NewsletterSection.astro";
 import SignupCta from "~/components/organisms/SignupCta.vue";
@@ -10,7 +10,7 @@ import SignupCta from "~/components/organisms/SignupCta.vue";
 <LandingLayout>
   <HeroSection learnMoreId="learn-more" />
 
-  <HowItWorksSection client:load id="learn-more" />
+  <HowItWorksSection />
 
   <FeatureSection client:load />
 
