@@ -34,17 +34,23 @@
   }
 
   /* Honour reduced-motion globally: neutralises scroll-smooth, scroll-driven
-     reveals, and Vue <transition>s without touching each component. */
+     reveals, and component transitions without touching each one. The
+     !important is intentional and required to override utility/inline
+     transitions, so the noImportantStyles rule is suppressed here. */
   @media (prefers-reduced-motion: reduce) {
     html {
+      /* biome-ignore lint/complexity/noImportantStyles: reduced-motion reset must win */
       scroll-behavior: auto !important;
     }
 
     *,
     *::before,
     *::after {
+      /* biome-ignore lint/complexity/noImportantStyles: reduced-motion reset must win */
       animation-duration: 0.01ms !important;
+      /* biome-ignore lint/complexity/noImportantStyles: reduced-motion reset must win */
       animation-iteration-count: 1 !important;
+      /* biome-ignore lint/complexity/noImportantStyles: reduced-motion reset must win */
       transition-duration: 0.01ms !important;
     }
   }
