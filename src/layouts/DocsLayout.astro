@@ -3,7 +3,7 @@ import BaseLayout from "./BaseLayout.astro";
 import DocsNavigation from "~/components/organisms/DocsNavigation.astro";
 import Prose from "~/components/atoms/Prose.astro";
 import Footer from "~/components/organisms/Footer.astro";
-import Navbar from "../components/organisms/navbar.vue";
+import Navbar from "../components/organisms/navbar.astro";
 import TableOfContents from "~/components/organisms/TableOfContents.vue";
 
 import navigation from "~/navigation";
@@ -31,7 +31,7 @@ let currentSection = navigation.find((section) =>
 ---
 
 <BaseLayout title={title} description={description}>
-  <Navbar client:only="vue" />
+  <Navbar />
 
   <div class="flex flex-col">
     <div

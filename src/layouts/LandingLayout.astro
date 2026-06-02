@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 import "../styles/tailwind.css";
-import Navbar from "../components/organisms/navbar.vue";
+import Navbar from "../components/organisms/navbar.astro";
 import Footer from "../components/organisms/Footer.astro";
 
 export interface Props {
@@ -20,7 +20,7 @@ let { title, description } = Astro.props;
       Skip to content
     </a>
 
-    <Navbar client:only="vue" />
+    <Navbar />
 
     <main id="main-content" class="grow flex flex-col bg-white">
       <slot />

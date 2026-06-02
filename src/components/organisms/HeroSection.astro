@@ -1,5 +1,5 @@
 ---
-import ScrollingText from "~/components/atoms/ScrollingText.vue";
+import ScrollingText from "~/components/atoms/ScrollingText.astro";
 
 export interface Props {
   learnMoreId: string;
@@ -27,7 +27,6 @@ const trust = [
           Hide your email from{" "}
           <span class="text-indigo-400" aria-hidden="true">
             <ScrollingText
-              client:idle
               words={["spammers", "hackers", "advertisers", "creeps"]}
             />
           </span>
