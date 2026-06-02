@@ -81,7 +81,9 @@
   html.motion-ok .fade-in.right {
     transform: translateX(-1rem);
   }
-  .fade-in.is-visible {
+  /* Must out-specify the `html.motion-ok .fade-in[.dir]` hiding rules above
+     (which carry an html type selector), so the reveal actually wins. */
+  html.motion-ok .fade-in.is-visible {
     opacity: 1;
     transform: none;
   }
