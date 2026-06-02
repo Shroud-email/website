@@ -104,4 +104,14 @@
     opacity: 1;
     transform: none;
   }
+
+  /* @tailwindcss/typography wraps inline <code> in literal backtick characters
+     via code::before / code::after. Code already renders in monospace, so drop
+     the backticks across every `.prose` block site-wide. `.prose code` carries
+     more specificity than the plugin's :where()-wrapped rule, so it wins
+     without !important. */
+  .prose code::before,
+  .prose code::after {
+    content: none;
+  }
 }
