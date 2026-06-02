@@ -1,37 +1,39 @@
 ---
 import NewsletterForm from "~/components/molecules/NewsletterForm.astro";
+import FadeIn from "~/components/atoms/FadeIn.astro";
 ---
 
-<div class="bg-white">
-  <div
-    class="max-w-7xl
-      mx-auto
-      py-24
-      px-4
-      sm:px-6
-      lg:py-32 lg:px-8 lg:flex lg:items-center"
-  >
-    <div class="lg:w-0 lg:flex-1">
-      <h2
-        class="text-3xl font-extrabold text-slate-900 sm:text-4xl font-display"
-      >
-        Stay in the loop
-      </h2>
-      <p class="mt-3 max-w-3xl text-lg text-slate-600">
-        We're only just getting started. Sign up for our newsletter for
-        occassional product updates and news.
-      </p>
-      <p class="mt-1 max-w-3xl text-lg text-slate-600">
-        We promise we won't spam you. We should know, fighting spam is our
-        business.
-      </p>
-    </div>
-    <div class="mt-8 lg:mt-0 lg:ml-8">
-      <NewsletterForm />
-      <p class="mt-3 text-sm text-slate-600">
-        We care about the protection of your data. Read our
-        <a href="/privacy/">Privacy Notice.</a>
-      </p>
-    </div>
+<section class="bg-white">
+  <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
+    <FadeIn>
+      <div class="border-t border-slate-200 pt-12 lg:flex lg:items-center lg:justify-between lg:gap-12">
+        <div class="max-w-xl">
+          <h2
+            class="font-display text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl"
+          >
+            Stay in the loop
+          </h2>
+          <p class="mt-3 text-lg text-slate-600">
+            We're only just getting started. Sign up for occasional product
+            updates and news.
+          </p>
+          <p class="mt-2 text-slate-500">
+            We won't spam you. Fighting spam is, after all, our business.
+          </p>
+        </div>
+        <div class="mt-8 lg:mt-0 lg:w-96 lg:flex-none">
+          <NewsletterForm />
+          <p class="mt-3 text-sm text-slate-500">
+            We care about protecting your data. Read our{" "}
+            <a
+              href="/privacy/"
+              class="font-medium text-indigo-600 underline underline-offset-2 hover:text-indigo-700"
+            >
+              Privacy Notice</a
+            >.
+          </p>
+        </div>
+      </div>
+    </FadeIn>
   </div>
-</div>
+</section>
