@@ -21,3 +21,6 @@ yarn-error.log*
 
 # Cloudflare
 .wrangler
+
+# impeccable skill tooling (local, not part of the site)
+.codex/
