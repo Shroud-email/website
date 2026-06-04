@@ -1,13 +1,10 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-/* The site is light-only: backgrounds are hard-coded white, but a lot of markup
-   still carries leftover `dark:` utilities (dark:prose-invert, dark:text-white,
-   …). Tailwind v4's default `dark:` is prefers-color-scheme, so OS dark mode
-   would fire those and render light text on the white background. Redefine
-   `dark:` as class-based; with no `.dark` ancestor ever added, dark utilities
-   stay inert and the site is always light, regardless of OS setting. */
-@custom-variant dark (&:where(.dark, .dark *));
+/* Dark mode follows the OS setting automatically (no toggle). `dark:` keeps
+   Tailwind v4's default prefers-color-scheme behaviour, and every surface is
+   themed for dark below / inline so coverage is complete (a partial theme is
+   what produces light-on-light). */
 
 /* Geist Pixel (Square) — Vercel's pixel display typeface, self-hosted from the
    `geist` npm package and licensed under the SIL Open Font License. Used for
@@ -36,18 +33,29 @@
   --color-brand-strong: var(--color-indigo-600);
   --color-brand-soft: var(--color-indigo-400);
 
-  /* Ink / surface tokens, tinted toward the brand hue (~277). */
+  /* Ink / surface tokens, tinted toward the brand hue (~277). Light values;
+     overridden for dark mode just below. */
   --color-ink: oklch(0.21 0.04 277);
   --color-surface: oklch(0.99 0.004 277);
   --color-surface-sunken: oklch(0.97 0.006 277);
 }
 
+/* Dark-mode token flip. Mirrors the slate-950/900 + slate-50 ramp the dark:
+   utilities use, keeping the ~277 hue tint. Applies anywhere the semantic
+   tokens are consumed. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-ink: oklch(0.97 0.01 277);
+    --color-surface: oklch(0.21 0.03 277);
+    --color-surface-sunken: oklch(0.17 0.025 277);
+  }
+}
+
 @layer base {
   html {
     font-family: var(--font-sans);
-    /* Light-only site (see @custom-variant dark above); keep native UI
-       (form controls, scrollbars) light too. */
-    color-scheme: light;
+    /* Let native UI (form controls, scrollbars) follow the OS theme too. */
+    color-scheme: light dark;
   }
 
   h1,
