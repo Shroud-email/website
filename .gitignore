@@ -22,5 +22,9 @@ yarn-error.log*
 # Cloudflare
 .wrangler
 
-# impeccable skill tooling (local, not part of the site)
+# skill tooling (local, not part of the site)
 .codex/
+.claude/
+
+# Playwright CLI browser session artifacts (snapshots, console logs)
+.playwright-cli/
