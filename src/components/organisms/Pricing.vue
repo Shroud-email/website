@@ -48,52 +48,52 @@ const currentBillingPeriod = shallowRef<"yearly" | "monthly">("monthly");
 
 <template>
   <div class="pt-12">
-    <div class="bg-slate-50">
+    <div class="bg-slate-50 dark:bg-slate-900">
       <div class="pt-12 sm:pt-16 lg:pt-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center">
-            <h1 class="text-3xl font-bold text-slate-900 sm:text-4xl lg:text-5xl font-display">
+            <h1 class="text-3xl font-bold text-slate-900 sm:text-4xl lg:text-5xl font-display dark:text-slate-50">
               One simple plan for everything
             </h1>
-        <p class="mt-4 text-xl text-slate-600">
+        <p class="mt-4 text-xl text-slate-600 dark:text-slate-400">
           Try for free for 30 days, no credit card needed.
         </p>
           </div>
         </div>
       </div>
       <div
-        class="relative self-center px-4 sm:px-6 lg:px-8 mt-6 bg-slate-50 rounded-lg p-0.5 flex justify-center sm:mt-8">
+        class="relative self-center px-4 sm:px-6 lg:px-8 mt-6 bg-slate-50 rounded-lg p-0.5 flex justify-center sm:mt-8 dark:bg-slate-900">
         <button @click="currentBillingPeriod = 'monthly'" type="button"
-          :class="currentBillingPeriod === 'monthly' ? 'border-slate-200 shadow-sm bg-white text-slate-900 underline' : 'border-transparent text-slate-700'"
+          :class="currentBillingPeriod === 'monthly' ? 'border-slate-200 shadow-sm bg-white text-slate-900 underline dark:border-slate-800 dark:bg-slate-800 dark:text-slate-100' : 'border-transparent text-slate-700 dark:text-slate-300'"
           class="relative w-1/2 rounded-md py-2 text-sm font-medium whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:z-10 sm:w-auto sm:px-8">
           Monthly billing
         </button>
         <button @click="currentBillingPeriod = 'yearly'" type="button"
-          :class="currentBillingPeriod === 'yearly' ? 'border-slate-200 shadow-sm bg-white text-slate-900 underline' : 'border-transparent text-slate-700'"
+          :class="currentBillingPeriod === 'yearly' ? 'border-slate-200 shadow-sm bg-white text-slate-900 underline dark:border-slate-800 dark:bg-slate-800 dark:text-slate-100' : 'border-transparent text-slate-700 dark:text-slate-300'"
           class="ml-0.5 relative w-1/2 border rounded-md py-2 text-sm font-medium whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:z-10 sm:w-auto sm:px-8">
           Yearly billing
         </button>
       </div>
-      <div class="mt-2 bg-white pb-16 sm:mt-4 sm:pb-20 lg:pb-28">
+      <div class="mt-2 bg-white pb-16 sm:mt-4 sm:pb-20 lg:pb-28 dark:bg-slate-950">
         <div class="relative">
-          <div class="absolute inset-0 h-1/2 bg-slate-50"></div>
+          <div class="absolute inset-0 h-1/2 bg-slate-50 dark:bg-slate-900"></div>
           <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="max-w-lg mx-auto rounded-lg shadow-lg overflow-hidden ring-1 ring-slate-200/60 lg:max-w-none lg:flex">
-            <div class="flex-1 bg-white px-6 py-8 lg:p-12">
-                <h3 class="text-2xl font-extrabold text-slate-900 sm:text-3xl">
+          <div class="max-w-lg mx-auto rounded-lg shadow-lg overflow-hidden ring-1 ring-slate-200/60 lg:max-w-none lg:flex dark:ring-white/10">
+            <div class="flex-1 bg-white px-6 py-8 lg:p-12 dark:bg-slate-900">
+                <h3 class="text-2xl font-extrabold text-slate-900 sm:text-3xl dark:text-slate-50">
                   Shroud.email
                 </h3>
-                <p class="mt-6 text-base text-slate-500">
+                <p class="mt-6 text-base text-slate-500 dark:text-slate-400">
                   Hide your email address and block trackers with unlimited
                   aliases.
                 </p>
                 <div class="mt-8">
                   <div class="flex items-center">
                     <h4
-                      class="shrink-0 pr-4 bg-white text-sm tracking-wider font-semibold uppercase text-indigo-600">
+                      class="shrink-0 pr-4 bg-white text-sm tracking-wider font-semibold uppercase text-indigo-600 dark:bg-slate-900 dark:text-indigo-400">
                       What's included
                     </h4>
-                    <div class="flex-1 border-t-2 border-slate-200"></div>
+                    <div class="flex-1 border-t-2 border-slate-200 dark:border-slate-800"></div>
                   </div>
                   <ul role="list" class="mt-8 space-y-5 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:gap-y-5">
                     <li v-for="feature in features" :key="feature" class="flex items-start lg:col-span-1">
@@ -106,7 +106,7 @@ const currentBillingPeriod = shallowRef<"yearly" | "monthly">("monthly");
                             clip-rule="evenodd" />
                         </svg>
                       </div>
-                      <p class="ml-3 text-sm text-slate-700">
+                      <p class="ml-3 text-sm text-slate-700 dark:text-slate-300">
                         {{ feature }}
                       </p>
                     </li>
@@ -114,13 +114,13 @@ const currentBillingPeriod = shallowRef<"yearly" | "monthly">("monthly");
                 </div>
               </div>
                 <div
-                class="py-8 px-6 text-center bg-white lg:shrink-0 lg:flex lg:flex-col lg:justify-center lg:p-12">
-                <p class="text-lg leading-6 font-medium text-slate-900">
+                class="py-8 px-6 text-center bg-white lg:shrink-0 lg:flex lg:flex-col lg:justify-center lg:p-12 dark:bg-slate-900">
+                <p class="text-lg leading-6 font-medium text-slate-900 dark:text-slate-100">
                   Paid {{ currentBillingPeriod }}
                 </p>
-                <div class="mt-4 flex items-center justify-center text-5xl font-extrabold text-slate-900">
+                <div class="mt-4 flex items-center justify-center text-5xl font-extrabold text-slate-900 dark:text-slate-50">
                   <span>£{{ price[currentBillingPeriod] }}</span>
-                  <span class="ml-3 text-xl font-medium text-slate-500">
+                  <span class="ml-3 text-xl font-medium text-slate-500 dark:text-slate-400">
                     GBP
                   </span>
                 </div>
@@ -135,8 +135,8 @@ const currentBillingPeriod = shallowRef<"yearly" | "monthly">("monthly");
                     </a>
                   </div>
                 </div>
-                <div class="mt-4 text-sm font-medium text-slate-900">
-                  <a href="https://app.shroud.email/users/register" class="font-medium text-slate-900">
+                <div class="mt-4 text-sm font-medium text-slate-900 dark:text-slate-100">
+                  <a href="https://app.shroud.email/users/register" class="font-medium text-slate-900 dark:text-slate-100">
                     Or sign up for a free trial
                   </a>
                 </div>

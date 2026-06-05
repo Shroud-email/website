@@ -1,20 +1,17 @@
 ---
 import LandingLayout from "../layouts/LandingLayout.astro";
 import HeroSection from "../components/organisms/HeroSection.astro";
-import HowItWorksSection from "../components/organisms/HowItWorksSection.vue";
-import FeatureSection from "../components/organisms/FeatureSection.vue";
-import NewsletterSection from "../components/organisms/NewsletterSection.astro";
-import SignupCta from "~/components/organisms/SignupCta.vue";
+import HowItWorksSection from "../components/organisms/HowItWorksSection.astro";
+import FeatureSection from "../components/organisms/FeatureSection.astro";
+import SignupCta from "~/components/organisms/SignupCta.astro";
 ---
 
 <LandingLayout>
   <HeroSection learnMoreId="learn-more" />
 
-  <HowItWorksSection client:load id="learn-more" />
+  <HowItWorksSection />
 
-  <FeatureSection client:load />
+  <FeatureSection />
 
-  <SignupCta client:load />
-
-  <NewsletterSection />
+  <SignupCta />
 </LandingLayout>
