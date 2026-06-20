@@ -5,8 +5,6 @@ import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import mdx from "@astrojs/mdx";
 
-import cloudflare from "@astrojs/cloudflare";
-
 // https://astro.build/config
 export default defineConfig({
   site: "https://shroud.email/",
@@ -35,5 +33,4 @@ export default defineConfig({
   },
 
   trailingSlash: "always",
-  adapter: cloudflare(),
 });

@@ -25,6 +25,7 @@ yarn-error.log*
 # skill tooling (local, not part of the site)
 .codex/
 .claude/
+.firecrawl/
 
 # Playwright CLI browser session artifacts (snapshots, console logs)
 .playwright-cli/
