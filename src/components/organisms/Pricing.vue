@@ -1,175 +1,191 @@
 <script setup lang="ts">
 import { shallowRef } from "vue";
 
-const features = shallowRef([
-  "Unlimited aliases",
-  "Advanced tracker blocking",
-  "Block spammy senders at will",
-  "Premium customer support",
+const rows = shallowRef([
+    { feature: "Email aliases", free: "5", paid: "Unlimited" },
+    { feature: "Tracker removal", free: "Yes", paid: "Yes" },
+    { feature: "Spam filtering", free: "Yes", paid: "Yes" },
+    { feature: "Forward to your inbox", free: "Yes", paid: "Yes" },
+    { feature: "Custom domains", free: "—", paid: "Yes" },
+    { feature: "Send & reply from aliases", free: "—", paid: "Yes" },
+    { feature: "Priority support", free: "—", paid: "Yes" },
+    { feature: "Price", free: "£0", paid: "£25/year" },
 ]);
 // Should be an even number to look nice
 const questions = shallowRef([
-  {
-    question: "Do you have any discounts?",
-    answer:
-      "If you're an activist or journalist, get in touch on hello@shroud.email and we'll see what we can do.",
-  },
-  {
-    question: "What happens if I cancel my subscription?",
-    answer:
-      "The service will continue for the remainder of the billing period. Then, you won't be able to create new aliases. All your existing aliases will continue to work.",
-  },
-  {
-    question: "What payment methods do you support?",
-    answer:
-      "We support Visa, Mastercard, American Express, Discover, Diners Club, China UnionPay (CUP), and Japan Credit Bureau (JCB).",
-  },
-  {
-    question: "What's your refund policy?",
-    answer:
-      "As we have a 30-day free trial with no limitations, we don't offer refunds.",
-  },
-  {
-    question: "Does Shroud.email forward attachments?",
-    answer: "Yes, we forward attachments up to 25MB.",
-  },
-  {
-    question: "Is Shroud.email a disposable email service?",
-    answer:
-      "No, email aliases are permanent. You can disable or delete them if you don't want to receive emails through them, however.",
-  },
+    {
+        question: "Do you have any discounts?",
+        answer: "If you're an activist or journalist, get in touch on hello@shroud.email and we'll see what we can do.",
+    },
+    {
+        question: "What happens if I cancel my subscription?",
+        answer: "The service will continue for the remainder of the billing period. Then, you won't be able to create new aliases. All your existing aliases will continue to work.",
+    },
+    {
+        question: "What payment methods do you support?",
+        answer: "We support Visa, Mastercard, American Express, Discover, Diners Club, China UnionPay (CUP), and Japan Credit Bureau (JCB).",
+    },
+    {
+        question: "What's your refund policy?",
+        answer: "We offer a free plan with no time limit, so you can try Shroud.email for as long as you like before upgrading. We don't offer refunds on paid plans.",
+    },
+    {
+        question: "Does Shroud.email forward attachments?",
+        answer: "Yes, we forward attachments up to 25MB.",
+    },
+    {
+        question: "Is Shroud.email a disposable email service?",
+        answer: "Email aliases are permanent, but you can always disable or delete them if you don't want to receive emails through them any longer.",
+    },
 ]);
-const price = shallowRef({
-  yearly: 20,
-  monthly: 2,
-});
-const currentBillingPeriod = shallowRef<"yearly" | "monthly">("monthly");
 </script>
 
 <template>
-  <div class="pt-12">
-    <div class="bg-slate-50 dark:bg-slate-900">
-      <div class="pt-12 sm:pt-16 lg:pt-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="text-center">
-            <h1 class="text-3xl font-bold text-slate-900 sm:text-4xl lg:text-5xl font-display dark:text-slate-50">
-              One simple plan for everything
-            </h1>
-        <p class="mt-4 text-xl text-slate-600 dark:text-slate-400">
-          Try for free for 30 days, no credit card needed.
-        </p>
-          </div>
-        </div>
-      </div>
-      <div
-        class="relative self-center px-4 sm:px-6 lg:px-8 mt-6 bg-slate-50 rounded-lg p-0.5 flex justify-center sm:mt-8 dark:bg-slate-900">
-        <button @click="currentBillingPeriod = 'monthly'" type="button"
-          :class="currentBillingPeriod === 'monthly' ? 'border-slate-200 shadow-sm bg-white text-slate-900 underline dark:border-slate-800 dark:bg-slate-800 dark:text-slate-100' : 'border-transparent text-slate-700 dark:text-slate-300'"
-          class="relative w-1/2 rounded-md py-2 text-sm font-medium whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:z-10 sm:w-auto sm:px-8">
-          Monthly billing
-        </button>
-        <button @click="currentBillingPeriod = 'yearly'" type="button"
-          :class="currentBillingPeriod === 'yearly' ? 'border-slate-200 shadow-sm bg-white text-slate-900 underline dark:border-slate-800 dark:bg-slate-800 dark:text-slate-100' : 'border-transparent text-slate-700 dark:text-slate-300'"
-          class="ml-0.5 relative w-1/2 border rounded-md py-2 text-sm font-medium whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:z-10 sm:w-auto sm:px-8">
-          Yearly billing
-        </button>
-      </div>
-      <div class="mt-2 bg-white pb-16 sm:mt-4 sm:pb-20 lg:pb-28 dark:bg-slate-950">
-        <div class="relative">
-          <div class="absolute inset-0 h-1/2 bg-slate-50 dark:bg-slate-900"></div>
-          <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="max-w-lg mx-auto rounded-lg shadow-lg overflow-hidden ring-1 ring-slate-200/60 lg:max-w-none lg:flex dark:ring-white/10">
-            <div class="flex-1 bg-white px-6 py-8 lg:p-12 dark:bg-slate-900">
-                <h3 class="text-2xl font-extrabold text-slate-900 sm:text-3xl dark:text-slate-50">
-                  Shroud.email
-                </h3>
-                <p class="mt-6 text-base text-slate-500 dark:text-slate-400">
-                  Hide your email address and block trackers with unlimited
-                  aliases.
-                </p>
-                <div class="mt-8">
-                  <div class="flex items-center">
-                    <h4
-                      class="shrink-0 pr-4 bg-white text-sm tracking-wider font-semibold uppercase text-indigo-600 dark:bg-slate-900 dark:text-indigo-400">
-                      What's included
-                    </h4>
-                    <div class="flex-1 border-t-2 border-slate-200 dark:border-slate-800"></div>
-                  </div>
-                  <ul role="list" class="mt-8 space-y-5 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:gap-y-5">
-                    <li v-for="feature in features" :key="feature" class="flex items-start lg:col-span-1">
-                      <div class="shrink-0">
-                        <!-- Heroicon name: solid/check-circle -->
-                        <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                          fill="currentColor" aria-hidden="true">
-                          <path fill-rule="evenodd"
-                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                            clip-rule="evenodd" />
-                        </svg>
-                      </div>
-                      <p class="ml-3 text-sm text-slate-700 dark:text-slate-300">
-                        {{ feature }}
-                      </p>
-                    </li>
-                  </ul>
+    <div class="pt-12">
+        <div class="bg-slate-50 dark:bg-slate-900">
+            <div class="pt-12 sm:pt-16 lg:pt-20">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center">
+                        <h1
+                            class="text-3xl font-medium text-slate-900 sm:text-4xl lg:text-5xl font-display dark:text-slate-50"
+                        >
+                            Free forever, or £25/year for the works
+                        </h1>
+                        <p
+                            class="mt-4 text-xl text-slate-600 dark:text-slate-400"
+                        >
+                            Start on the free plan with 5 aliases. Upgrade when
+                            you need unlimited aliases and custom domains.
+                        </p>
+                    </div>
                 </div>
-              </div>
-                <div
-                class="py-8 px-6 text-center bg-white lg:shrink-0 lg:flex lg:flex-col lg:justify-center lg:p-12 dark:bg-slate-900">
-                <p class="text-lg leading-6 font-medium text-slate-900 dark:text-slate-100">
-                  Paid {{ currentBillingPeriod }}
-                </p>
-                <div class="mt-4 flex items-center justify-center text-5xl font-extrabold text-slate-900 dark:text-slate-50">
-                  <span>£{{ price[currentBillingPeriod] }}</span>
-                  <span class="ml-3 text-xl font-medium text-slate-500 dark:text-slate-400">
-                    GBP
-                  </span>
-                </div>
-                <!-- <p class="mt-4 text-sm font-medium text-slate-500">
-                  Or £2/month if paid monthly
-                </p> -->
-                <div class="mt-6">
-                  <div class="rounded-md shadow">
-                    <a href="https://app.shroud.email/settings/billing"
-                      class="flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-slate-900 hover:bg-slate-950">
-                      Sign up
-                    </a>
-                  </div>
-                </div>
-                <div class="mt-4 text-sm font-medium text-slate-900 dark:text-slate-100">
-                  <a href="https://app.shroud.email/users/register" class="font-medium text-slate-900 dark:text-slate-100">
-                    Or sign up for a free trial
-                  </a>
-                </div>
-              </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="bg-slate-950">
-      <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
-        <div class="lg:max-w-2xl lg:mx-auto lg:text-center">
-          <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl font-display">
-            Frequently asked questions
-          </h2>
-          <p class="mt-4 text-slate-300">
-            If your question isn't answered here, please
-            <a href="mailto:hello@shroud.email" class="underline">contact us.</a>
-          </p>
-        </div>
-        <div class="mt-20">
-          <dl class="space-y-10 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:gap-y-10">
-            <div v-for="{ question, answer } in questions" :key="question">
-              <dt class="font-semibold text-white">
-                {{ question }}
-              </dt>
-              <dd class="mt-3 text-slate-300">
-                {{ answer }}
-              </dd>
+            <div
+                class="mt-12 bg-white pb-16 sm:mt-16 sm:pb-20 lg:pb-28 dark:bg-slate-950"
+            >
+                <div class="relative">
+                    <div
+                        class="absolute inset-0 h-1/2 bg-slate-50 dark:bg-slate-900"
+                    ></div>
+                    <div
+                        class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+                    >
+                        <div
+                            class="max-w-5xl mx-auto rounded-lg shadow-lg overflow-hidden ring-1 ring-slate-200/60 dark:ring-white/10"
+                        >
+                            <div
+                                class="overflow-x-auto bg-white dark:bg-slate-900"
+                            >
+                                <table class="w-full text-left">
+                                    <thead>
+                                        <tr
+                                            class="border-b border-slate-200 dark:border-slate-800"
+                                        >
+                                            <th
+                                                class="py-5 px-4 sm:px-6 text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400"
+                                            >
+                                                Feature
+                                            </th>
+                                            <th
+                                                class="py-5 px-4 sm:px-6 text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 text-center"
+                                            >
+                                                Free
+                                            </th>
+                                            <th
+                                                class="py-5 px-4 sm:px-6 text-sm font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 text-center"
+                                            >
+                                                Paid yearly
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr
+                                            v-for="row in rows"
+                                            :key="row.feature"
+                                            class="border-b border-slate-100 dark:border-slate-800 last:border-0"
+                                        >
+                                            <td
+                                                class="py-4 px-4 sm:px-6 text-sm font-medium text-slate-900 dark:text-slate-100"
+                                            >
+                                                {{ row.feature }}
+                                            </td>
+                                            <td
+                                                class="py-4 px-4 sm:px-6 text-sm text-slate-700 dark:text-slate-300 text-center"
+                                            >
+                                                {{ row.free }}
+                                            </td>
+                                            <td
+                                                class="py-4 px-4 sm:px-6 text-sm text-slate-700 dark:text-slate-300 text-center"
+                                            >
+                                                {{ row.paid }}
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div
+                                class="bg-white px-6 py-8 text-center dark:bg-slate-900"
+                            >
+                                <div
+                                    class="mt-2 flex flex-col sm:flex-row gap-3 justify-center"
+                                >
+                                    <a
+                                        href="https://app.shroud.email/users/register"
+                                        class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-slate-900 hover:bg-slate-950 dark:bg-indigo-500 dark:hover:bg-indigo-400"
+                                    >
+                                        Start free
+                                    </a>
+                                    <a
+                                        href="https://app.shroud.email/settings/billing"
+                                        class="inline-flex items-center justify-center px-5 py-3 border border-slate-300 dark:border-slate-700 text-base font-medium rounded-md text-slate-900 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-800"
+                                    >
+                                        Upgrade to paid
+                                    </a>
+                                </div>
+                                <p
+                                    class="mt-4 text-sm text-slate-500 dark:text-slate-400"
+                                >
+                                    No credit card needed for the free plan.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </dl>
         </div>
-      </div>
+        <div class="bg-slate-950">
+            <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
+                <div class="lg:max-w-2xl lg:mx-auto lg:text-center">
+                    <h2
+                        class="text-3xl font-bold tracking-tight text-white sm:text-4xl font-display"
+                    >
+                        Frequently asked questions
+                    </h2>
+                    <p class="mt-4 text-slate-300">
+                        If your question isn't answered here, please
+                        <a href="mailto:hello@shroud.email" class="underline"
+                            >contact us.</a
+                        >
+                    </p>
+                </div>
+                <div class="mt-20">
+                    <dl
+                        class="space-y-10 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:gap-y-10"
+                    >
+                        <div
+                            v-for="{ question, answer } in questions"
+                            :key="question"
+                        >
+                            <dt class="font-semibold text-white">
+                                {{ question }}
+                            </dt>
+                            <dd class="mt-3 text-slate-300">
+                                {{ answer }}
+                            </dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </template>

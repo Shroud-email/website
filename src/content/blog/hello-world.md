@@ -14,4 +14,4 @@ And it gets worse. **Many email senders use spy pixels** to track when you open 
 
 Shroud.email was made to fix these problems. Email isn't going away, and we need tools that help us reclaim our privacy on the web. Shroud.email lets you **hide your real email** by giving you aliases that forward emails to you. And we **block trackers** in these emails, so you can rest easy knowing that no-one but you knows about your email-reading habits.
 
-Shroud.email comes with a 30-day free trial. You can [sign up here](https://app.shroud.email/users/register).
+Shroud.email has a free plan with 5 aliases, plus a paid plan with unlimited aliases and custom domains. You can [sign up here](https://app.shroud.email/users/register).

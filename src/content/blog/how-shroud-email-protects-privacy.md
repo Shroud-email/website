@@ -22,4 +22,4 @@ Finally, privacy is not just about access to your information -- it's also about
 
 <img src="/img/block-sender.png" alt="Web UI showing how to block a sender in Shroud.email" class="max-w-full sm:max-w-[572px] mx-auto" />
 
-We've put a lot of thought into building a user-friendly email service with powerful privacy protections. [Try our free 30-day trial today](https://app.shroud.email/users/register) to give it a go.
+We've put a lot of thought into building a user-friendly email service with powerful privacy protections. [Sign up for free](https://app.shroud.email/users/register) to give it a go.
