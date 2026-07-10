@@ -142,6 +142,23 @@ const imageAlt = OPEN_GRAPH.image.alt;
       <slot />
     </div>
 
+    <script is:inline>
+      (function (d, t) {
+        var BASE_URL = "https://support.shroud.email";
+        var g = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+        g.src = BASE_URL + "/packs/js/sdk.js";
+        g.async = true;
+        s.parentNode.insertBefore(g, s);
+        g.onload = function () {
+          window.chatwootSDK.run({
+            websiteToken: "7j9ZdJCJR5ZGaYkCMN2EvAhp",
+            baseUrl: BASE_URL,
+          });
+        };
+      })(document, "script");
+    </script>
+
     <script>
       // Scroll-reveal: toggle `is-visible` on .fade-in elements as they enter
       // the viewport. Only runs when motion is allowed (the `motion-ok` class is
