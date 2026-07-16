@@ -1,17 +1,19 @@
 ---
+import { Image } from "astro:assets";
+import appScreenshot from "~/assets/app-screenshot.webp";
 import ScrollingText from "~/components/atoms/ScrollingText.astro";
 
 export interface Props {
-    learnMoreId: string;
+  learnMoreId: string;
 }
 
 const { learnMoreId } = Astro.props;
 
 const trust = [
-    "Free plan available",
-    "No credit card",
-    "Open source",
-    "EU-hosted on renewable energy",
+  "Free plan available",
+  "No credit card",
+  "Open source",
+  "EU-hosted on renewable energy",
 ];
 ---
 
@@ -92,12 +94,12 @@ const trust = [
                 <div
                     class="rounded-2xl bg-slate-900/70 p-2 ring-1 ring-white/10"
                 >
-                    <img
+                    <Image
                         class="w-full rounded-lg ring-1 ring-white/5"
-                        src="/img/app-screenshot.webp"
+                        src={appScreenshot}
                         alt="The Shroud.email dashboard listing several email aliases, each showing how many messages it has forwarded"
-                        width="1400"
-                        height="795"
+                        layout="constrained"
+                        width={700}
                         loading="eager"
                         fetchpriority="high"
                     />

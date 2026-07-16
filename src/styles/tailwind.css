@@ -1,6 +1,72 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+@layer base {
+  @font-face {
+    font-family: "Fraunces";
+    src: url("../assets/fonts/fraunces-latin-400-normal.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Fraunces";
+    src: url("../assets/fonts/fraunces-latin-500-normal.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Fraunces";
+    src: url("../assets/fonts/fraunces-latin-600-normal.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Fraunces";
+    src: url("../assets/fonts/fraunces-latin-700-normal.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Manrope";
+    src: url("../assets/fonts/manrope-latin-400-normal.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Manrope";
+    src: url("../assets/fonts/manrope-latin-500-normal.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Manrope";
+    src: url("../assets/fonts/manrope-latin-600-normal.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Manrope";
+    src: url("../assets/fonts/manrope-latin-700-normal.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+  }
+}
+
 /* Dark mode follows the OS setting automatically (no toggle). `dark:` keeps
    Tailwind v4's default prefers-color-scheme behaviour, and every surface is
    themed for dark below / inline so coverage is complete (a partial theme is
@@ -8,8 +74,7 @@
 
 @theme {
   /* Type — Fraunces (a soft, organic old-style display serif) for headings,
-     Manrope (geometric sans) for body. Loaded from bunny.net in weights
-     400/500/600/700, so heading weight utilities map to real cuts. */
+     Manrope (geometric sans) for body. */
   --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Fraunces", ui-serif, Georgia, serif;
   --font-display: "Fraunces", ui-serif, Georgia, serif;

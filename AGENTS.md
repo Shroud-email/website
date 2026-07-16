@@ -45,7 +45,7 @@ No test framework is configured. Verify changes with `npm run build`.
 - 2-space indentation, double quotes (enforced by Biome)
 - Components: PascalCase filenames. Pages/routes: kebab-case
 - Biome only lints `src/**/*` and root config files; `.astro`/`.vue` files have relaxed rules (useConst, useImportType, unused vars/imports off)
-- Fonts: Manrope (body), Newsreader (headings) — loaded from fonts.bunny.net
+- Fonts: Manrope (body), Fraunces (headings) — self-hosted from `src/assets/fonts/`
 - Tailwind v4 uses the Vite plugin (`@tailwindcss/vite`), not PostCSS. Global styles in `src/styles/tailwind.css`
 
 ## Deployment
