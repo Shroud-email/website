@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+import howItWorks from "~/assets/howitworks.webp";
 import FadeIn from "~/components/atoms/FadeIn.astro";
 
 const steps = [
@@ -43,12 +45,14 @@ const steps = [
 
     <div class="mt-16 grid gap-12 sm:mt-24 lg:grid-cols-2 lg:items-center lg:gap-16">
       <FadeIn fromDirection="left">
-        <img
+        <Image
           class="mx-auto w-full max-w-md rounded-xl ring-1 ring-slate-900/5 dark:ring-white/10 lg:mx-0"
-          src="/img/howitworks.webp"
+          src={howItWorks}
           alt="A list of incoming emails, each labelled as blocked, trackers removed, or forwarded"
-          width="760"
-          height="615"
+          layout="constrained"
+          width={448}
+          widths={[380, 448, 640, 665, 750]}
+          sizes="(min-width: 480px) 448px, calc(100vw - 2rem)"
           loading="lazy"
           decoding="async"
         />
