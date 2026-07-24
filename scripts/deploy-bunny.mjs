@@ -7,16 +7,34 @@
 // Required env vars:
 //   BUNNY_STORAGE_PASSWORD  - storage zone read/write password (AccessKey)
 //   BUNNY_PULLZONE_ID       - numeric Pull Zone id (for cache purge)
-//   BUNNY_API_KEY           - account API key (for cache purge)
+//   BUNNY_API_KEY           - account API key (for cache purge + region lookup)
 //
 // Optional env vars:
 //   BUNNY_STORAGE_ZONE      - storage zone name (default: shroud-email-website).
 //                            Set to shroud-email-website-staging for staging deploys.
-//   BUNNY_STORAGE_ENDPOINT  - storage endpoint for the zone's region
-//                            (default: storage.bunnycdn.com / Falkenstein, DE).
+//   BUNNY_STORAGE_ENDPOINT  - storage endpoint for the zone's region. If set,
+//                            overrides auto-detection. Otherwise the script
+//                            looks up the zone's region via the bunny API and
+//                            maps it to the correct regional endpoint
+//                            (e.g. ny.storage.bunnycdn.com for New York).
 
 import { readFile, readdir } from "node:fs/promises";
 import { join, relative, extname } from "node:path";
+
+// Map bunny storage region codes to their HTTP API endpoints. The default
+// (Falkenstein / Frankfurt, DE) has no prefix.
+// Ref: https://docs.bunny.net/storage/http
+const REGION_ENDPOINTS = {
+  de: "storage.bunnycdn.com",
+  uk: "uk.storage.bunnycdn.com",
+  ny: "ny.storage.bunnycdn.com",
+  la: "la.storage.bunnycdn.com",
+  sg: "sg.storage.bunnycdn.com",
+  se: "se.storage.bunnycdn.com",
+  br: "br.storage.bunnycdn.com",
+  jh: "jh.storage.bunnycdn.com",
+  syd: "syd.storage.bunnycdn.com",
+};
 
 const ROOT = new URL("../", import.meta.url).pathname;
 
@@ -26,9 +44,6 @@ const DIST = join(ROOT, "dist");
 // Storage zone name. Defaults to the production zone; override with
 // BUNNY_STORAGE_ZONE for staging (e.g. shroud-email-website-staging).
 const ZONE = process.env.BUNNY_STORAGE_ZONE || "shroud-email-website";
-// Storage endpoint for the zone's region. The default (Falkenstein, DE) is
-// `storage.bunnycdn.com`; other regions use a prefix, e.g. `ny.storage...`.
-const STORAGE_ENDPOINT = process.env.BUNNY_STORAGE_ENDPOINT || "storage.bunnycdn.com";
 
 const {
   BUNNY_STORAGE_PASSWORD: PASSWORD,
@@ -47,7 +62,42 @@ for (const [name, value] of Object.entries({
   }
 }
 
-const base = `https://${STORAGE_ENDPOINT}/${ZONE}/`;
+// Resolve the storage endpoint for the zone's region. If BUNNY_STORAGE_ENDPOINT
+// is set, use it as an override. Otherwise look the zone up via the bunny API
+// (using the account API key) and map its Region to the right endpoint. A
+// correct endpoint is required: the storage password only authenticates
+// against the zone's primary region, so hitting the wrong regional endpoint
+// returns 401 even with a valid password.
+async function resolveStorageEndpoint() {
+  if (process.env.BUNNY_STORAGE_ENDPOINT) return process.env.BUNNY_STORAGE_ENDPOINT;
+
+  try {
+    const res = await fetch("https://api.bunny.net/storagezone", {
+      headers: { AccessKey: API_KEY },
+    });
+    if (!res.ok) {
+      throw new Error(`${res.status} ${await res.text()}`);
+    }
+    const zones = await res.json();
+    const zone = (Array.isArray(zones) ? zones : []).find((z) => z.Name === ZONE);
+    if (!zone) {
+      throw new Error(`zone "${ZONE}" not found in account`);
+    }
+    const region = (zone.Region || "de").toLowerCase();
+    const endpoint = REGION_ENDPOINTS[region];
+    if (!endpoint) {
+      throw new Error(`unknown region "${region}" for zone "${ZONE}"`);
+    }
+    return endpoint;
+  } catch (err) {
+    console.warn(
+      `Could not auto-detect storage region for zone "${ZONE}" (${err.message}). ` +
+        "Falling back to the default endpoint (Falkenstein, DE). If deploys fail " +
+        "with 401, set BUNNY_STORAGE_ENDPOINT to your zone's regional endpoint.",
+    );
+    return "storage.bunnycdn.com";
+  }
+}
 
 const MIME = {
   ".html": "text/html; charset=utf-8",
@@ -90,14 +140,14 @@ async function walk(dir) {
 }
 
 // List the immediate contents of a storage path (must end with "/").
-async function list(path = "") {
+async function list(base, path = "") {
   const res = await fetch(`${base}${path}`, { headers: { AccessKey: PASSWORD } });
   if (res.status === 404) return [];
   if (!res.ok) throw new Error(`List ${path} failed: ${res.status} ${await res.text()}`);
   return res.json();
 }
 
-async function remove(path) {
+async function remove(base, path) {
   const res = await fetch(`${base}${path}`, {
     method: "DELETE",
     headers: { AccessKey: PASSWORD },
@@ -107,7 +157,7 @@ async function remove(path) {
   }
 }
 
-async function put(rel, body) {
+async function put(base, rel, body) {
   const res = await fetch(`${base}${rel}`, {
     method: "PUT",
     headers: { AccessKey: PASSWORD, "Content-Type": contentType(rel) },
@@ -117,9 +167,9 @@ async function put(rel, body) {
   return rel;
 }
 
-async function upload(abs) {
+async function upload(base, abs) {
   const rel = relative(DIST, abs).split(/[/\\]/).join("/");
-  return put(rel, await readFile(abs));
+  return put(base, rel, await readFile(abs));
 }
 
 async function purge() {
@@ -143,17 +193,21 @@ async function pool(items, limit, fn) {
   await Promise.all(workers);
 }
 
+const endpoint = await resolveStorageEndpoint();
+console.log(`Using storage endpoint ${endpoint} for zone ${ZONE}`);
+const base = `https://${endpoint}/${ZONE}/`;
+
 console.log(`Cleaning storage zone ${ZONE}…`);
-const existing = await list("");
+const existing = await list(base, "");
 await pool(existing, 8, (item) =>
-  remove(item.IsDirectory ? `${item.ObjectName}/` : item.ObjectName),
+  remove(base, item.IsDirectory ? `${item.ObjectName}/` : item.ObjectName),
 );
 
 const files = await walk(DIST);
 console.log(`Uploading ${files.length} file(s) to ${ZONE}…`);
 let done = 0;
 await pool(files, 10, async (abs) => {
-  await upload(abs);
+  await upload(base, abs);
   done++;
 });
 console.log(`  ↑ ${done} uploaded`);
@@ -161,7 +215,7 @@ console.log(`  ↑ ${done} uploaded`);
 // Bunny serves a custom 404 only from bunnycdn_errors/404.html at the zone
 // root, so publish the built 404 page there too.
 console.log("Publishing custom 404 page…");
-await put("bunnycdn_errors/404.html", await readFile(join(DIST, "404.html")));
+await put(base, "bunnycdn_errors/404.html", await readFile(join(DIST, "404.html")));
 
 console.log("Purging Pull Zone cache…");
 await purge();
