@@ -2,11 +2,12 @@
 //
 // bunny.net injects `CDN-RequestCountryCode` (ISO-3166-1 alpha-2) on every
 // request. We read it in onOriginResponse and rewrite the price inside any
-// element marked with `data-price=""` to the visitor's localized price, using
-// HTMLRewriter (streaming, no buffering).
+// element carrying a `data-price-world` attribute to that attribute's value,
+// using HTMLRewriter (streaming, no buffering).
 //
-// The static HTML ships with the UK price as the default, so if the script is
-// ever disabled or the country header is missing, visitors see £25/year.
+// The static HTML ships with UK prices as the default (£0 / £25/year), so if
+// the script is ever disabled or the country header is missing, visitors see
+// the UK prices.
 //
 // Caching: onOriginResponse runs BEFORE the response is cached, so if we
 // rewrote and let it cache, every visitor would get the first visitor's
@@ -15,14 +16,10 @@
 // original cache headers and are unaffected.
 //
 // Elements to rewrite are produced by the Pricing component, which tags the
-// hero heading and the price table cell with `data-price=""`.
+// hero heading and the price table cells with `data-price` + `data-price-world`.
 
 import * as BunnySDK from "https://esm.sh/@bunny.net/edgescript-sdk@0.12.0";
 import "./bunny-globals.d.ts";
-
-// Price shown to visitors outside the UK. The UK price (£25/year) is the
-// default already baked into the static HTML.
-const WORLDWIDE_PRICE = "$35/year";
 
 // Country codes that should see the UK price. GB + the Crown dependencies
 // (Guernsey, Jersey, Isle of Man) share the UK billing entity in Paddle.
@@ -48,9 +45,9 @@ BunnySDK.net.http
 
     const country = ctx.request.headers.get("cdn-requestcountrycode");
 
-    // UK visitor (or unknown country): the static default is already £25/year,
-    // so no rewrite needed. Still bypass the cache so a prior worldwide
-    // visitor's rewritten copy can't leak to a UK visitor (or vice versa).
+    // UK visitor (or unknown country): the static default is already in £, so
+    // no rewrite needed. Still bypass the cache so a prior worldwide visitor's
+    // rewritten copy can't leak to a UK visitor (or vice versa).
     if (isUK(country)) {
       const headers = new Headers(ctx.response.headers);
       headers.set("cache-control", "no-store");
@@ -62,11 +59,13 @@ BunnySDK.net.http
       );
     }
 
-    // Worldwide visitor: replace the default £25/year with $35/year, and mark
-    // the response no-store so it isn't cached and served to a UK visitor.
-    const rewriter = new HTMLRewriter().on("[data-price]", {
+    // Worldwide visitor: replace each localized price with its worldwide
+    // counterpart. The worldwide value is carried in the data-price-world
+    // attribute on each <span data-price> (the hero heading + price cells).
+    const rewriter = new HTMLRewriter().on("[data-price-world]", {
       element(el: HtmlRewriterElement) {
-        el.setInnerContent(WORLDWIDE_PRICE);
+        const world = el.getAttribute("data-price-world");
+        if (world) el.setInnerContent(world);
       },
     });
 
