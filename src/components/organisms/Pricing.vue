@@ -49,7 +49,7 @@ const questions = shallowRef([
                         <h1
                             class="text-3xl font-medium text-slate-900 sm:text-4xl lg:text-5xl font-display dark:text-slate-50"
                         >
-                            Free forever, or £25/year for the works
+                            Free forever, or <span data-price="">£25/year</span> for the works
                         </h1>
                         <p
                             class="mt-4 text-xl text-slate-600 dark:text-slate-400"
@@ -117,7 +117,7 @@ const questions = shallowRef([
                                             <td
                                                 class="py-4 px-4 sm:px-6 text-sm text-slate-700 dark:text-slate-300 text-center"
                                             >
-                                                {{ row.paid }}
+                                                <span :data-price="row.feature === 'Price' || undefined">{{ row.paid }}</span>
                                             </td>
                                         </tr>
                                     </tbody>
