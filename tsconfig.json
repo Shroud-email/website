@@ -8,5 +8,6 @@
     },
     "exactOptionalPropertyTypes": false,
     "jsx": "preserve"
-  }
+  },
+  "exclude": ["edge-script", "dist", ".astro"]
 }

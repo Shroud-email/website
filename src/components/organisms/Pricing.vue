@@ -9,7 +9,7 @@ const rows = shallowRef([
     { feature: "Custom domains", free: "—", paid: "Yes" },
     { feature: "Send & reply from aliases", free: "—", paid: "Yes" },
     { feature: "Priority support", free: "—", paid: "Yes" },
-    { feature: "Price", free: "£0", paid: "£25/year" },
+    { feature: "Price", free: "£0", freeWorld: "$0", paid: "£25/year", paidWorld: "$35/year" },
 ]);
 // Should be an even number to look nice
 const questions = shallowRef([
@@ -49,7 +49,7 @@ const questions = shallowRef([
                         <h1
                             class="text-3xl font-medium text-slate-900 sm:text-4xl lg:text-5xl font-display dark:text-slate-50"
                         >
-                            Free forever, or £25/year for the works
+                            Free forever, or <span data-price data-price-world="$35/year">£25/year</span> for the works
                         </h1>
                         <p
                             class="mt-4 text-xl text-slate-600 dark:text-slate-400"
@@ -112,12 +112,12 @@ const questions = shallowRef([
                                             <td
                                                 class="py-4 px-4 sm:px-6 text-sm text-slate-700 dark:text-slate-300 text-center"
                                             >
-                                                {{ row.free }}
+                                                <span :data-price="row.freeWorld ? '' : undefined" :data-price-world="row.freeWorld || undefined">{{ row.free }}</span>
                                             </td>
                                             <td
                                                 class="py-4 px-4 sm:px-6 text-sm text-slate-700 dark:text-slate-300 text-center"
                                             >
-                                                {{ row.paid }}
+                                                <span :data-price="row.paidWorld ? '' : undefined" :data-price-world="row.paidWorld || undefined">{{ row.paid }}</span>
                                             </td>
                                         </tr>
                                     </tbody>
