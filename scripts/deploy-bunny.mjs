@@ -8,6 +8,12 @@
 //   BUNNY_STORAGE_PASSWORD  - storage zone read/write password (AccessKey)
 //   BUNNY_PULLZONE_ID       - numeric Pull Zone id (for cache purge)
 //   BUNNY_API_KEY           - account API key (for cache purge)
+//
+// Optional env vars:
+//   BUNNY_STORAGE_ZONE      - storage zone name (default: shroud-email-website).
+//                            Set to shroud-email-website-staging for staging deploys.
+//   BUNNY_STORAGE_ENDPOINT  - storage endpoint for the zone's region
+//                            (default: storage.bunnycdn.com / Falkenstein, DE).
 
 import { readFile, readdir } from "node:fs/promises";
 import { join, relative, extname } from "node:path";
@@ -17,7 +23,9 @@ const ROOT = new URL("../", import.meta.url).pathname;
 // Directory (relative to the repo root) holding the static site to publish.
 const DIST = join(ROOT, "dist");
 
-const ZONE = "shroud-email-website";
+// Storage zone name. Defaults to the production zone; override with
+// BUNNY_STORAGE_ZONE for staging (e.g. shroud-email-website-staging).
+const ZONE = process.env.BUNNY_STORAGE_ZONE || "shroud-email-website";
 // Storage endpoint for the zone's region. The default (Falkenstein, DE) is
 // `storage.bunnycdn.com`; other regions use a prefix, e.g. `ny.storage...`.
 const STORAGE_ENDPOINT = process.env.BUNNY_STORAGE_ENDPOINT || "storage.bunnycdn.com";
