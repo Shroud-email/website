@@ -1,0 +1,64 @@
+name: Deploy edge script (staging)
+
+# Deploys the bunny.net middleware edge script (edge-script/) that rewrites the
+# displayed price based on the visitor's country (CDN-RequestCountryCode).
+#
+# Manual only — run from the Actions tab. Use this to test the edge script on
+# a staging pull zone before wiring it to production.
+#
+# Required repo secrets (see edge-script/README.md for how to get them):
+#   BUNNY_STAGING_SCRIPT_ID  - the edge script id (from bunny dashboard)
+#   BUNNY_STAGING_DEPLOY_KEY - the script's deploy key
+#
+# Optional inputs:
+#   script-id  - override BUNNY_STAGING_SCRIPT_ID for a one-off deploy target
+#   file       - path to the bundled script (default edge-script/dist/index.ts)
+
+on:
+  workflow_dispatch:
+    inputs:
+      script-id:
+        description: "Edge script id (overrides BUNNY_STAGING_SCRIPT_ID secret)"
+        required: false
+        type: string
+      file:
+        description: "Bundled script path to deploy"
+        required: false
+        type: string
+        default: "edge-script/dist/index.ts"
+
+# Prevent two manual runs from racing to upload the same script.
+concurrency:
+  group: deploy-edge-script-staging
+  cancel-in-progress: true
+
+permissions: {}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
+
+      - uses: denoland/setup-deno@22d081ff2d3a40755e97629de92e3bcbfa7cf2ed # v2.0.5
+        with:
+          deno-version: v2.x
+
+      - name: Type-check
+        working-directory: edge-script
+        run: deno check src/main.ts
+
+      - name: Bundle
+        working-directory: edge-script
+        run: deno task build
+
+      - name: Deploy script to Bunny Edge Scripting
+        uses: BunnyWay/actions/deploy-script@cfed0ba7842c85686d0dc3a83d8d971991a752f6 # deploy-script@0.5.0
+        with:
+          script_id: ${{ inputs.script-id || secrets.BUNNY_STAGING_SCRIPT_ID }}
+          deploy_key: ${{ secrets.BUNNY_STAGING_DEPLOY_KEY }}
+          file: ${{ inputs.file }}

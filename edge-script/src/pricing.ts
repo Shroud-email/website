@@ -1,0 +1,57 @@
+// Bunny.net middleware edge script: geo-localized pricing.
+//
+// bunny.net injects `CDN-RequestCountryCode` (ISO-3166-1 alpha-2) on every
+// request. We read it in onOriginResponse and rewrite the price inside any
+// element marked with `data-price=""` to the visitor's localized price, using
+// HTMLRewriter (streaming, no buffering).
+//
+// The static HTML ships with the UK price as the default, so if the script is
+// ever disabled or the country header is missing, visitors see £25/year.
+//
+// Elements to rewrite are produced by the Pricing component, which tags the
+// hero heading and the price table cell with `data-price=""`.
+
+import * as BunnySDK from "https://esm.sh/@bunny.net/edgescript-sdk@0.12.0";
+import "./bunny-globals.d.ts";
+
+// Price shown to visitors outside the UK. The UK price (£25/year) is the
+// default already baked into the static HTML.
+const WORLDWIDE_PRICE = "$35/year";
+
+// Country codes that should see the UK price. GB + the Crown dependencies
+// (Guernsey, Jersey, Isle of Man) share the UK billing entity in Paddle.
+const UK_COUNTRY_CODES = new Set(["GB", "GG", "JE", "IM"]);
+
+function isUK(country: string | null): boolean {
+  return country !== null && UK_COUNTRY_CODES.has(country.toUpperCase());
+}
+
+// The `url` is only used for local development; in production bunny proxies
+// to the origin configured on the Pull Zone. Point it at the live site so
+// `deno task dev` fetches real HTML when testing locally.
+const ORIGIN_URL = "https://shroud.email/";
+
+BunnySDK.net.http
+  .servePullZone({ url: ORIGIN_URL })
+  .onOriginResponse((ctx) => {
+    // Only rewrite HTML responses.
+    const type = ctx.response.headers.get("content-type") ?? "";
+    if (!type.includes("text/html")) {
+      return Promise.resolve(ctx.response);
+    }
+
+    const country = ctx.request.headers.get("cdn-requestcountrycode");
+    if (isUK(country)) {
+      // UK visitor: the static default is already £25/year, nothing to do.
+      return Promise.resolve(ctx.response);
+    }
+
+    // Worldwide visitor: replace the default £25/year with $35/year.
+    const rewriter = new HTMLRewriter().on("[data-price]", {
+      element(el: HtmlRewriterElement) {
+        el.setInnerContent(WORLDWIDE_PRICE);
+      },
+    });
+
+    return Promise.resolve(rewriter.transform(ctx.response));
+  });
