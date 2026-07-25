@@ -1,5 +1,6 @@
 ---
 import LandingLayout from "./LandingLayout.astro";
+import { Image } from "astro:assets";
 import { format, parseISO } from "date-fns";
 import type { CollectionEntry } from "astro:content";
 
@@ -114,10 +115,13 @@ if (typeof date === "string") {
       </div>
     </div>
     <div class="relative px-4 sm:px-6 lg:px-8">
-      <img
+      <Image
         src={image}
         alt={imageAlt}
         class="w-full max-w-prose mx-auto rounded-xl mb-12"
+        layout="constrained"
+        width={672}
+        priority
       />
       <div class="text-lg max-w-prose mx-auto">
         <h1>

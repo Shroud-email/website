@@ -2,7 +2,7 @@
 title: "Email masks: the way to reclaim your email privacy"
 description: "Stop creeps with email masks."
 date: 2022-07-17
-image: /img/masked-man.jpg
+image: ../../assets/blog/masked-man.jpg
 imageAlt: a black-clad person wearing a blank white mask
 ---
 

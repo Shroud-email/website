@@ -2,7 +2,7 @@
 title: Hello, world
 description: Welcoming Shroud.email to the world.
 date: 2022-01-08
-image: /img/foglogo.png
+image: ../../assets/blog/foglogo.png
 imageAlt: Shroud.email logo against a foggy background
 ---
 

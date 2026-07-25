@@ -6,6 +6,7 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && vue-tsc --noEmit && astro build",
+    "check:content-images": "node scripts/check-content-images.mjs",
     "preview": "astro preview",
     "lint": "npx @biomejs/biome format && npx @biomejs/biome lint --write"
   },

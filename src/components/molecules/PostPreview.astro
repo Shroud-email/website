@@ -1,5 +1,6 @@
 ---
 import { format } from "date-fns";
+import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 
 export interface Props {
@@ -17,10 +18,15 @@ const displayDate = (post: CollectionEntry<"blog">) => {
   class="flex flex-col rounded-lg shadow-lg overflow-hidden focus:ring focus:ring-indigo-600"
 >
   <div class="shrink-0">
-    <img
+    <Image
       src={post.data.image}
       alt={post.data.imageAlt}
       class="h-48 w-full object-cover"
+      layout="full-width"
+      widths={[320, 480, 640, 768]}
+      sizes="(min-width: 1280px) 395px, (min-width: 1024px) calc((100vw - 5rem) / 3), (min-width: 640px) 512px, calc(100vw - 2rem)"
+      loading="lazy"
+      decoding="async"
     />
   </div>
   <div class="flex-1 bg-white dark:bg-slate-900 p-6 flex flex-col justify-between">

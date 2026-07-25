@@ -2,7 +2,7 @@
 title: Moving to our own mailserver
 description: Fewer third parties = greater privacy
 date: 2022-07-13
-image: /img/man-postbox.jpg
+image: ../../assets/blog/man-postbox.jpg
 imageAlt: a man delivering letters
 ---
 

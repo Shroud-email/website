@@ -2,9 +2,12 @@
 title: Responsible logging
 description: How we debug with privacy in mind.
 date: 2022-05-21
-image: /img/data-graphs.jpg
+image: ../../assets/blog/data-graphs.jpg
 imageAlt: graphs on a computer screen
 ---
+
+import { Image } from "astro:assets";
+import loggingEnabled from "../../assets/blog/logging-enabled.png";
 
 When we were first prototyping Shroud.email, it was easy to fix any bugs that came up. There were no users, so we could keep detailed information about the emails that we forwarded. These logs helped us iron out all the early issues.
 
@@ -16,7 +19,15 @@ Our solution is to add a switch that can be used to temporarily and transparentl
 
 Of course, it'd be pretty creepy if this functionality could be toggled in secret. While logging is enabled, we show an alert to the user on every page:
 
-<img src="/img/logging-enabled.png" alt="Shroud.email with a logging enabled alert" class="max-w-full mx-auto" />
+<Image
+  src={loggingEnabled}
+  alt="Shroud.email with a logging enabled alert"
+  class="max-w-full mx-auto"
+  layout="constrained"
+  width={672}
+  loading="lazy"
+  decoding="async"
+/>
 
 We'll only ever enable logging if a user asks us to, and we'll turn it off as soon as we can afterwards.
 
