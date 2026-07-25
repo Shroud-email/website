@@ -8,6 +8,7 @@ import mdx from "@astrojs/mdx";
 // https://astro.build/config
 export default defineConfig({
   site: "https://shroud.email/",
+  compressHTML: true,
 
   integrations: [vue(), icon(), sitemap({
     filter: page => page !== 'https://shroud.email/newsletter-success/'
