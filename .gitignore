@@ -30,5 +30,8 @@ yarn-error.log*
 # Playwright CLI browser session artifacts (snapshots, console logs)
 .playwright-cli/
 
+# Amp orb portal metadata
+.amp/portals/*
+
 # Local product notes — kept out of the repo
 PRODUCT.md
