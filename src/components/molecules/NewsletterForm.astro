@@ -1,3 +1,11 @@
+---
+interface Props {
+  onDarkSurface?: boolean;
+}
+
+const { onDarkSurface = false } = Astro.props;
+---
+
 <div class="newsletter-form-container">
   <form
     class="newsletter-form"
@@ -25,10 +33,10 @@
       >Please wait...</button
     >
   </form>
-  <p class="mt-2 text-xs text-slate-500 dark:text-slate-400">
+  <p class:list={["mt-2 text-xs", onDarkSurface ? "text-slate-400" : "text-slate-500 dark:text-slate-400"]}>
     Read our <a
       href="/privacy/"
-      class="underline underline-offset-2 hover:text-slate-700 dark:hover:text-slate-200"
+      class:list={["underline underline-offset-2", onDarkSurface ? "hover:text-slate-200" : "hover:text-slate-700 dark:hover:text-slate-200"]}
     >privacy notice</a> to learn how we use your information.
   </p>
   <div
