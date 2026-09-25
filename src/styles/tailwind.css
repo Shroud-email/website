@@ -3,38 +3,6 @@
 
 @layer base {
   @font-face {
-    font-family: "Fraunces";
-    src: url("../assets/fonts/fraunces-latin-400-normal.woff2") format("woff2");
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: "Fraunces";
-    src: url("../assets/fonts/fraunces-latin-500-normal.woff2") format("woff2");
-    font-style: normal;
-    font-weight: 500;
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: "Fraunces";
-    src: url("../assets/fonts/fraunces-latin-600-normal.woff2") format("woff2");
-    font-style: normal;
-    font-weight: 600;
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: "Fraunces";
-    src: url("../assets/fonts/fraunces-latin-700-normal.woff2") format("woff2");
-    font-style: normal;
-    font-weight: 700;
-    font-display: swap;
-  }
-
-  @font-face {
     font-family: "Manrope";
     src: url("../assets/fonts/manrope-latin-400-normal.woff2") format("woff2");
     font-style: normal;
@@ -73,11 +41,9 @@
    what produces light-on-light). */
 
 @theme {
-  /* Type — Fraunces (a soft, organic old-style display serif) for headings,
-     Manrope (geometric sans) for body. */
+  /* Manrope throughout; display hierarchy comes from size and weight. */
   --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Fraunces", ui-serif, Georgia, serif;
-  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-display: var(--font-sans);
 
   /* Brand accent. Semantic aliases over Tailwind's (already-OKLCH) indigo so
      redesigned markup has stable token names and one canonical brand colour. */
@@ -108,14 +74,6 @@
     font-family: var(--font-sans);
     /* Let native UI (form controls, scrollbars) follow the OS theme too. */
     color-scheme: light dark;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  .font-display {
-    font-family: var(--font-serif);
   }
 
   /* Honour reduced-motion globally: neutralises scroll-smooth, scroll-driven

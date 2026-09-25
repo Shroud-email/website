@@ -18,9 +18,7 @@ In contrast, we run our own mailserver to minimize our reliance on third parties
 
 ## Tracking pixels
 
-Emails often contain tracking pixels that tell the sender when and where you opened their emails. We find that creepy! Shroud.email doesn't just block known trackers, we even block ones we haven't seen before, too. And to be on the safe side, we route all images through our own servers so that senders never learn your IP address.
-
-Firefox Relay does not block tracking pixels.
+Emails often contain tracking pixels that tell the sender when and where you opened their emails. We find that creepy! Firefox Relay removes trackers it recognizes. Shroud.email dynamically blocks tracking pixels, including ones it hasn't seen before. And to be on the safe side, we route all images through our own servers so that senders never learn your IP address.
 
 ## Block individual senders
 
@@ -48,7 +46,7 @@ Shroud.email doesn't yet have a browser extension, though it's on our roadmap. I
 
 ## Summary
 
-Shroud.email's privacy features go beyond what Firefox Relay offers. With tracker blocking, we prevent spammers and marketers from learning about your email reading habits.
+Both services offer tracker protection, but Shroud.email also blocks tracking pixels it hasn't seen before and hides your IP address when images load.
 
 We don't use Big Tech's infrastructure, so Amazon doesn't get *even more* data about you. And not only that: we run on renewable energy, too.
 
